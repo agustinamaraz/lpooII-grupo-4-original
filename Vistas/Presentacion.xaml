@@ -1,0 +1,13 @@
+﻿<Window x:Class="Vistas.Presentacion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Presentacion"  Loaded="Window_Loaded" Height="363" Width="597" WindowStartupLocation="CenterScreen"
+        >
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Vistas;component/Images/background.jpg" Stretch="Fill" TileMode="None" />
+        </Grid.Background>
+        <MediaElement Height="120" HorizontalAlignment="Left" Margin="21,12,0,0" Name="meAudio" VerticalAlignment="Top" Width="354" MediaEnded="meAudio_MediaEnded" />
+        <Label Content="BIENVENIDOS A LAZ PARKING" Height="97" HorizontalAlignment="Left" Margin="21,110,0,117" Name="label1" VerticalAlignment="Center" FontSize="35" Focusable="True" FontFamily="Yu Gothic" FontWeight="Black" FontStyle="Oblique" ClipToBounds="False" Background="#5FDCE261" VerticalContentAlignment="Center" />
+    </Grid>
+</Window>

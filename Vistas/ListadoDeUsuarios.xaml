@@ -2,11 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:coleccion="clr-namespace:ClasesBase;assembly=ClasesBase"
+        xmlns:vs="clr-namespace:Vistas"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         Title="ListadoDeUsuarios" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
         <!--Origen de datos de la Coleccion de Usuarios-->
-        <ObjectDataProvider x:Key="LIST_USER" ObjectType="{x:Type coleccion:TrabajarUsuario}" MethodName="traerUsuarios"/>
+        <ObjectDataProvider x:Key="LIST_USER" ObjectType="{x:Type vs:ListadoDeUsuarios}" MethodName="traerUsuarios"/>
         <!--Se crea la vista de coleccion, Source es el objectDataProvider definido arriba-->
         <CollectionViewSource x:Key="VISTA_USER" Source="{StaticResource ResourceKey=LIST_USER}" Filter="eventVistaUsuario_Filter">
             <!--eventVistaUsuario_Filter => es ek Evento filtrado -->

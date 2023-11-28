@@ -4,6 +4,12 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Windows;
+using System.Diagnostics;
+using System.Threading;
+
+using System.Windows.Resources;
+using System.Windows.Media;
+
 
 namespace Vistas
 {

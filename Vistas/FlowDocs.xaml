@@ -11,9 +11,9 @@
         </ObjectDataProvider>
         
         <CollectionViewSource x:Key="VIEW_LIST_USERS" Source="{StaticResource ResourceKey=LIST_USERS}">
-            <CollectionViewSource.SortDescriptions>
+            <!--<CollectionViewSource.SortDescriptions>
                 <componentModel:SortDescription PropertyName="Usr_UserName" Direction="Ascending"></componentModel:SortDescription>
-            </CollectionViewSource.SortDescriptions>
+            </CollectionViewSource.SortDescriptions>-->
         </CollectionViewSource>
     </Window.Resources>
     <Grid>

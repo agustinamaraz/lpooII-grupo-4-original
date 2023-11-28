@@ -9,11 +9,19 @@
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="400"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="60" />
         </Grid.RowDefinitions>
-        <Image Source="/Vistas;component/Images/logo.png" Margin="301,12,326,388" Grid.RowSpan="2"></Image>
-        <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="410" Height="260"></StackPanel>
-        <UC:UserControlbutton Margin="376,292,-376,-27" Grid.Row="1"></UC:UserControlbutton>
-        <UC:UserControl1 Margin="284,41,284,109" Grid.Row="1"></UC:UserControl1>
+        <Grid Grid.Row="0">
+            <Image Source="/Vistas;component/Images/logo.png" Margin="10"></Image>    
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Width="500" Height="auto" VerticalAlignment="Center">
+                <UC:UserControl1 Margin="0" Loaded="UserControl1_Loaded"></UC:UserControl1>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <UC:UserControlbutton VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"></UC:UserControlbutton>    
+        </Grid>
     </Grid>
 </Window>

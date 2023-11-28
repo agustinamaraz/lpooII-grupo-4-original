@@ -83,7 +83,16 @@ namespace Vistas
             VistaPreviaImpresión vpi = new VistaPreviaImpresión();
             this.Hide();
             vpi.Show();
+            traerUsr();
 //            vpi.ActualWidth;
+        }
+
+        private CollectionViewSource traerUsr()
+        {
+            CollectionViewSource cvs = new CollectionViewSource();
+            cvs = vistaColeccionFiltrada;
+
+            return cvs;
         }
     }
 }

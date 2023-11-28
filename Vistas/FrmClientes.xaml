@@ -58,8 +58,8 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2" Grid.ColumnSpan="2">
-            <Button  Style="{StaticResource botonEstilo}"  Content="Guardar Cliente" Foreground="Blue"  HorizontalAlignment="Left" Margin="0" Name="btnGuardarCliente" VerticalAlignment="Top" Click="btnGuardarCliente_Click" />
-            <Button  Style="{StaticResource botonEstilo}"  Content="Volver" Foreground="Red" HorizontalAlignment="Left" Margin="0" Name="btnVolver" VerticalAlignment="Top"  Click="btnVolver_Click" />
+            <Button  Style="{StaticResource botonEstilo}"  Content="Guardar Cliente" Foreground="Blue"  HorizontalAlignment="Center" Margin="0" Name="btnGuardarCliente" VerticalAlignment="Center" Click="btnGuardarCliente_Click" />
+            <Button  Style="{StaticResource botonEstilo}"  Content="Volver" Foreground="Red" HorizontalAlignment="Right" Margin="20" Name="btnVolver" VerticalAlignment="Bottom"  Click="btnVolver_Click" />
         </Grid>
     </Grid>
 </Window>

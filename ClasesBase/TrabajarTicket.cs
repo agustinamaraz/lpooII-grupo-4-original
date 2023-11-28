@@ -69,5 +69,10 @@ namespace ClasesBase
 
             return tickets;
         }
+
+        /*public static DataTable traerTicketsCosdigo(string codigo)
+        {
+            SqlConnection conection = new SqlConnection(Properties.Settings.Default.connection);
+        }*/
     }
 }

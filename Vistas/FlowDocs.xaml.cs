@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Vistas;
 
 namespace Vistas
 {
@@ -32,5 +33,10 @@ namespace Vistas
                 pdlg.PrintDocument(((IDocumentPaginatorSource)DocMain).DocumentPaginator, "Imprimir");
             }
         }
+        private void p() {
+            CollectionViewSource a = ListadoDeUsuarios.vistaColeccionFiltrada ;
+            Resources["LIST_USERS"] = a;
+        }
+        
     }
 }

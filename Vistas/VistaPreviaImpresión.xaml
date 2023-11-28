@@ -1,10 +1,18 @@
 ﻿<Window x:Class="Vistas.VistaPreviaImpresión"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         Title="VistaPreviaImpresión" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
-        <!--<ObjectDataProvider x:Key="list_usuariosO" ObjectType="{x:Type svc:TrabajarUsuario}" MethodName="traerUsuariosOrdenadosUsuario"/>
-        <CollectionViewSource x:Key="VISTA_USER" Source="{StaticResource ResourceKey=list_usuariosO}" Filter="eventVistaUsuario_Filter">
+            <ObjectDataProvider x:Key="list_tickets" ObjectType="{x:Type svc:TrabajarTicket}" MethodName="traerTicketsCosdigo">
+            <ObjectDataProvider.MethodParameters>
+                <!--<x:NullExtension></x:NullExtension>-->
+                <x:Static Member="system:String.Empty" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <!--<CollectionViewSource x:Key="VISTA_USER" Source="{StaticResource ResourceKey=list_usuariosO}" Filter="eventVistaUsuario_Filter">
             <CollectionViewSource.SortDescriptions>
                 <componentModel:SortDescription PropertyName="Usr_Username" Direction="Ascending" />
             </CollectionViewSource.SortDescriptions>
