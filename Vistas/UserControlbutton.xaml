@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Vistas.UserControlbutton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="0" d:DesignWidth="106">
+    <Grid Width="102">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="42*" />
+            <ColumnDefinition Width="60*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130*" />
+            <RowDefinition Height="330*" />
+        </Grid.RowDefinitions>
+        <Button Content="Salir" Height="36"  Name="btnSalir" VerticalAlignment="Center" Width="100" Focusable="False" BorderBrush="{x:Null}" Background="#FFBD2D56" BorderThickness="0" FontFamily="Trebuchet MS" ForceCursor="False" Foreground="#FFC8C9CB" Click="btnSalir_Click"  Grid.ColumnSpan="2" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Vehiculo>
+  <valor>Auto</valor>
+  <valor>Camioneta</valor>
+  <valor>Moto</valor>
+  <valor>Bicicleta</valor>
+</Vehiculo>

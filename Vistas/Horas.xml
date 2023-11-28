@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Horas>
+  <valor>08</valor>
+  <valor>09</valor>
+  <valor>10</valor>
+  <valor>11</valor>
+  <valor>12</valor>
+  <valor>13</valor>
+  <valor>14</valor>
+  <valor>15</valor>
+  <valor>16</valor>
+  <valor>17</valor>
+  <valor>18</valor>
+  <valor>19</valor>
+  <valor>20</valor>
+  <valor>21</valor>
+  <valor>22</valor>
+  <valor>23</valor>
+  <!--<valor>00</valor>
+  <valor>01</valor>
+  <valor>02</valor>
+  <valor>03</valor>
+  <valor>04</valor>
+  <valor>05</valor>
+  <valor>06</valor>
+  <valor>07</valor>-->
+</Horas>

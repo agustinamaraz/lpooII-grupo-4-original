@@ -1,0 +1,116 @@
+﻿<Window x:Class="Vistas.ValidarCliente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:scv="clr-namespace:ClasesBase;assembly=ClasesBase"
+        Title="ValidarCliente" Height="462" Width="355" Loaded="Window_Loaded" Background="#FFCCC7FA">
+    <Window.Resources>
+        <ObjectDataProvider ObjectType="{x:Type scv:TrabajarCliente}" MethodName="traerClientes" x:Key="list_clientes"/>
+
+        <ObjectDataProvider ObjectType="{x:Type scv:TrabajarCliente}" MethodName="traerCliente" x:Key="data_cliente"/>
+        <ObjectDataProvider
+            x:Key="DATA_USER"
+            ObjectType="{x:Type scv:Cliente}"
+            >
+
+        </ObjectDataProvider>
+
+        <!-- Plantilla para los avisos de errores de los Textbox -->
+        <ControlTemplate x:Key="TextBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="2,0" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#11FF1111" Offset="0" />
+                            <GradientStop Color="#FFFF0000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <AdornedElementPlaceholder />
+            </DockPanel>
+        </ControlTemplate>
+        <Style x:Key="EstiloError" TargetType="TextBox">
+            <!--<Setter Property="Margin" Value="4,4,10,4" />-->
+            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent" RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+        <Style TargetType="{x:Type Canvas}" BasedOn="{StaticResource plantilla_canvas}" >
+        </Style>
+
+
+
+        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource plantilla_label}" >
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}" >
+        </Style>
+
+    </Window.Resources>
+    <Grid Width="343">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.ColumnSpan="2">
+            <TextBlock Text="Validar Cliente" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Normal"></TextBlock>
+            <CheckBox Content="Modificar" Height="16" HorizontalAlignment="Left" Name="chkboxModificar" Margin="10" VerticalAlignment="Bottom" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <StackPanel>
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="20" Name="textBlock1" Text="Dni" />
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="20" Name="textBlock2" Text="Apellido" />
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="20" Name="textBlock3" Text="Nombre" />
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="20" Name="textBlock4" Text="Telefono"/>
+            </StackPanel>
+            
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+                <TextBox Height="23" Name="txtDni" VerticalAlignment="Center" TextChanged="txtDni_TextChanged" 
+                 DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}" Width="120" Margin="20">
+                    <TextBox.Text>
+                        <Binding Path="Cli_Dni" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox Height="23" HorizontalAlignment="Center" Name="txtApellido" Width="120" Margin="20"
+                     DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}">
+                    <TextBox.Text>
+                        <Binding Path="Cli_Apellido" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox Height="23" Name="txtNombre" VerticalAlignment="Top" DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}" Width="120" Margin="20">
+                    <TextBox.Text>
+                        <Binding Path="Cli_Nombre" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox Height="23" HorizontalAlignment="Center" Name="txtTelefono" VerticalAlignment="Top" Width="120" Margin="20"
+               DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}">
+                    <TextBox.Text>
+                        <Binding Path="Cli_Telefono" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Button Content="Guardar Cliente" Height="23" HorizontalAlignment="Center"  Name="btnGuardar" VerticalAlignment="Center" Width="150" Click="btnGuardar_Click" />
+            <Button Content="Actualizar Cliente" Height="23" HorizontalAlignment="Center"  Name="btnActualizar" VerticalAlignment="Center" Width="150" Click="btnActualizar_Click" />
+        </Grid>
+    </Grid>
+</Window>

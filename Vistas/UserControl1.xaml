@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="Vistas.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="400" Background="#FFBD2D56">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Canvas}" BasedOn="{StaticResource plantilla_canvas}" >
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantilla_label}" >
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}" >
+        </Style>
+        <Style x:Key="RadioButton1" TargetType="{x:Type CheckBox}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <BulletDecorator Cursor="Hand">
+                            <BulletDecorator.Bullet>
+                                <Grid Height="20" Width="20">
+                                    <Border Name="Radio1" Background="Transparent" BorderBrush="#f15bb5" BorderThickness="2" CornerRadius="20" />
+                                    <Border Name="Radio2" Background="#9b5de5" CornerRadius="20" Margin="5" Visibility="Hidden" />
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                            <TextBlock Margin="6,0,0,8" Foreground="White" FontFamily="Calibri" FontSize="16" VerticalAlignment="Center">
+                            <ContentPresenter />
+                            </TextBlock>
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Radio1" Property="BorderBrush" Value="#9b5de5" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter TargetName="Radio1" Property="BorderBrush" Value="#9b5de5" />
+                                <Setter TargetName="Radio2" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition Height="65"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Label Content="INICIAR SESIÓN" Height="auto" HorizontalAlignment="Center"  Name="label1" VerticalAlignment="Top" Width="auto" FontSize="20" FontFamily="Segoe UI" Grid.ColumnSpan="2" Foreground="White" Padding="5" FontWeight="Medium" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+                <TextBlock Height="23" HorizontalAlignment="Center" Name="textBlockUsuario" Text="Usuario" ClipToBounds="False" Foreground="#FFCBCCCD" Margin="20"/>
+                <TextBlock Height="23" HorizontalAlignment="Center" Name="textBlockContraseña" Text="Contraseña" ClipToBounds="False" Foreground="#FFCDCECD" Margin="20"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+                <TextBox Grid.Column="1" Height="23" HorizontalAlignment="Center" Name="txtUsuario" Width="120" BorderBrush="{x:Null}" Margin="20" />
+                <PasswordBox Grid.Column="1" Height="23" HorizontalAlignment="Center" Name="txtContrasena" Width="120" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Margin="20" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Button Content="Ingresar" Height="23" Name="btnIngresar" Width="75" Click="btnIngresar_Click" VerticalAlignment="Bottom" Foreground="#FFC9CACC" Background="#FF2667A3" Grid.ColumnSpan="2" Margin="157,0,169,30" />
+        </Grid>
+    </Grid>
+
+</UserControl>

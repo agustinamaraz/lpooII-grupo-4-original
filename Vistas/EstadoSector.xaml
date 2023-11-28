@@ -1,0 +1,19 @@
+﻿<Window x:Class="Vistas.EstadoSector"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+        Title="EstadoSector" Height="500" Width="1000" Loaded="Window_Loaded">
+    <Window.Resources>
+        <svc:ConversorDeEstados x:Key="ConversorDeEstados"/>
+    </Window.Resources>
+    <Grid>
+        <StackPanel HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="120,0,0,0">
+            <StackPanel.Resources>
+                <XmlDataProvider x:Key="roles" Source="Tiempos.xml" XPath="/tiempos" />
+            </StackPanel.Resources>
+            <ComboBox ItemsSource="{Binding Source={StaticResource roles},XPath=valor}" Height="23"  Name="comboBox1" Width="120" />
+        </StackPanel>
+        <Rectangle Height="88" HorizontalAlignment="Left" Margin="493,198,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="200" 
+                   Fill="{Binding ElementName=comboBox1, Path=SelectedValue, Converter={StaticResource ConversorDeEstados}}"/>
+    </Grid>
+</Window>

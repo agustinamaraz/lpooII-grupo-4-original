@@ -1,0 +1,35 @@
+﻿<Window x:Class="Vistas.FrmSectores"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FrmSectores" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="#FF2667A3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <TextBlock Height="38" HorizontalAlignment="Center" Margin="346,25,439,0" Name="textBlock5" Text="Formulario Alta Sectores" VerticalAlignment="Top" FontSize="24" Width="193" FontFamily="Agency FB" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="168,177,0,0" Name="textBlock2" Text="Identificador" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="14" />
+                <TextBlock HorizontalAlignment="Left" Margin="168,83,0,278" Name="textBlock3" Text="Sector Codigo" FontFamily="Agency FB" FontSize="14" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="168,127,0,0" Name="textBlock1" Text="Descripcion" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="14" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="168,220,0,0" Name="textBlock6" Text="Habilitado" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="14" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="329,80,0,0" Name="txtSectorCodigo" VerticalAlignment="Top" Width="120" Background="#FFEBCF96" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="329,124,0,0" Name="txtDescripcion" VerticalAlignment="Top" Width="120" Background="#FFEBCF96" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="329,174,0,0" Name="txtIdentificador" VerticalAlignment="Top" Width="120" Background="#FFEBCF96" />
+                <CheckBox Height="16" HorizontalAlignment="Left" Margin="433,220,0,0" Name="chkHabilitado" VerticalAlignment="Top" Width="16" />
+                <Button Content="Guardar Sector" Height="24" HorizontalAlignment="Left" Margin="356,314,0,0" Name="btnGuardarSector" VerticalAlignment="Top" Width="75" Click="btnGuardarSector_Click" Background="#FF00BE00" FontFamily="Agency FB" FontSize="14" />
+                <Button Content="Volver" Height="25" HorizontalAlignment="Left" Margin="722,313,0,0" Name="btnVolver" VerticalAlignment="Top" Width="75" Click="btnVolver_Click" Background="#FFFF757A" FontSize="14" FontFamily="Agency FB" />
+                
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

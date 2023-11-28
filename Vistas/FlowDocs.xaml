@@ -1,0 +1,58 @@
+﻿<Window x:Class="Vistas.FlowDocs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:data="clr-namespace:ClasesBase;assembly=ClasesBase"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        Title="FlowDocs" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="LIST_USERS"
+                            ObjectType="{x:Type data:TrabajarUsuario}"
+                            MethodName="traerUsuarios">
+        </ObjectDataProvider>
+        
+        <CollectionViewSource x:Key="VIEW_LIST_USERS" Source="{StaticResource ResourceKey=LIST_USERS}">
+            <CollectionViewSource.SortDescriptions>
+                <componentModel:SortDescription PropertyName="Usr_UserName" Direction="Ascending"></componentModel:SortDescription>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="420"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel HorizontalAlignment="Center" Width="650" Margin="0">
+                <FlowDocumentReader>
+                    <FlowDocument Name="DocMain">
+                        <Paragraph>Listado de Usuarios</Paragraph>
+                            <BlockUIContainer>
+                            <ListView Height="350" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Name="viewUsuarios" Width="auto" 
+                                ItemsSource="{Binding Source={StaticResource VIEW_LIST_USERS}}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Usuario" Width="150" DisplayMemberBinding="{Binding Path=Usr_UserName}"></GridViewColumn>
+                                        <GridViewColumn Header="Constraseña" Width="150" DisplayMemberBinding="{Binding Path=Usr_Password}">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="********"></TextBlock>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Apellido" Width="200" DisplayMemberBinding="{Binding Path=Usr_Apellido}"></GridViewColumn>
+                                        <GridViewColumn Header="Nombre" Width="200" DisplayMemberBinding="{Binding Path=Usr_Nombre}"></GridViewColumn>
+                                        <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Path=Usr_Email}"></GridViewColumn>
+                                        <GridViewColumn Header="Rol" Width="150" DisplayMemberBinding="{Binding Path=Usr_Rol}"></GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </BlockUIContainer>
+                    </FlowDocument>
+                </FlowDocumentReader>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Button Content="Imprimir" Height="23" HorizontalAlignment="Center" Margin="0" Name="btnImprimir" VerticalAlignment="Center" Width="75" Click="btnImprimir_Click" />
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="Vistas.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:UC="clr-namespace:Vistas"
+        Title="Login" Height="500" Width="1000" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Vistas;component/Images/background.jpg" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="400"/>
+        </Grid.RowDefinitions>
+        <Image Source="/Vistas;component/Images/logo.png" Margin="301,12,326,388" Grid.RowSpan="2"></Image>
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="410" Height="260"></StackPanel>
+        <UC:UserControlbutton Margin="376,292,-376,-27" Grid.Row="1"></UC:UserControlbutton>
+        <UC:UserControl1 Margin="284,41,284,109" Grid.Row="1"></UC:UserControl1>
+    </Grid>
+</Window>

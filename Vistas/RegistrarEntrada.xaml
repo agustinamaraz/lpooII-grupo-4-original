@@ -1,0 +1,126 @@
+﻿<Window x:Class="Vistas.RegistrarEntrada"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:scv="clr-namespace:ClasesBase;assembly=ClasesBase"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        Title="RegistrarEntrada" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Window.Resources>
+        <!--Se utiliza para hacer la conexion con la base de datos en donde hace la consulta en forma de coleccion para crear la vista
+        y realizar el filtrado con el textbox-->
+        <!--Origen de datos de la Coleccion de Usuarios-->
+        <ObjectDataProvider x:Key="LIST_CLI" ObjectType="{x:Type scv:TrabajarCliente}" MethodName="traerClientes"/>
+        <!--Se crea la vista de coleccion, Source es el objectDataProvider definido arriba-->
+        <CollectionViewSource x:Key="VISTA_CLI" Source="{StaticResource ResourceKey=LIST_CLI}" Filter="eventVistaCliente_Filter">
+            <!--eventVistaUsuario_Filter => es ek Evento filtrado -->
+            <CollectionViewSource.SortDescriptions>
+                <!--Se establece el orden de vista de la coleccion-->
+                <componentModel:SortDescription PropertyName="Cli_Dni" Direction="Ascending" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+
+        <!--Se utiliza para hacer el binding con el combobox de tipovehiculo-->
+        <ObjectDataProvider x:Key="LIST_TIPO" ObjectType="{x:Type scv:TrabajarTipoVehiculo}" MethodName="traerVehiculos"/>
+
+        <!--Se utiliza para hacer el binding con el combobox de tipovehiculo-->
+        <ObjectDataProvider x:Key="LIST_SECTOR" ObjectType="{x:Type scv:TrabajarSector}" MethodName="traerSectores" />
+
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" ></RowDefinition>
+            <RowDefinition Height="390"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <XmlDataProvider x:Key="Rol" Source="roles.xml" XPath="/Rol" />
+            <XmlDataProvider x:Key="roles" Source="Tiempos.xml" XPath="/tiempos" />
+            <XmlDataProvider x:Key="Horas" Source="Horas.xml" XPath="/Horas" />
+            <XmlDataProvider x:Key="Minutos" Source="Minutos.xml" XPath="/Minutos" />
+        </Grid.Resources>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <!--botones-->
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Nuevo" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnNuevoUsuario" VerticalAlignment="Center" Width="75" />
+                <Button Content="Eliminar" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnEliminarUsuario" VerticalAlignment="Center" Width="75" />
+                <Button Content="Cancelar" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnCancelar" VerticalAlignment="Center" Width="75"  />
+                <Button Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnGuardar" VerticalAlignment="Center" Width="75" Click="btnGuardar_Click" />
+                <Button Content="GuardarAct" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnGuardarAct" VerticalAlignment="Center" Width="75" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <!--label-->
+            <StackPanel Orientation="Vertical" HorizontalAlignment="center">
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock10" Text="Fecha y Hora Entrada" VerticalAlignment="Top" />
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,45,0,20" Name="textBlock11" Text="Fecha y Hora Salida" VerticalAlignment="Top" />
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,45,0,20" Name="textBlock12" Text="Cliente" VerticalAlignment="Top" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <!--textbox-->
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+                <DatePicker Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="dateTimeEntraTicket" VerticalAlignment="Top" Width="200" SelectedDateFormat="Short" IsTodayHighlighted="True" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <ComboBox Height="23" Name="cboHoraEntrada" Width="100" ItemsSource="{Binding Source={StaticResource Horas},XPath=valor}"/>
+                    <ComboBox Height="23" Name="cboMinutosEntrada" Width="100" ItemsSource="{Binding Source={StaticResource Minutos},XPath=valor}"/>
+                </StackPanel>
+                <DatePicker Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="dateTimeSaleTicket" VerticalAlignment="Top" Width="200" SelectedDateFormat="Short" IsTodayHighlighted="True" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <ComboBox Height="23" Name="cboHoraSalida" Width="100" ItemsSource="{Binding Source={StaticResource Horas},XPath=valor}"/>
+                    <ComboBox Height="23" Name="cboMinutosSalida" Width="100" ItemsSource="{Binding Source={StaticResource Minutos},XPath=valor}"/>
+                </StackPanel>
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtDniCliente" VerticalAlignment="Top" Width="200" TextChanged="txtDniCliente_TextChanged" />
+                <ListView Height="85" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,20" Name="viewClientes" Width="auto" ItemsSource="{Binding Source={StaticResource VISTA_CLI}}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Dni" Width="80" DisplayMemberBinding="{Binding Path=Cli_Dni}"></GridViewColumn>
+                            <GridViewColumn Header="Apellido" Width="120" DisplayMemberBinding="{Binding Path=Cli_Apellido}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <!--<ComboBox Height="23" Margin="0,20,0,20" Name="cboRol" ItemsSource="{Binding Source={StaticResource Rol},XPath=valor}" HorizontalAlignment="Center" Width="200"></ComboBox>-->
+            </StackPanel>
+            
+        </Grid>
+
+        <Grid Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Primero" Height="23" Margin="10" Name="btnPrimero" VerticalAlignment="Center" Width="75"  />
+                <Button Content="Retroceder" Height="23" Margin="10" Name="btnAnterior" VerticalAlignment="Center" Width="75"  />
+                <Button Content="Avanzar" Height="23" Margin="10" Name="btnSiguiente" VerticalAlignment="Center" Width="75" />
+                <Button Content="Ultimo" Height="23" Margin="10" Name="btnUltimo" VerticalAlignment="Center" Width="75"  />
+            </StackPanel>
+        </Grid>
+        <!--Columna 2-->
+            <!--TEXTBLOCK-->
+        <Grid Grid.Column="2" Grid.Row="1">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="center">
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock13" Text="Tipo Vehiculo" VerticalAlignment="Top" />
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock14" Text="Patente" VerticalAlignment="Top" />
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock15" Text="Sector" VerticalAlignment="Top" />
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock16" Text="Duracion" VerticalAlignment="Top" />
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock17" Text="Tarifa" VerticalAlignment="Top" />
+                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock18" Text="Total" VerticalAlignment="Top" />
+            </StackPanel>
+        </Grid>
+            <!--TEXTBOX-->
+        <Grid Grid.Column="3" Grid.Row="1">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+                <ComboBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="cboTipoVehiculo" VerticalAlignment="Top" Width="200" ItemsSource="{Binding Source={StaticResource LIST_TIPO} }" DisplayMemberPath="tipov_descripcion" SelectedValue="tipov_codigo" SelectionChanged="cboTipoVehiculo_SelectionChanged"/>
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtPatente" VerticalAlignment="Top" Width="200"/>
+                <ComboBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="cboSector" VerticalAlignment="Top" Width="200" ItemsSource="{Binding Source={StaticResource LIST_SECTOR}}" DisplayMemberPath="sec_id" SelectedValue="sec_codigo"/>
+                <ComboBox Height="23" Margin="0,20,0,20" Name="cboDuracion" ItemsSource="{Binding Source={StaticResource roles},XPath=valor}" HorizontalAlignment="Center" Width="200" SelectionChanged="cboDuracion_SelectionChanged"/>
+                <!--Tarifa-->
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtTarifa" VerticalAlignment="Top" Width="200" TextChanged="txtTarifa_TextChanged" />
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtTotal" VerticalAlignment="Top" Width="200" />
+                
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>

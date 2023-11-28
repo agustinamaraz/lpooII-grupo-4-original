@@ -1,0 +1,464 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ControlTemplate x:Key="alta" TargetType="{x:Type Button}">
+        <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="6" Background="LightBlue">
+            <ContentPresenter HorizontalAlignment="Center"
+                              VerticalAlignment="Center"/>
+        </Border>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="BotonPersonalizado" TargetType="Button">
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="5" Padding="10">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+    </ControlTemplate>
+
+    <Style x:Key="botonalta" TargetType="{x:Type Button}">
+        <Setter Property="Template" Value="{StaticResource alta}"/>
+    </Style>
+    
+    <!--Para los errores en los textbox de alta cliente
+    
+    <Style x:Key="EstiloError" TargetType="TextBox">
+        <Setter Property="Margin" Value="4,4,10,4"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}" />
+        
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip">
+                    <Setter.Value>
+                        <Binding Path="(Validation.Errors)[0].ErrorContent" RelativeSource="{x:Static RelativeSource.Self}"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>-->
+
+    <!-- ________________________________AGREGADOESTILOSOTroTP_____________________________________ -->
+    <!-- **************** PLANTILLAS****************  -->
+
+
+    <!--  _______________________________CANVAS_______________________________   -->
+    <Style x:Key="plantilla_canvas">
+        <Setter Property="Canvas.Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                    <!--<GradientStop Color="LimeGreen" Offset="1.9" />  -->
+                    <GradientStop Color="#9B011651" Offset="0.5" />
+                    <GradientStop Color="#50FE018E" Offset="-0.4" />
+
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Canvas.Name" Value="canvas1"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Canvas.Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+
+                                <GradientStop Color="LimeGreen" Offset="1.9" />
+                                <GradientStop Color="#9B011651" Offset="0.5" />
+                                <GradientStop Color="#50FE018E" Offset="-0.4" />
+
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <!-- ____________________LABEL________________________-->
+    <Style x:Key="plantilla_label">
+        <Setter Property="Label.FontSize" Value="18"/>
+        <Setter Property="Label.Foreground" Value="Snow"/>
+        <Setter Property="Label.Padding" Value="1"/>
+    </Style>
+
+
+    <!-- ________________________________TEXTBOX_____________________________________ -->
+    <Style  x:Key="plantilla_cajasTexto">
+        <Setter Property="TextBox.Foreground" Value="Snow"/>
+        <Setter Property="TextBox.Background" Value="#1CFFFAFA" />
+        <Setter Property="TextBox.BorderThickness" Value="0"></Setter>
+        <Setter Property="TextBox.FontSize" Value="16" />
+
+        <Style.Triggers>
+            <Trigger Property="TextBox.IsReadOnly" Value="True">
+                <Setter Property="TextBox.Background" Value="#48545151"></Setter>
+                <Setter Property="TextBox.Foreground" Value="Snow"></Setter>
+            </Trigger>
+            <Trigger Property="TextBox.IsReadOnly" Value="False">
+                <Setter Property="TextBox.Background" Value="#1CFFFAFA"></Setter>
+                <Setter Property="TextBox.Foreground" Value="Snow"></Setter>
+                <Setter Property="TextBox.BorderBrush" Value="#FF303E6F"></Setter>
+            </Trigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="TextBox.IsReadOnly" Value="False"></Condition>
+                    <Condition Property="TextBox.IsMouseOver" Value="True"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="TextBox.Background" Value="#31FFFAFA"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+
+        </Style.Triggers>
+
+    </Style>
+
+
+    <!--_______________________________________BUTTON_________________________________________________-->
+
+    <!-- TEMPLATES BUTTON -->
+    <ControlTemplate x:Key="PlantillaBotonesABM" TargetType="Button">
+        <Border BorderThickness="1" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="PlantillaBotonesNEW" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                
+                <!--<Image  Source="/Images/new.jpg" Width="15" Height="15"  >
+                </Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PlantillaBotonesMOD" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/mod.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PlantillaBotonesDELETE" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/garb.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PlantillaBotonesACCEPT" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/accept.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate x:Key="PlantillaBotonesCANCEL" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/cancel.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PlantillaBotonesFIRST" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/first.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PlantillaBotonesPREV" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/prev.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate x:Key="PlantillaBotonesNEXT" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/next.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="PlantillaBotonesLAST" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/last.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PlantillaBotonesPRINT" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/print.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="PlantillaBotonesINFO" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/info.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PlantillaBotonesCLOSE" TargetType="Button">
+        <Border BorderThickness="1.5" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}">
+            <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                <!--<Image Source="/Images/close.jpg"></Image>-->
+            </TextBlock>
+        </Border>
+    </ControlTemplate>
+
+
+
+
+    <!--___ STYLE BUTTON____-->
+    <Style x:Key="plantilla_button">
+        <Setter Property="Button.Padding" Value="0"/>
+        <Setter Property="Button.Template" Value="{StaticResource ResourceKey=PlantillaBotonesABM}"></Setter>
+        <Setter Property="Button.Background" Value="#B76F0867"></Setter>
+        <Setter Property="Button.BorderBrush" Value="#FFFE018E"></Setter>
+        <Setter Property="Button.Foreground" Value="#FFFE018E"></Setter>
+
+        <!--  TRIGGERS  -->
+        <Style.Triggers>
+            <Trigger Property="Button.IsMouseOver" Value="True">
+                <Setter Property="Button.Foreground" Value="Snow"></Setter>
+                <Setter Property="Button.FontWeight" Value="Bold"></Setter>
+            </Trigger>
+            <Trigger Property="Button.IsEnabled" Value="False">
+                <Setter Property="Button.BorderBrush" Value="Gray"></Setter>
+                <Setter Property="Button.Foreground" Value="Gray"></Setter>
+            </Trigger>
+
+
+            <!--MULTI TRIGGER-->
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnCancelar"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Background" Value="#FF44074A"></Setter>
+                    <Setter Property="Button.BorderBrush" Value="Red"></Setter>
+                    <Setter Property="Button.Foreground" Value="Red"></Setter>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesCANCEL}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Cancela la acción que se está realizando"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnGuardar"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template"
+                            Value="{StaticResource ResourceKey=PlantillaBotonesACCEPT}"></Setter>
+                    <Setter Property="Button.Background" Value="#FF014A65"></Setter>
+                    <Setter Property="Button.BorderBrush" Value="#FF8CE260"></Setter>
+                    <Setter Property="Button.Foreground" Value="#FF8CE260"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Confirma la acción que se está realizando"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnSalir"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesCLOSE}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Cierra la Ventana Actual"></Setter>
+                    <Setter Property="Button.Background" Value="#FF33253C"></Setter>
+                    <Setter Property="Button.BorderBrush" Value="#FFF86701"></Setter>
+                    <Setter Property="Button.Foreground" Value="#FFF86701"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Cierra la ventana actual"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnNuevo"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesNEW}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Agrega un nuevo registro al listado"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnModificar"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesMOD}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Registra los cambios del registro seleccionado"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnEliminar"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesDELETE}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Elimina el registro seleccionado"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnPrimero"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesFIRST}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Retrocede al primer registro del listado"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnSiguiente"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesNEXT}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Avanza al siguiente registro del listado"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnAnterior"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesPREV}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Retrocede al registro anterior del listado"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnUltimo"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesLAST}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Avanza hasta el último registro del listado"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnConsultas"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesINFO}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Consultar datos del listado"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Button.IsEnabled" Value="True"></Condition>
+                    <Condition Property="Button.Name" Value="btnImprimir"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Button.Template" 
+                            Value="{StaticResource ResourceKey=PlantillaBotonesPRINT}"></Setter>
+                    <Setter Property="Button.ToolTip" Value="Imprimir la vista generada"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
+
+
+            <!-- EVENT TRIGGER  -->
+            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.1" Storyboard.TargetProperty="Height"/>
+
+                            <ThicknessAnimation Duration="0:0:0.1" To="6" Storyboard.TargetProperty="BorderThickness" />
+
+                            <DoubleAnimation Duration="0:0:0.1" To="25" Storyboard.TargetProperty="Height" />
+
+                            <DoubleAnimation Duration="0:0:0.1" To="82" Storyboard.TargetProperty="Width" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+
+            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+
+                            <ThicknessAnimation Duration="0:0:0.1" To="1" Storyboard.TargetProperty="BorderThickness" />
+
+                            <DoubleAnimation Duration="0:0:0.1" To="23" Storyboard.TargetProperty="Height" />
+
+                            <DoubleAnimation Duration="0:0:0.1" To="80" Storyboard.TargetProperty="Width" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </Style.Triggers>
+
+    </Style>
+
+</ResourceDictionary>
