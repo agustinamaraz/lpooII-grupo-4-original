@@ -5,6 +5,70 @@
         Title="ABMUsuarios" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded" xmlns:my="clr-namespace:Vistas">
     <Window.Resources>
         <ObjectDataProvider x:Key="LIST_USER" ObjectType="{x:Type scv:TrabajarUsuario}" MethodName="traerUsuarios"/>
+        <ObjectDataProvider
+            x:Key="DATA_USER"
+            ObjectType="{x:Type scv:Usuario}"
+            >
+
+        </ObjectDataProvider>
+
+
+        <!-- Plantilla para los avisos de errores de los Textbox -->
+        <ControlTemplate x:Key="TextBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="2,0" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#11FF1111" Offset="0" />
+                            <GradientStop Color="#FFFF0000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <AdornedElementPlaceholder />
+            </DockPanel>
+        </ControlTemplate>
+        <Style x:Key="EstiloError" TargetType="TextBox">
+            <!--<Setter Property="Margin" Value="4,4,10,4" />-->
+            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent" RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <ControlTemplate x:Key="ComboBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="2,0" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#11FF1111" Offset="0" />
+                            <GradientStop Color="#FFFF0000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <AdornedElementPlaceholder />
+            </DockPanel>
+        </ControlTemplate>
+
+        <Style x:Key="EstiloErrorComboBox" TargetType="ComboBox">
+            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ComboBoxErrorTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent" RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -44,12 +108,52 @@
         <Grid Grid.Row="1" Grid.Column="1">
             <!--textbox-->
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
-                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtApellido" VerticalAlignment="Top" Width="200" />
-                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtNombre" VerticalAlignment="Top" Width="200" />
-                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtUsername" VerticalAlignment="Top" Width="200" />
-                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtPassword" VerticalAlignment="Top" Width="200" />
-                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtEmail" VerticalAlignment="Top" Width="200" />
-                <ComboBox Height="23" Margin="0,20,0,20" Name="cboRol" ItemsSource="{Binding Source={StaticResource Rol},XPath=valor}" HorizontalAlignment="Center" Width="200"></ComboBox>
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtApellido" VerticalAlignment="Top" Width="200" 
+                         DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}" 
+                 >
+                    <TextBox.Text>
+                        <Binding Path="Usr_Apellido" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
+                    </TextBox.Text>
+
+                </TextBox>
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtNombre" VerticalAlignment="Top" Width="200" 
+                         
+                        DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}">
+                    <TextBox.Text>
+                        <Binding Path="Usr_Nombre" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
+                    </TextBox.Text>
+
+                </TextBox>
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtUsername" VerticalAlignment="Top" Width="200" 
+                         DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}"
+                         >
+                    <TextBox.Text>
+                        <Binding Path="Usr_UserName" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
+                    </TextBox.Text>
+
+                </TextBox>
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtPassword" VerticalAlignment="Top" Width="200" 
+                         DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}"
+                         >
+                    <TextBox.Text>
+                        <Binding Path="Usr_Password" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
+                    </TextBox.Text>
+
+                </TextBox>
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtEmail" VerticalAlignment="Top" Width="200" 
+                         DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}"
+                         >
+                    <TextBox.Text>
+                        <Binding Path="Usr_Email" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
+                    </TextBox.Text>
+
+                </TextBox>
+                <ComboBox Height="23" Margin="0,20,0,20" Name="cboRol" ItemsSource="{Binding Source={StaticResource Rol}, XPath=valor}" 
+          DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloErrorComboBox}">
+                    <ComboBox.SelectedItem>
+                        <Binding Path="Usr_Rol" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                    </ComboBox.SelectedItem>
+                </ComboBox>
             </StackPanel>
         </Grid>
 

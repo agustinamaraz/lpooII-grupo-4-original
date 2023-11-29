@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Windows.Threading;
+using System.Windows.Threading;*/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace Vistas
 {
@@ -19,7 +32,7 @@ namespace Vistas
     /// </summary>
     public partial class AcercaDe : Window
     {
-        bool fileIsPlaying;
+        /*bool fileIsPlaying;
 
         public AcercaDe()
         {
@@ -92,14 +105,14 @@ namespace Vistas
             }
         }
 
-        /*private void ticktimer(Object sender, EventArgs e)
+        novaprivate void ticktimer(Object sender, EventArgs e)
         {
             if (meMovie.Source != null)
             {
                 lblTiempo.Content = String.Format("{0}", meMovie.Position.ToString(@"ss"));
 
             }
-        }*/
+        nova}
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
@@ -161,6 +174,24 @@ namespace Vistas
         void changePosition(TimeSpan ts)
         {
             meMovie.Position = ts;
+        }*/
+
+
+        public AcercaDe()
+        {
+            InitializeComponent();
+            string carpetaBase = AppDomain.CurrentDomain.BaseDirectory;
+            string rutaDirecta = Path.Combine(carpetaBase, "..", "..", "media", "video.wmv");
+            mediaElement.Source = new Uri(rutaDirecta);
+
+            mediaElement.MediaEnded += (sender, e) => mediaElement.Position = TimeSpan.Zero;
+
         }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

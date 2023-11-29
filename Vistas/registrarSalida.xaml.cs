@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,11 +32,7 @@ namespace Vistas
 
         Ticket ticketElegido = new Ticket();
 
-        string numeroString;
-        double duracionTiempo;
         decimal total = 0;
-        decimal sDuracion = 0;
-        decimal sTarifa = 0;
 
         public registrarSalida()
         {
@@ -69,21 +65,26 @@ namespace Vistas
                     {
                         if (!string.IsNullOrEmpty(txtNro.Text))
                         {
-                            int numeroTicket = int.Parse(txtNro.Text);
                             ticketElegido = TrabajarTicket.traerTicketSingular(txtNro.Text);
-
-                            // Actualiza los TextBox con la información del ticket encontrado
-                            txtApellido.Text = ticketElegido.Cli_Dni.ToString();
-                            txtFechaHoraEntra.Text = ticketElegido.Tick_FechaHoraEntra.ToString();
-                            ticketElegido.Tick_FechaHoraSale = DateTime.Now;
-                            calcularTotal(ticketElegido);
-                            txtFechaHoraSale.Text = ticketElegido.Tick_FechaHoraSale.ToString();
-                            txtTipoVehiculo.Text = ticketElegido.TipoV_Codigo.ToString();
-                            txtSector.Text = ticketElegido.Sec_Codigo.ToString();
-                            txtPatente.Text = ticketElegido.Tick_Patente;
-                            txtDuracion.Text = ticketElegido.Tick_Duracion.ToString();
-                            txtTarifa.Text = ticketElegido.Tick_Tarifa.ToString();
-                            txtTotal.Text = ticketElegido.Tick_Total.ToString();
+                            if (ticketElegido.Tick_Duracion != 0)
+                            {
+                                MessageBox.Show("Este ticket ya fue registrado como venta");
+                            }
+                            else
+                            {
+                                // Actualiza los TextBox con la información del ticket encontrado
+                                txtApellido.Text = ticketElegido.Cli_Dni.ToString();
+                                txtFechaHoraEntra.Text = ticketElegido.Tick_FechaHoraEntra.ToString();
+                                ticketElegido.Tick_FechaHoraSale = DateTime.Now;
+                                calcularTotal(ticketElegido);
+                                txtFechaHoraSale.Text = ticketElegido.Tick_FechaHoraSale.ToString();
+                                txtTipoVehiculo.Text = ticketElegido.TipoV_Codigo.ToString();
+                                txtSector.Text = ticketElegido.Sec_Codigo.ToString();
+                                txtPatente.Text = ticketElegido.Tick_Patente;
+                                txtDuracion.Text = ticketElegido.Tick_Duracion.ToString();
+                                txtTarifa.Text = ticketElegido.Tick_Tarifa.ToString();
+                                txtTotal.Text = ticketElegido.Tick_Total.ToString();
+                            }
                         }
                         else
                         {
@@ -99,6 +100,7 @@ namespace Vistas
                     }
                     catch (Exception ex)
                     {
+                        Console.WriteLine(txtNro.Text + "  " + ex);
                         MessageBox.Show("Error al obtener el ticket");
                     }
                 }
