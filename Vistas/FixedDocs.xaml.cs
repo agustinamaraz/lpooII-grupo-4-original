@@ -21,32 +21,26 @@ namespace Vistas
     /// </summary>
     public partial class FixedDocs : Window
     {
-        public FixedDocs()
+        public FixedDocs(Ticket t)
         {
             InitializeComponent();
-        }
-        Ticket ticket = new Ticket();
-        
-        private void llenarTxt()
-        {
-            ticket.Tick_Numero = RegistrarEntrada.prueba[0].Tick_Numero;
-            ticket.Tick_FechaHoraEntra = RegistrarEntrada.prueba[0].Tick_FechaHoraEntra;
-            ticket.Tick_FechaHoraSale = RegistrarEntrada.prueba[0].Tick_FechaHoraSale;
-            ticket.Cli_Dni = RegistrarEntrada.prueba[0].Cli_Dni;
-            ticket.TipoV_Codigo = RegistrarEntrada.prueba[0].TipoV_Codigo;
-            ticket.Tick_Patente = RegistrarEntrada.prueba[0].Tick_Patente;
-            ticket.Tick_Duracion = RegistrarEntrada.prueba[0].Tick_Duracion;
-            ticket.Tick_Tarifa = RegistrarEntrada.prueba[0].Tick_Tarifa;
-            ticket.Tick_Total = RegistrarEntrada.prueba[0].Tick_Total;
+            llenarCampos(t);
         }
 
-        private void llenarCampos()
+        //public FixedDocs()
+        //{
+        //   InitializeComponent();
+        //}
+
+        private void llenarCampos(Ticket ticket)
         {
-            Cliente cliente = new Cliente();
-            TipoVehiculo tipo = new TipoVehiculo();
-            cliente = traerCliente();
+            Cliente cliente = traerCliente(ticket);
+            TipoVehiculo tipo = traerTipoVehiculo(ticket);
+
+            string nombres = cliente.Cli_Apellido + " " + cliente.Cli_Nombre;
+
             txtNroTicket.Text = ticket.Tick_Numero.ToString();
-            txtApellidoNombre.Text = cliente.Cli_Apellido+cliente.Cli_Nombre;
+            txtApellidoNombre.Text = nombres;
             txtPatente.Text = ticket.Tick_Patente;
             txtFechaEntra.Text = ticket.Tick_FechaHoraEntra.ToString();
             txtTipoVehiculo.Text = tipo.TipoV_Descripcion;
@@ -57,20 +51,18 @@ namespace Vistas
 
         }
 
-        private Cliente traerCliente()
+        private Cliente traerCliente(Ticket ticket)
         {
             return TrabajarCliente.traerCliente(ticket.Cli_Dni.ToString());
         }
 
-        private TipoVehiculo traerTipoVehiculo()
+        private TipoVehiculo traerTipoVehiculo(Ticket ticket)
         {
-            return TrabajarTipoVehiculo.traerVehiculoPatente(int.Parse(ticket.Tick_Patente));
+            return TrabajarTipoVehiculo.traerVehiculoPatente(ticket.TipoV_Codigo);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            llenarTxt();
-            llenarCampos();
         }
     }
 }

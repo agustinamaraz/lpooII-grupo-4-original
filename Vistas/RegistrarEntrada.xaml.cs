@@ -107,7 +107,7 @@ namespace Vistas
 
             MessageBox.Show("se agrego correctamente");
             TrabajarSector.liberarSector(false, cboSector.SelectedIndex);
-            FixedDocs fix = new FixedDocs();
+            FixedDocs fix = new FixedDocs(ticket);
             fix.Show();
             this.Hide();
         }

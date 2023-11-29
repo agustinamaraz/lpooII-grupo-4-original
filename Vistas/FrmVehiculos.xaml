@@ -4,9 +4,9 @@
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         Title="FrmVehiculos" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
-        <!--Para enlace de datos-->
+        <!--Para enlace de datos
         <ObjectDataProvider x:Key="list_tvehiculo" ObjectType="{x:Type svc:TrabajarTipoVehiculo}"
-                            MethodName="traerTipoVehiculo"/>
+                            MethodName="traerTipoVehiculo"/>-->
     </Window.Resources>
 
     <Grid Background="#FF2667A3">
@@ -26,19 +26,19 @@
             </Grid>
             <Grid Grid.Row="1" Grid.Column="0">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="20">
-                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="20" Name="textBlock2" Text="Tarifa" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="14" />
-                    <TextBlock HorizontalAlignment="Left" Margin="20" Name="textBlock3" Text="TV Codigo" FontFamily="Agency FB" FontSize="14" />
-                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="20" Name="textBlock1" Text="Descripcion" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="14" Width="77" />
+                <TextBlock Margin="20" Name="textBlock3" Text="TV Codigo" FontFamily="Agency FB" FontSize="14" />
+                <TextBlock Height="23" Margin="20" Name="textBlock2" Text="Tarifa" FontFamily="Agency FB" FontSize="14" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="20" Name="textBlock1" Text="Descripcion" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="14" Width="77" />
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20">
                     <TextBox Height="23" HorizontalAlignment="Center" Margin="20" Name="txtTVCodigo" Width="120" Background="#FFF4DE9A" />
-                    <TextBox Height="23" HorizontalAlignment="Center" Margin="20" Name="txtDescripcion" Width="120" Background="#FFF4DE9A" />
-                    <TextBox Height="23" HorizontalAlignment="Center" Margin="20" Name="txtTarifa" Width="120" Background="#FFF4DE9A" />
-                </StackPanel>
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="20" Name="txtTarifa" Width="120" Background="#FFF4DE9A" />
+                <TextBox Height="23" Margin="20" Name="txtDescripcion" Width="120" Background="#FFF4DE9A" />
+            </StackPanel>
             </Grid>
-            <Grid Grid.Row="1" Grid.Column="2">
+            <!--<Grid Grid.Row="1" Grid.Column="2">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20">
                     <ListView Height="200" Width="400" HorizontalAlignment="Center" Margin="20" Background="#FF2667A3" Foreground="White" ItemsSource="{Binding Source={StaticResource list_tvehiculo}}">
                         <ListView.View>
@@ -50,7 +50,7 @@
                         </ListView.View>
                     </ListView>
                 </StackPanel>
-            </Grid>
+            </Grid>-->
             <Grid Grid.Row="2" Grid.ColumnSpan="3">
                 <Button  Content="Guardar Vehiculo" Height="24" HorizontalAlignment="Center" Margin="0" Name="btnGuardarVehiculo" VerticalAlignment="Top" Width="106" Click="btnGuardarVehiculo_Click" Background="#FF00D400" />
                 <Button  Content="Volver" Height="25" HorizontalAlignment="Right" Margin="10" Name="btnVolver" VerticalAlignment="Bottom" Width="75" Click="btnVolver_Click" Background="#FFFF757A" />

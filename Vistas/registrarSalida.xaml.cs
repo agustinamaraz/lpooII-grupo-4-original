@@ -53,39 +53,56 @@ namespace Vistas
 
             cargarComboVehiculo();
         }
-
-
-     
-
-        private void txtNro_TextChanged(object sender, TextChangedEventArgs e)
+                private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-
-    try
-    {
- 
-        ticketElegido = TrabajarTicket.traerTicketSingular(txtNro.Text);
-        ticketElegido.Tick_Duracion = 0;
-        ticketElegido.Tick_Total = 0;
-        txtApellido.Text = ticketElegido.Cli_Dni.ToString();
-        txtFechaHoraEntra.Text = ticketElegido.Tick_FechaHoraEntra.ToString();
-        ticketElegido.Tick_FechaHoraSale = DateTime.Now;
-        calcularTotal(ticketElegido);
-        txtFechaHoraSale.Text = ticketElegido.Tick_FechaHoraSale.ToString();
-        txtTipoVehiculo.Text = ticketElegido.TipoV_Codigo.ToString();
-        txtSector.Text = ticketElegido.Sec_Codigo.ToString();
-        txtPatente.Text = ticketElegido.Tick_Patente;
-        txtDuracion.Text = ticketElegido.Tick_Duracion.ToString();
-        txtTarifa.Text = ticketElegido.Tick_Tarifa.ToString();
-        txtTotal.Text = ticketElegido.Tick_Total.ToString();
-
-    }
-    catch (Exception ex)
-    {
-        // Manejar la excepción aquí (puedes mostrar un mensaje al usuario, registrar el error, etc.)
-        MessageBox.Show("Error al obtener el ticket" + ex.Message);
-    }
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.Show();
         }
-        private void txtApellido_TextChanged(object sender, TextChangedEventArgs e)
+
+
+
+
+                private void btnBuscar_Click(object sender, RoutedEventArgs e)
+                {
+                    try
+                    {
+                        if (!string.IsNullOrEmpty(txtNro.Text))
+                        {
+                            int numeroTicket = int.Parse(txtNro.Text);
+                            ticketElegido = TrabajarTicket.traerTicketSingular(txtNro.Text);
+
+                            // Actualiza los TextBox con la información del ticket encontrado
+                            txtApellido.Text = ticketElegido.Cli_Dni.ToString();
+                            txtFechaHoraEntra.Text = ticketElegido.Tick_FechaHoraEntra.ToString();
+                            ticketElegido.Tick_FechaHoraSale = DateTime.Now;
+                            calcularTotal(ticketElegido);
+                            txtFechaHoraSale.Text = ticketElegido.Tick_FechaHoraSale.ToString();
+                            txtTipoVehiculo.Text = ticketElegido.TipoV_Codigo.ToString();
+                            txtSector.Text = ticketElegido.Sec_Codigo.ToString();
+                            txtPatente.Text = ticketElegido.Tick_Patente;
+                            txtDuracion.Text = ticketElegido.Tick_Duracion.ToString();
+                            txtTarifa.Text = ticketElegido.Tick_Tarifa.ToString();
+                            txtTotal.Text = ticketElegido.Tick_Total.ToString();
+                        }
+                        else
+                        {
+                            if (ticketElegido.Tick_Total > 0)
+                            {
+                                MessageBox.Show("Este ticket ya fue registrado anteriormente, no corresponde realizar una nueva salida");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Ingrese un número de ticket antes de buscar.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al obtener el ticket");
+                    }
+                }
+                private void txtApellido_TextChanged(object sender, TextChangedEventArgs e)
         {
         }
         //tipovehiculo
@@ -103,9 +120,9 @@ namespace Vistas
 
             TrabajarSector.liberarSector(false, ticketElegido.Sec_Codigo);
 
-            MessageBox.Show("se agrego correctamente");
+            MessageBox.Show("Se agrego correctamente el ticket a las ventas");
 
-            FixedDocs fix = new FixedDocs();
+            FixedDocs fix = new FixedDocs(ticketElegido);
             fix.Show();
             this.Hide();
         }

@@ -36,6 +36,9 @@
         <TextBlock Height="25" HorizontalAlignment="Left" Margin="809,0,0,14" Name="textBlock3" Text="Total Ventas: $" VerticalAlignment="Bottom" Grid.Row="2" FontSize="18" />
         <TextBlock Height="25" HorizontalAlignment="Left" Margin="935,0,0,14" Name="txtTotal" Text="" VerticalAlignment="Bottom" Grid.Row="2" FontSize="18" />
 
-        <Button Name="btnImprimir" Content="Vista Previa" Width="150" Margin="0,0,0,12" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="34" Grid.Row="2" Click="btnImprimir_Click" />
+        <Button Content="Volver" Height="41" HorizontalAlignment="Right" Margin="0,0,1202,14" Name="btnVolver" VerticalAlignment="Bottom" Width="83" Click="btnVolver_Click" Background="#FFFF757A" FontSize="14" FontFamily="Agency FB" Grid.Row="2" />
+
+    <Button Name="btnImprimir" Content="Vista Previa" Width="150" Margin="0,0,0,12" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="34" Grid.Row="2" Click="btnImprimir_Click" />
+    
     </Grid>
 </Window>
