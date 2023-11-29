@@ -66,9 +66,28 @@ namespace ClasesBase
             {
                 tipoVehiculo.TipoV_Codigo = int.Parse(row["tipov_codigo"].ToString());
                 tipoVehiculo.TipoV_Descripcion = row["tipov_descripcion"].ToString();
-                tipoVehiculo.TipoV_Tarifa = decimal.Parse(row["tipov_tarifa"].ToString());
+                //tipoVehiculo.TipoV_Tarifa = decimal.Parse(row["tipov_tarifa"].ToString());
             }
             return tipoVehiculo;
+        }
+        public static void nuevoVehiculo(TipoVehiculo vehiculo)
+        {
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connection);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "nuevoVehiculo_sp";
+            command.Connection = connection;
+
+            command.Parameters.AddWithValue("@codigo", vehiculo.TipoV_Codigo);
+            command.Parameters.AddWithValue("@descripcion", vehiculo.TipoV_Descripcion);
+            command.Parameters.AddWithValue("@tarifa", vehiculo.TipoV_Tarifa);
+            command.Parameters.AddWithValue("@imagen", vehiculo.TipoV_Imagen);
+
+
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

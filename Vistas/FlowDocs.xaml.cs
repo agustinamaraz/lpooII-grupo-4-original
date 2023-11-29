@@ -19,9 +19,11 @@ namespace Vistas
     /// </summary>
     public partial class FlowDocs : Window
     {
-        public FlowDocs()
+        public FlowDocs(CollectionViewSource c)
         {
             InitializeComponent();
+
+            viewUsuarios.ItemsSource = c.View;
         }
 
         private void btnImprimir_Click(object sender, RoutedEventArgs e)
@@ -30,13 +32,19 @@ namespace Vistas
 
             if (pdlg.ShowDialog() == true)
             {
-                pdlg.PrintDocument(((IDocumentPaginatorSource)DocMain).DocumentPaginator, "Imprimir");
+                var document = flowDocumentReader.Document as FlowDocument;
+
+                if (document != null)
+                {
+                    var paginator = ((IDocumentPaginatorSource)document).DocumentPaginator;
+
+                    pdlg.PrintDocument(((IDocumentPaginatorSource)DocMain).DocumentPaginator, "Imprimir");
+                }
+
+
             }
+
         }
-        private void p() {
-            CollectionViewSource a = ListadoDeUsuarios.vistaColeccionFiltrada ;
-            Resources["LIST_USERS"] = a;
-        }
-        
+
     }
 }

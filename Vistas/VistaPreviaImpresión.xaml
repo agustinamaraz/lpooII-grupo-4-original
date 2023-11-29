@@ -6,17 +6,8 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         Title="VistaPreviaImpresión" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
-            <ObjectDataProvider x:Key="list_tickets" ObjectType="{x:Type svc:TrabajarTicket}" MethodName="traerTicketsCosdigo">
-            <ObjectDataProvider.MethodParameters>
-                <!--<x:NullExtension></x:NullExtension>-->
-                <x:Static Member="system:String.Empty" />
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-        <!--<CollectionViewSource x:Key="VISTA_USER" Source="{StaticResource ResourceKey=list_usuariosO}" Filter="eventVistaUsuario_Filter">
-            <CollectionViewSource.SortDescriptions>
-                <componentModel:SortDescription PropertyName="Usr_Username" Direction="Ascending" />
-            </CollectionViewSource.SortDescriptions>
-        </CollectionViewSource>-->
+        <!--<ObjectDataProvider x:Key="VISTA_USER" ObjectType="{x:Type svc:TrabajarUsuario}" MethodName="traerUsuarios"/>
+        <CollectionViewSource x:Key="VISTA_USERS" Source="{StaticResource ResourceKey=VISTA_USER}" Filter="eventVistaUsuario_Filter"/>-->
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -28,21 +19,21 @@
         </Grid>
         <Grid Grid.Row="0" Grid.ColumnSpan="3">
             <ListView Height="300" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Name="viewUsuarios" Width="auto" 
-                      >
+                     >
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Usuario" Width="120" DisplayMemberBinding="{Binding Path=usr_username}"></GridViewColumn>
-                        <GridViewColumn Header="Constraseña" Width="120" DisplayMemberBinding="{Binding Path=usr_password}">
+                        <GridViewColumn Header="Usuario" Width="120" DisplayMemberBinding="{Binding Path=Usr_UserName}"></GridViewColumn>
+                        <GridViewColumn Header="Constraseña" Width="120" DisplayMemberBinding="{Binding Path=Usr_Password}">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="********"></TextBlock>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Apellido" Width="120" DisplayMemberBinding="{Binding Path=usr_apellido}"></GridViewColumn>
-                        <GridViewColumn Header="Nombre" Width="120" DisplayMemberBinding="{Binding Path=usr_nombre}"></GridViewColumn>
-                        <GridViewColumn Header="Email" Width="120" DisplayMemberBinding="{Binding Path=usr_email}"></GridViewColumn>
-                        <GridViewColumn Header="Rol" Width="120" DisplayMemberBinding="{Binding Path=usr_rol}"></GridViewColumn>
+                        <GridViewColumn Header="Apellido" Width="120" DisplayMemberBinding="{Binding Path=Usr_Apellido}"></GridViewColumn>
+                        <GridViewColumn Header="Nombre" Width="120" DisplayMemberBinding="{Binding Path=Usr_Nombre}"></GridViewColumn>
+                        <GridViewColumn Header="Email" Width="120" DisplayMemberBinding="{Binding Path=Usr_Email}"></GridViewColumn>
+                        <GridViewColumn Header="Rol" Width="120" DisplayMemberBinding="{Binding Path=Usr_Rol}"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
