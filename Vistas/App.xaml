@@ -1,7 +1,7 @@
 ﻿<Application x:Class="Vistas.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="Presentacion.xaml"> <!--aca va el archivo .xaml que inicia la app-->
+             StartupUri="ListadoDeUsuarios.xaml"> <!--aca va el archivo .xaml que inicia la app-->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
