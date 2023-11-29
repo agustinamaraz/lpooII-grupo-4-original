@@ -26,5 +26,20 @@ namespace ClasesBase
             return datatable;
         }
 
+        public static void liberarSector(Boolean booleano, int id)
+        {
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connection);
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "actualizarEstadoSector_sp";
+            command.Connection = connection;
+            command.Parameters.AddWithValue("@estado", booleano);
+            command.Parameters.AddWithValue("@id", id);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+
+        }
+
     }
 }

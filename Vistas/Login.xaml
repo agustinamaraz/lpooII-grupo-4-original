@@ -21,7 +21,9 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
-            <UC:UserControlbutton VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"></UC:UserControlbutton>    
+            <UC:UserControlbutton VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"></UC:UserControlbutton>
+            <Button Content="Equipo" Height="40"  Name="btnPresentacion" VerticalAlignment="Center" Width="100" Focusable="False" BorderBrush="{x:Null}" Background="#FFBD2D56" BorderThickness="0" FontFamily="Trebuchet MS" ForceCursor="False" Foreground="#FFC8C9CB"  Margin="325,2,553,18" Click="btnPresentacion_Click" />
+            <Button Content="Presentación" Height="40"  Name="btnAcercaDe" VerticalAlignment="Center" Width="100" Focusable="False" BorderBrush="{x:Null}" Background="#FFBD2D56" BorderThickness="0" FontFamily="Trebuchet MS" ForceCursor="False" Foreground="#FFC8C9CB" Margin="537,2,341,18" Click="btnAcercaDe_Click" />
         </Grid>
     </Grid>
 </Window>

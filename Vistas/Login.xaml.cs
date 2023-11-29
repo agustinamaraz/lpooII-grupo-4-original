@@ -38,5 +38,17 @@ namespace Vistas
 
         }
 
+        private void btnPresentacion_Click(object sender, RoutedEventArgs e)
+        {
+            AcercaDe a = new AcercaDe();
+            a.Show();
+        }
+
+        private void btnAcercaDe_Click(object sender, RoutedEventArgs e)
+        {
+            Presentacion p = new Presentacion();
+            p.Show();
+        }
+
     }
 }
