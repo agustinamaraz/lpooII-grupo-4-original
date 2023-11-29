@@ -105,8 +105,8 @@ namespace Vistas
 
             MessageBox.Show("se agrego correctamente");
 
-            //FixedDocs fix = new FixedDocs();
-            //fix.Show();
+            FixedDocs fix = new FixedDocs();
+            fix.Show();
             this.Hide();
         }
 

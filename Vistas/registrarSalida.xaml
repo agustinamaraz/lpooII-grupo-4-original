@@ -13,7 +13,6 @@
         <ObjectDataProvider x:Key="LIST_TIPO" ObjectType="{x:Type scv:TrabajarTipoVehiculo}" MethodName="traerVehiculos"/>
 
         <!--Se utiliza para hacer el binding con el combobox de tipovehiculo-->
-        <ObjectDataProvider x:Key="LIST_SECTOR" ObjectType="{x:Type scv:TrabajarSector}" MethodName="traerSectores" />
         <ObjectDataProvider ObjectType="{x:Type scv:TrabajarCliente}" MethodName="traerTicketSingular" x:Key="data_ticket"/>
         <ObjectDataProvider
             x:Key="DATA_TICK"
