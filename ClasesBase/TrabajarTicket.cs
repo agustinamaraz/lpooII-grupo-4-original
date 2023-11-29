@@ -20,14 +20,14 @@ namespace ClasesBase
             command.Connection = connection;
 
             command.Parameters.AddWithValue("@fechaE",ticket.Tick_FechaHoraEntra);
-            command.Parameters.AddWithValue("@fechaS", ticket.Tick_FechaHoraSale);
+            //command.Parameters.AddWithValue("@fechaS", ticket.Tick_FechaHoraSale);
             command.Parameters.AddWithValue("@dni", ticket.Cli_Dni);
             command.Parameters.AddWithValue("@vehiculo", ticket.TipoV_Codigo);
             command.Parameters.AddWithValue("@sector", ticket.Sec_Codigo);
             command.Parameters.AddWithValue("@patente", ticket.Tick_Patente);
-            command.Parameters.AddWithValue("@duracion", ticket.Tick_Duracion);
+            //command.Parameters.AddWithValue("@duracion", ticket.Tick_Duracion);
             command.Parameters.AddWithValue("@tarifa", ticket.Tick_Tarifa);
-            command.Parameters.AddWithValue("@total", ticket.Tick_Total);
+            //command.Parameters.AddWithValue("@total", ticket.Tick_Total);
 
             connection.Open();
             command.ExecuteNonQuery();
@@ -134,14 +134,14 @@ namespace ClasesBase
                 Ticket tick = new Ticket();
                 tick.Tick_Numero = int.Parse(row["tick_codigo"].ToString());
                 tick.Tick_FechaHoraEntra = DateTime.Parse(row["tick_fechahoraentra"].ToString());
-                tick.Tick_FechaHoraSale = DateTime.Parse(row["tick_fechahorasale"].ToString());
+                //tick.Tick_FechaHoraSale = DateTime.Parse(row["tick_fechahorasale"].ToString());
                 tick.Cli_Dni = int.Parse(row["cli_dni"].ToString());
                 tick.TipoV_Codigo = int.Parse(row["tipov_codigo"].ToString());
                 tick.Sec_Codigo = int.Parse(row["sec_codigo"].ToString());
                 tick.Tick_Patente = row["tick_patente"].ToString();
-                tick.Tick_Duracion = int.Parse(row["tick_duracion"].ToString());
+                //tick.Tick_Duracion = int.Parse(row["tick_duracion"].ToString());
                 tick.Tick_Tarifa = decimal.Parse(row["tick_tarifa"].ToString());
-                tick.Tick_Total = decimal.Parse(row["tick_total"].ToString());
+                //tick.Tick_Total = decimal.Parse(row["tick_total"].ToString());
 
                 tickets.Add(tick);
             }

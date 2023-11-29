@@ -18,16 +18,20 @@ namespace Vistas
     /// </summary>
     public partial class VistaPreviaImpresión : Window
     {
-        CollectionViewSource vistaImpresion;
-        public VistaPreviaImpresión()
+        CollectionViewSource cvs = new CollectionViewSource();
+        public VistaPreviaImpresión(CollectionViewSource v)
         {
             InitializeComponent();
-            vistaImpresion = ListadoDeUsuarios.vistaColeccionFiltrada;
+            viewUsuarios.ItemsSource = v.View;
+            cvs = v;
         }
 
         private void btnImprimir_Click(object sender, RoutedEventArgs e)
         {
-
+            FlowDocs fd = new FlowDocs(cvs);
+            fd.Show();
+            this.Close();
         }
+
     }
 }

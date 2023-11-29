@@ -37,7 +37,7 @@ namespace Vistas
             InitializeComponent();
             vistaColeccionFiltrada = Resources["VISTA_CLI"] as CollectionViewSource;
         }
-        
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ObjectDataProvider odp = (ObjectDataProvider)this.Resources["LIST_CLI"];
@@ -46,7 +46,6 @@ namespace Vistas
             listaTipoVehiculo = odp1.Data as DataTable;
 
             seleccionarEntrada();
-            cargarComboVehiculo();
         }
 
         public void seleccionarEntrada()
@@ -55,7 +54,7 @@ namespace Vistas
             dateTimeEntraTicket.SelectedDate = fechaentra;
             //Desactivar los controles innecesarios como tarifa y total
             txtTarifa.IsEnabled = false;
-            txtTotal.IsEnabled = false;
+            //txtTotal.IsEnabled = false;
         }
 
         private void txtDniCliente_TextChanged(object sender, TextChangedEventArgs e)
@@ -81,32 +80,29 @@ namespace Vistas
             }
         }
 
-        //tipovehiculo
-        private void cargarComboVehiculo()
-        {
-            //cboTipoVehiculo.ItemsSource = TrabajarTipoVehiculo.traerVehiculos();
-            //cboTipoVehiculo.SelectedValuePath = "tipov_descripcion";
-            //cboTipoVehiculo.SelectedItem = "tipov_codigo";
-        }
-
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             Ticket ticket = new Ticket();
+            TipoVehiculo v = new TipoVehiculo();
+            DataRowView drv = (DataRowView)cboTipoVehiculo.SelectedItem;
+            DataRowView drvv = (DataRowView)cboSector.SelectedItem;
+
+            //v = (TipoVehiculo)cboTipoVehiculo.SelectedItem;
+
             ticket.Cli_Dni = int.Parse(txtDniCliente.Text);
             ticket.Tick_FechaHoraEntra = DateTime.Parse(dateTimeEntraTicket.ToString());
-            ticket.Tick_FechaHoraSale = DateTime.Parse(dateTimeSaleTicket.ToString());
+            //ticket.Tick_FechaHoraSale = DateTime.Parse(dateTimeSaleTicket.ToString());
             ticket.Cli_Dni = int.Parse(txtDniCliente.Text.ToString());
-            ticket.TipoV_Codigo = cboTipoVehiculo.SelectedIndex;
+            ticket.TipoV_Codigo = Convert.ToInt32(drv["tipov_codigo"]);
             ticket.Tick_Patente = txtPatente.Text.ToString();
-            ticket.Tick_Duracion = float.Parse(cboDuracion.SelectedValue.ToString());
+            //ticket.Tick_Duracion = float.Parse(cboDuracion.SelectedValue.ToString());
             ticket.Tick_Tarifa = decimal.Parse(txtTarifa.Text);
-            ticket.Tick_Total = decimal.Parse(txtTotal.Text);
-            ticket.Sec_Codigo = cboSector.SelectedIndex;
+            //ticket.Tick_Total = decimal.Parse(txtTotal.Text);
+            ticket.Sec_Codigo = Convert.ToInt32(drvv["sec_codigo"]);
 
             TrabajarTicket.nuevoTicket(ticket);
 
             MessageBox.Show("se agrego correctamente");
-            TrabajarSector.liberarSector(false, cboSector.SelectedIndex);
             FixedDocs fix = new FixedDocs(ticket);
             fix.Show();
             this.Hide();
@@ -122,30 +118,27 @@ namespace Vistas
             int selectedValue = cboTipoVehiculo.SelectedIndex;
             sTarifa = decimal.Parse(listaTipoVehiculo.Rows[selectedValue][2].ToString());
             txtTarifa.Text = sTarifa.ToString();
-            txtTotal.Text = (calcularTotal(sTarifa, sDuracion)).ToString();
+            //txtTotal.Text = (calcularTotal(sTarifa, sDuracion)).ToString();
         }
 
         private decimal calcularTotal(decimal tar, decimal dur)
         {
-            dur = dur/60;
+            dur = dur / 60;
             decimal total = tar * decimal.Parse(dur.ToString());
-            return Math.Round(total,2);
+            return Math.Round(total, 2);
         }
 
         private void cboDuracion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            sDuracion = decimal.Parse(cboDuracion.SelectedValue.ToString());
-            txtTotal.Text = (calcularTotal(sTarifa, sDuracion)).ToString();
+            //sDuracion = decimal.Parse(cboDuracion.SelectedValue.ToString());
+           // txtTotal.Text = (calcularTotal(sTarifa, sDuracion)).ToString();
         }
 
         private void convertirFecha()
         {
-            int HoraE = int.Parse(cboHoraEntrada.ToString());
-            int MinutosE = int.Parse(cboHoraSalida.ToString());
-            int HoraS = int.Parse(cboHoraSalida.ToString());
-            int MinutosS = int.Parse(cboMinutosSalida.ToString());
-            TimeSpan entrada = new TimeSpan(HoraE, MinutosE, 0);
-            TimeSpan salida = new TimeSpan(HoraS, MinutosS, 0);
+            //int HoraE = int.Parse(cboHoraEntrada.ToString());
+            //int MinutosE = int.Parse(cboHoraEntrada.ToString());
+            //TimeSpan entrada = new TimeSpan(HoraE, MinutosE, 0);
 
 
             //dateTimeEntraTicket = DateTime.Parse(dateTimeEntraTicket.ToString()) + entrada;
@@ -154,6 +147,22 @@ namespace Vistas
         {
             TrabajarTicket.traerTickets();
 
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            limpiarCampos();
+        }
+
+        private void limpiarCampos()
+        {
+            txtDniCliente.Clear();
+            txtPatente.Clear();
+            txtTarifa.Clear();
+            //txtTotal.Clear();
+            //cboHoraEntrada.SelectedItem = null;
+            //cboMinutosEntrada.SelectedItem = null;
+            cboSector.SelectedItem = null;
         }
     }
 }

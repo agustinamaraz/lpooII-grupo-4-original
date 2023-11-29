@@ -43,5 +43,7 @@ namespace ClasesBase
             set { tipoV_Imagen = value; }
         }
 
+
+
     }
 }

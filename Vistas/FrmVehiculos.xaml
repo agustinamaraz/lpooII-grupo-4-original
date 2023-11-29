@@ -4,56 +4,82 @@
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         Title="FrmVehiculos" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
-        <!--Para enlace de datos
+        <!--Para enlace de datos-->
         <ObjectDataProvider x:Key="list_tvehiculo" ObjectType="{x:Type svc:TrabajarTipoVehiculo}"
-                            MethodName="traerTipoVehiculo"/>-->
+                            MethodName="traerTipoVehiculo"/>
+        <!--<ResourceDictionary>
+            Para fusionar los diccionarios
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="templateFrmVehiculos.xaml" />
+                
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="botonEstilo" TargetType="Button">
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontWeight" Value="Normal"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="Red"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter Property="Background" Value="LightBlue"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>-->
+
     </Window.Resources>
 
     <Grid Background="#FF2667A3">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"></RowDefinition>
-            <RowDefinition ></RowDefinition>
-            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="250"></ColumnDefinition>
-            <ColumnDefinition Width="500"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="478*" />
+                <ColumnDefinition Width="500*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Height="38" HorizontalAlignment="Center" Margin="331,12,406,0" Name="textBlock5" Text="Formulario Alta Tipo Vehiculo" VerticalAlignment="Top" FontSize="26" Width="241" FontFamily="Agency FB" Grid.ColumnSpan="2" />
+            <Border BorderBrush="Silver" BorderThickness="1" Height="100" HorizontalAlignment="Left" Margin="185,18,0,0" Name="border1" VerticalAlignment="Top" Width="200" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Margin="0,0,159,0">
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="151,106,0,0" Name="textBlock2" Text="Tarifa" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="14" />
+                <TextBlock HorizontalAlignment="Left" Margin="151,21,0,0" Name="textBlock3" Text="TV Codigo" FontFamily="Agency FB" FontSize="14" Height="20" VerticalAlignment="Top" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="151,61,0,0" Name="textBlock1" Text="Descripcion" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="14" Width="77" />
 
-            <Grid Grid.Row="0" Grid.ColumnSpan="3">
-                <TextBlock Height="38" HorizontalAlignment="Center" Margin="10" Name="textBlock5" Text="Formulario Alta Tipo Vehiculo" VerticalAlignment="Center" FontSize="26" Width="auto" FontFamily="Agency FB" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="265,21,0,0" Name="txtTVCodigo" VerticalAlignment="Top" Width="120" Background="#FFF4DE9A" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="265,60,0,0" Name="txtDescripcion" VerticalAlignment="Top" Width="120" Background="#FFF4DE9A" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="265,105,0,0" Name="txtTarifa" VerticalAlignment="Top" Width="120" Background="#FFF4DE9A" />
+                <!-- Agrega un TextBox solo para mostrar la ruta de la imagen seleccionada -->
+                <TextBox Height="24" HorizontalAlignment="Left" Margin="262,145,0,0" Name="txtImagenPath" VerticalAlignment="Top" Width="200" Background="#FFF4DE9A" IsReadOnly="True"/>
+                <!-- Agrega un botÃ³n para seleccionar una imagen -->
+                <Button Content="Seleccionar Imagen" Height="24" HorizontalAlignment="Left" Margin="108,142,0,0" Name="btnSeleccionarImagen" VerticalAlignment="Top" Width="120" Click="btnSeleccionarImagen_Click" Background="#FF00D400"/>
+                <!-- Agrega el control Image para mostrar la imagen seleccionada -->
+                <Image Height="100" HorizontalAlignment="Left" Margin="197,183,0,0" Name="imgVehiculo" VerticalAlignment="Top" Width="200" Stretch="Uniform" />
+
+                <Button  Content="Guardar Vehiculo" Height="24" HorizontalAlignment="Left" Margin="209,327,0,0" Name="btnGuardarVehiculo" VerticalAlignment="Top" Width="106" Click="btnGuardarVehiculo_Click" Background="#FF00D400" />
+                <Button  Content="Volver" Height="25" HorizontalAlignment="Right" Margin="0,327,291,0" Name="btnVolver" VerticalAlignment="Top" Width="75" Click="btnVolver_Click" Background="#FFFF757A" />
             </Grid>
-            <Grid Grid.Row="1" Grid.Column="0">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="20">
-                <TextBlock Margin="20" Name="textBlock3" Text="TV Codigo" FontFamily="Agency FB" FontSize="14" />
-                <TextBlock Height="23" Margin="20" Name="textBlock2" Text="Tarifa" FontFamily="Agency FB" FontSize="14" />
-                <TextBlock Height="23" HorizontalAlignment="Left" Margin="20" Name="textBlock1" Text="Descripcion" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="14" Width="77" />
-                </StackPanel>
-            </Grid>
-            <Grid Grid.Row="1" Grid.Column="1">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20">
-                    <TextBox Height="23" HorizontalAlignment="Center" Margin="20" Name="txtTVCodigo" Width="120" Background="#FFF4DE9A" />
-                <TextBox Height="23" HorizontalAlignment="Center" Margin="20" Name="txtTarifa" Width="120" Background="#FFF4DE9A" />
-                <TextBox Height="23" Margin="20" Name="txtDescripcion" Width="120" Background="#FFF4DE9A" />
-            </StackPanel>
-            </Grid>
-            <!--<Grid Grid.Row="1" Grid.Column="2">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20">
-                    <ListView Height="200" Width="400" HorizontalAlignment="Center" Margin="20" Background="#FF2667A3" Foreground="White" ItemsSource="{Binding Source={StaticResource list_tvehiculo}}">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Codigo" Width="120" DisplayMemberBinding="{Binding Path=tipov_codigo}"></GridViewColumn>
-                                <GridViewColumn Header="Descripcion" Width="160" DisplayMemberBinding="{Binding Path=tipov_descripcion}"></GridViewColumn>
-                                <GridViewColumn Header="Tarifa" Width="120" DisplayMemberBinding="{Binding Path=tipov_tarifa}"></GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </StackPanel>
-            </Grid>-->
-            <Grid Grid.Row="2" Grid.ColumnSpan="3">
-                <Button  Content="Guardar Vehiculo" Height="24" HorizontalAlignment="Center" Margin="0" Name="btnGuardarVehiculo" VerticalAlignment="Top" Width="106" Click="btnGuardarVehiculo_Click" Background="#FF00D400" />
-                <Button  Content="Volver" Height="25" HorizontalAlignment="Right" Margin="10" Name="btnVolver" VerticalAlignment="Bottom" Width="75" Click="btnVolver_Click" Background="#FFFF757A" />
-            </Grid>
+            <ListView Height="200" Width="400" HorizontalAlignment="Right" Margin="0,6,6,175" Background="#FF2667A3" Foreground="White" ItemsSource="{Binding Source={StaticResource list_tvehiculo}}" Grid.Column="1" Grid.ColumnSpan="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Codigo" Width="120" DisplayMemberBinding="{Binding Path=tipov_codigo}"></GridViewColumn>
+                        <GridViewColumn Header="Descripcion" Width="160" DisplayMemberBinding="{Binding Path=tipov_descripcion}"></GridViewColumn>
+                        <GridViewColumn Header="Tarifa" Width="120" DisplayMemberBinding="{Binding Path=tipov_tarifa}"></GridViewColumn>
+                        <GridViewColumn Header="Imagen" Width="120" DisplayMemberBinding="{Binding Path=tipov_imagen}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </Window>

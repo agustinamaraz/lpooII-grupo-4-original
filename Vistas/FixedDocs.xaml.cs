@@ -27,11 +27,6 @@ namespace Vistas
             llenarCampos(t);
         }
 
-        //public FixedDocs()
-        //{
-        //   InitializeComponent();
-        //}
-
         private void llenarCampos(Ticket ticket)
         {
             Cliente cliente = traerCliente(ticket);
