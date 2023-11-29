@@ -47,17 +47,14 @@
             <!--botones-->
             <StackPanel Orientation="Horizontal">
                 <Button Content="Nuevo" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnNuevoUsuario" VerticalAlignment="Center" Width="75" />
-                <Button Content="Eliminar" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnEliminarUsuario" VerticalAlignment="Center" Width="75" />
-                <Button Content="Cancelar" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnCancelar" VerticalAlignment="Center" Width="75"  />
+                <Button Content="Cancelar" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnCancelar" VerticalAlignment="Center" Width="75" Click="btnCancelar_Click" />
                 <Button Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnGuardar" VerticalAlignment="Center" Width="75" Click="btnGuardar_Click" />
-                <Button Content="GuardarAct" Height="23" HorizontalAlignment="Left" Margin="10" Name="btnGuardarAct" VerticalAlignment="Center" Width="75" />
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
             <!--label-->
             <StackPanel Orientation="Vertical" HorizontalAlignment="center">
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock10" Text="Fecha y Hora Entrada" VerticalAlignment="Top" />
-                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,45,0,20" Name="textBlock11" Text="Fecha y Hora Salida" VerticalAlignment="Top" />
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,45,0,20" Name="textBlock12" Text="Cliente" VerticalAlignment="Top" />
             </StackPanel>
         </Grid>
@@ -65,16 +62,9 @@
             <!--textbox-->
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
                 <DatePicker Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="dateTimeEntraTicket" VerticalAlignment="Top" Width="200" SelectedDateFormat="Short" IsTodayHighlighted="True" />
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                    <ComboBox Height="23" Name="cboHoraEntrada" Width="100" ItemsSource="{Binding Source={StaticResource Horas},XPath=valor}"/>
-                    <ComboBox Height="23" Name="cboMinutosEntrada" Width="100" ItemsSource="{Binding Source={StaticResource Minutos},XPath=valor}"/>
-                </StackPanel>
-                <DatePicker Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="dateTimeSaleTicket" VerticalAlignment="Top" Width="200" SelectedDateFormat="Short" IsTodayHighlighted="True" />
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                    <ComboBox Height="23" Name="cboHoraSalida" Width="100" ItemsSource="{Binding Source={StaticResource Horas},XPath=valor}"/>
-                    <ComboBox Height="23" Name="cboMinutosSalida" Width="100" ItemsSource="{Binding Source={StaticResource Minutos},XPath=valor}"/>
-                </StackPanel>
-                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtDniCliente" VerticalAlignment="Top" Width="200" TextChanged="txtDniCliente_TextChanged" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" ></StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" ></StackPanel>
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,40,0,20" Name="txtDniCliente" VerticalAlignment="Top" Width="200" TextChanged="txtDniCliente_TextChanged" />
                 <ListView Height="85" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,20" Name="viewClientes" Width="auto" ItemsSource="{Binding Source={StaticResource VISTA_CLI}}">
                     <ListView.View>
                         <GridView>
@@ -85,40 +75,30 @@
                 </ListView>
                 <!--<ComboBox Height="23" Margin="0,20,0,20" Name="cboRol" ItemsSource="{Binding Source={StaticResource Rol},XPath=valor}" HorizontalAlignment="Center" Width="200"></ComboBox>-->
             </StackPanel>
-            
+
         </Grid>
 
         <Grid Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0">
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Primero" Height="23" Margin="10" Name="btnPrimero" VerticalAlignment="Center" Width="75"  />
-                <Button Content="Retroceder" Height="23" Margin="10" Name="btnAnterior" VerticalAlignment="Center" Width="75"  />
-                <Button Content="Avanzar" Height="23" Margin="10" Name="btnSiguiente" VerticalAlignment="Center" Width="75" />
-                <Button Content="Ultimo" Height="23" Margin="10" Name="btnUltimo" VerticalAlignment="Center" Width="75"  />
-            </StackPanel>
+            <StackPanel Orientation="Horizontal"></StackPanel>
         </Grid>
         <!--Columna 2-->
-            <!--TEXTBLOCK-->
+        <!--TEXTBLOCK-->
         <Grid Grid.Column="2" Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="center">
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock13" Text="Tipo Vehiculo" VerticalAlignment="Top" />
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock14" Text="Patente" VerticalAlignment="Top" />
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock15" Text="Sector" VerticalAlignment="Top" />
-                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock16" Text="Duracion" VerticalAlignment="Top" />
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock17" Text="Tarifa" VerticalAlignment="Top" />
-                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock18" Text="Total" VerticalAlignment="Top" />
             </StackPanel>
         </Grid>
-            <!--TEXTBOX-->
+        <!--TEXTBOX-->
         <Grid Grid.Column="3" Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
                 <ComboBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="cboTipoVehiculo" VerticalAlignment="Top" Width="200" ItemsSource="{Binding Source={StaticResource LIST_TIPO} }" DisplayMemberPath="tipov_descripcion" SelectedValue="tipov_codigo" SelectionChanged="cboTipoVehiculo_SelectionChanged"/>
                 <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtPatente" VerticalAlignment="Top" Width="200"/>
                 <ComboBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="cboSector" VerticalAlignment="Top" Width="200" ItemsSource="{Binding Source={StaticResource LIST_SECTOR}}" DisplayMemberPath="sec_id" SelectedValue="sec_codigo"/>
-                <ComboBox Height="23" Margin="0,20,0,20" Name="cboDuracion" ItemsSource="{Binding Source={StaticResource roles},XPath=valor}" HorizontalAlignment="Center" Width="200" SelectionChanged="cboDuracion_SelectionChanged"/>
                 <!--Tarifa-->
                 <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtTarifa" VerticalAlignment="Top" Width="200" TextChanged="txtTarifa_TextChanged" />
-                <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtTotal" VerticalAlignment="Top" Width="200" />
-                
             </StackPanel>
         </Grid>
 

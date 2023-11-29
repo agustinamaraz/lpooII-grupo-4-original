@@ -66,7 +66,7 @@ namespace ClasesBase
             {
                 tipoVehiculo.TipoV_Codigo = int.Parse(row["tipov_codigo"].ToString());
                 tipoVehiculo.TipoV_Descripcion = row["tipov_descripcion"].ToString();
-                tipoVehiculo.TipoV_Tarifa = decimal.Parse(row["tipov_tarifa"].ToString());
+                //tipoVehiculo.TipoV_Tarifa = decimal.Parse(row["tipov_tarifa"].ToString());
             }
             return tipoVehiculo;
         }
