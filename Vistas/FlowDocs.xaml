@@ -5,16 +5,16 @@
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         Title="FlowDocs" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
-        <ObjectDataProvider x:Key="LIST_USERS"
+        <!--<ObjectDataProvider x:Key="LIST_USERS"
                             ObjectType="{x:Type data:TrabajarUsuario}"
                             MethodName="traerUsuarios">
         </ObjectDataProvider>
         
         <CollectionViewSource x:Key="VIEW_LIST_USERS" Source="{StaticResource ResourceKey=LIST_USERS}">
-            <!--<CollectionViewSource.SortDescriptions>
+            <CollectionViewSource.SortDescriptions>
                 <componentModel:SortDescription PropertyName="Usr_UserName" Direction="Ascending"></componentModel:SortDescription>
-            </CollectionViewSource.SortDescriptions>-->
-        </CollectionViewSource>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>-->
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -23,22 +23,16 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <StackPanel HorizontalAlignment="Center" Width="650" Margin="0">
-                <FlowDocumentReader>
+                <FlowDocumentReader Name="flowDocumentReader">
                     <FlowDocument Name="DocMain">
                         <Paragraph>Listado de Usuarios</Paragraph>
-                            <BlockUIContainer>
+                        <BlockUIContainer>
                             <ListView Height="350" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Name="viewUsuarios" Width="auto" 
-                                ItemsSource="{Binding Source={StaticResource VIEW_LIST_USERS}}">
+                                >
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Header="Usuario" Width="150" DisplayMemberBinding="{Binding Path=Usr_UserName}"></GridViewColumn>
-                                        <GridViewColumn Header="Constraseña" Width="150" DisplayMemberBinding="{Binding Path=Usr_Password}">
-                                            <GridViewColumn.CellTemplate>
-                                                <DataTemplate>
-                                                    <TextBlock Text="********"></TextBlock>
-                                                </DataTemplate>
-                                            </GridViewColumn.CellTemplate>
-                                        </GridViewColumn>
+                                        <GridViewColumn Header="Constraseña" Width="150" DisplayMemberBinding="{Binding Path=Usr_Password}"></GridViewColumn>
                                         <GridViewColumn Header="Apellido" Width="200" DisplayMemberBinding="{Binding Path=Usr_Apellido}"></GridViewColumn>
                                         <GridViewColumn Header="Nombre" Width="200" DisplayMemberBinding="{Binding Path=Usr_Nombre}"></GridViewColumn>
                                         <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Path=Usr_Email}"></GridViewColumn>

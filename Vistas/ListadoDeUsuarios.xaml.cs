@@ -11,9 +11,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ClasesBase;
-using System.Data;
-using System.Data.SqlClient;
-using System.Collections.ObjectModel;
 
 namespace Vistas
 {
@@ -22,7 +19,7 @@ namespace Vistas
     /// </summary>
     public partial class ListadoDeUsuarios : Window
     {
-        public static CollectionViewSource vistaColeccionFiltrada;
+        private CollectionViewSource vistaColeccionFiltrada;
 
         public ListadoDeUsuarios()
         {
@@ -41,29 +38,6 @@ namespace Vistas
             }
         }
 
-
-        //El filtro debe ser en la vista
-        /*private void btnFiltroUsername_Click(object sender, RoutedEventArgs e)
-        {
-            ObservableCollection<Usuario> usuarios = new ObservableCollection<Usuario>();
-            DataTable datatable = new DataTable();
-            Usuario usuario = new Usuario();
-            
-            datatable = TrabajarUsuario.traerUsuariosFiltrados(txtUsernameFiltro.ToString());
-            foreach (DataRow row in datatable.Rows)
-            {
-                usuario.Usr_Id = int.Parse(row["usr_id"].ToString());
-                usuario.Usr_UserName = row["usr_username"].ToString();
-                usuario.Usr_Password = row["usr_password"].ToString();
-                usuario.Usr_Apellido = row["usr_apellido"].ToString();
-                usuario.Usr_Nombre = row["usr_nombre"].ToString();
-                usuario.Usr_Email = row["usr_email"].ToString();
-                usuario.Usr_Rol = row["usr_rol"].ToString();
-                usuarios.Add(usuario);
-            }
-            viewUsuarios.DataContext = usuarios;
-        }*/
-
         private void eventVistaUsuario_Filter(object sender, FilterEventArgs e)
         {
             Usuario usuario = e.Item as Usuario;
@@ -80,19 +54,10 @@ namespace Vistas
 
         private void btnVistaPrevia_Click(object sender, RoutedEventArgs e)
         {
-            VistaPreviaImpresión vpi = new VistaPreviaImpresión();
+            CollectionViewSource cv = vistaColeccionFiltrada;
+            VistaPreviaImpresión vpi = new VistaPreviaImpresión(cv);
             this.Hide();
             vpi.Show();
-            traerUsr();
-//            vpi.ActualWidth;
-        }
-
-        private CollectionViewSource traerUsr()
-        {
-            CollectionViewSource cvs = new CollectionViewSource();
-            cvs = vistaColeccionFiltrada;
-
-            return cvs;
         }
     }
 }
