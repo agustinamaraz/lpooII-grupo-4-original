@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace ClasesBase
 {
-    public class Usuario : INotifyPropertyChanged
+    public class Usuario : INotifyPropertyChanged, IDataErrorInfo
     {
         private string usr_Password;
 
@@ -86,6 +86,131 @@ namespace ClasesBase
         public Usuario(int id)
         {
             Usr_Id = id;
+        }
+
+        public string Error
+        {
+            get
+            {
+                string msgError = "";
+                if (validarPassword() == null)
+                    msgError += "";
+                else
+                    msgError += validarPassword();
+
+                if (validarApellido() == null)
+                    msgError += "";
+                else
+                    msgError += validarApellido();
+
+                if (validarNombre() == null)
+                    msgError += "";
+                else
+                    msgError += validarNombre();
+
+                if (validarRol() == null)
+                    msgError += "";
+                else
+                    msgError += validarRol();
+
+                if (validarEmail() == null)
+                    msgError += "";
+                else
+                    msgError += validarEmail();
+
+            if (validarUsername() == null)
+                    msgError += "";
+                else
+                msgError += validarUsername();
+                return msgError;
+            }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string msgError = null;
+                switch (columnName)
+                {
+                    case "Usr_Password":
+                        msgError = validarPassword();
+                        break;
+                    case "Usr_Apellido":
+                        msgError = validarApellido();
+                        break;
+                    case "Usr_Nombre":
+                        msgError = validarNombre();
+                        break;
+                    case "Usr_Rol":
+                        msgError = validarRol();
+                        break;
+                    case "Usr_UserName":
+                        msgError = validarUsername();
+                        break;
+                    case "Usr_Email":
+                        msgError = validarEmail();
+                        break;
+                }
+                return msgError;
+            }
+        }
+
+
+        private string validarPassword()
+        {
+            if (String.IsNullOrEmpty(usr_Password))
+            {
+                return "La contraseña es obligatoria\n";
+            }
+            return null;
+        }
+
+        private string validarApellido()
+        {
+            if (String.IsNullOrEmpty(usr_Apellido))
+            {
+                return "El Apellido es obligatorio\n";
+            }
+            return null;
+        }
+        private string validarNombre()
+        {
+            if (String.IsNullOrEmpty(usr_Nombre))
+            {
+                return "El Nombre es obligatorio\n";
+            }
+            return null;
+        }
+        private string validarRol()
+        {
+            if (String.IsNullOrEmpty(usr_Rol))
+            {
+                return "El Rol es obligatorio\n";
+            }
+            return null;
+        }
+        private string validarUsername()
+        {
+            if (String.IsNullOrEmpty(usr_UserName))
+            {
+                return "El nombre de usuario es obligatorio\n";
+            }
+            return null;
+        }
+        private string validarEmail()
+        {
+            if (String.IsNullOrEmpty(usr_Email))
+            {
+                return "El email es obligatorio\n";
+            }
+            return null;
+        }
+
+        public override string ToString()
+        {
+            string msg = "username: " + usr_UserName + "\nApellido: " + usr_Apellido + "\nNombre: " + usr_Nombre + "\nRol: " + usr_Rol;
+            return msg;
         }
 
 

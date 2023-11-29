@@ -49,8 +49,12 @@ namespace Vistas
 
         private void btnFrmClientes_Click(object sender, RoutedEventArgs e)
         {
-            FrmClientes formClientes = new FrmClientes();
-            formClientes.Show();
+            //FrmClientes formClientes = new FrmClientes();
+            //formClientes.Show();
+
+            ValidarCliente validarc = new ValidarCliente();
+            validarc.Show();
+            
             this.Close();
         }
 
