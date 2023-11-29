@@ -162,5 +162,10 @@ namespace Vistas
         {
 
         }
+
+        private void UserControl1_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

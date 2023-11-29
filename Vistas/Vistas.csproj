@@ -84,6 +84,9 @@
     <Compile Include="ListadoDeUsuarios.xaml.cs">
       <DependentUpon>ListadoDeUsuarios.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListaPorFechasTickets.xaml.cs">
+      <DependentUpon>ListaPorFechasTickets.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -92,6 +95,9 @@
     </Compile>
     <Compile Include="RegistrarEntrada.xaml.cs">
       <DependentUpon>RegistrarEntrada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="registrarSalida.xaml.cs">
+      <DependentUpon>registrarSalida.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
@@ -107,6 +113,9 @@
     </Compile>
     <Compile Include="VistaPreviaImpresión.xaml.cs">
       <DependentUpon>VistaPreviaImpresión.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaPreviaVentas.xaml.cs">
+      <DependentUpon>VistaPreviaVentas.xaml</DependentUpon>
     </Compile>
     <Page Include="ABMUsuarios.xaml">
       <SubType>Designer</SubType>
@@ -148,6 +157,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ListaPorFechasTickets.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +185,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="registrarSalida.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="templateDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -195,6 +212,10 @@
     <Page Include="VistaPreviaImpresión.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaPreviaVentas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

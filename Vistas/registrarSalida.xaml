@@ -137,5 +137,8 @@
             <Label Content="Sector" VerticalAlignment="Center" Margin="0,224,0,140" />
             <Label Content="Duración" VerticalAlignment="Center" Margin="0,268,0,96" />
         </Grid>
+        <Grid Grid.Row="2">
+            <UC:UserControlbutton VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"></UC:UserControlbutton>
+        </Grid>
     </Grid>
 </Window>
