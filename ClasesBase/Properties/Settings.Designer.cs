@@ -26,9 +26,9 @@ namespace ClasesBase.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=D:\\Agustina\\UNJU\\APU\\LPOOII\\TPS\\tp28112" +
-            "3-16000\\lpooII-grupo-4-original\\lpooII-grupo-4-original\\playadb.mdf;Integrated S" +
-            "ecurity=True;Connect Timeout=30;User Instance=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=D:\\Agustina\\UNJU\\APU\\LPOOII\\TPS\\repo-ro" +
+            "cha\\lpooII-grupo-4-original\\playadb.mdf;Integrated Security=True;Connect Timeout" +
+            "=30;User Instance=True")]
         public string connection {
             get {
                 return ((string)(this["connection"]));
