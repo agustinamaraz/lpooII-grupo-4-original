@@ -75,6 +75,10 @@ namespace Vistas
             this.Hide();
         }
 
-
+        private void sectoresOcupados_Click(object sender, RoutedEventArgs e)
+        {
+            ListadoSectoresOcupados sectoresOcupadosWindow = new ListadoSectoresOcupados();
+            sectoresOcupadosWindow.Show();
+        }
     }
 }
