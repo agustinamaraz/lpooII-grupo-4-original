@@ -104,8 +104,9 @@ namespace Vistas
             ticket.Sec_Codigo = cboSector.SelectedIndex;
 
             TrabajarTicket.nuevoTicket(ticket);
-            
+
             MessageBox.Show("se agrego correctamente");
+            TrabajarSector.liberarSector(false, cboSector.SelectedIndex);
             FixedDocs fix = new FixedDocs();
             fix.Show();
             this.Hide();
