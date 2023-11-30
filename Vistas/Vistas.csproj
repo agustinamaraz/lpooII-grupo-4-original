@@ -123,6 +123,9 @@
     <Compile Include="VistaPreviaVentas.xaml.cs">
       <DependentUpon>VistaPreviaVentas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Zonas.xaml.cs">
+      <DependentUpon>Zonas.xaml</DependentUpon>
+    </Compile>
     <Page Include="ABMUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -230,6 +233,10 @@
     <Page Include="VistaPreviaVentas.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Zonas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

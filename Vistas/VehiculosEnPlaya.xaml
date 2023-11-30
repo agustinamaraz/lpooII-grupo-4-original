@@ -13,27 +13,67 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.ColumnSpan="2" Grid.Row="0">
-            <TextBlock FontSize="24" Height="38" HorizontalAlignment="Center" Margin="5" Name="textBlock5" Text="Vehiculos en Playa" VerticalAlignment="Center" Width="207" />    
+            <TextBlock FontSize="24" Height="38" HorizontalAlignment="Center" Margin="5" Name="textBlock5" Text="Vehiculos en Playa" VerticalAlignment="Center" Width="207" />
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <Button Content="E1" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE1" Width="100" Background="Green" Foreground="White" Click="btnE1_Click" />
-                <Button Content="E2" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE2" Width="100" Background="Green" Foreground="White" Click="btnE2_Click" />
-                <Button Content="E3" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE3" Width="100" Background="Green" Foreground="White" Click="btnE3_Click" />
-                <Button Content="E4" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE4" Width="100" Background="Green" Foreground="White" Click="btnE4_Click" />
-                <Button Content="E5" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE5" Width="100" Background="Green" Foreground="White" Click="btnE5_Click" />
+                <Button Content="E1" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE1" Width="100" Background="Green" Foreground="White" Click="btnE1_Click"  MouseEnter="btnE1_MouseEnter" >
+                    <Button.ToolTip>
+                        <ToolTip Content="Sector no disponible" />
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="E2" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE2" Width="100" Background="Green" Foreground="White" Click="btnE2_Click"  MouseEnter="btnE2_MouseEnter" >
+                    <Button.ToolTip>
+                        <ToolTip Content="Sector no disponible" />
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="E3" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE3" Width="100" Background="Green" Foreground="White" Click="btnE3_Click"  MouseEnter="btnE3_MouseEnter" >
+                    <Button.ToolTip>
+                        <ToolTip Content="Sector no disponible" />
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="E4" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE4" Width="100" Background="Green" Foreground="White" Click="btnE4_Click"  MouseEnter="btnE4_MouseEnter" >
+                    <Button.ToolTip>
+                        <ToolTip Content="Sector no disponible" />
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="E5" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE5" Width="100" Background="Green" Foreground="White" Click="btnE5_Click"  MouseEnter="btnE5_MouseEnter" >
+                    <Button.ToolTip>
+                        <ToolTip Content="Sector no disponible" />
+                    </Button.ToolTip>
+                </Button>
             </StackPanel>
-            </Grid>
-            <Grid Grid.Row="1" Grid.Column="2">
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <Button Content="E6" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE6"  Width="100" Background="Green" Foreground="White" Click="btnE6_Click" />
-                <Button Content="E7" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE7"  Width="100" Background="Green" Foreground="White" Click="btnE7_Click" />
-                <Button Content="E8" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE8"  Width="100" Background="Green" Foreground="White" Click="btnE8_Click" />
-                <Button Content="E9" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE9"  Width="100" Background="Green" Foreground="White" Click="btnE9_Click" />
-                <Button Content="E10" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE10" Width="100" Background="Green" Foreground="White" Click="btnE10_Click" />
+                <Button Content="E6" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE6"  Width="100" Background="Green" Foreground="White" Click="btnE6_Click"  MouseEnter="btnE6_MouseEnter" >
+                    <Button.ToolTip>
+                        <ToolTip Content="Sector no disponible" />
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="E7" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE7"  Width="100" Background="Green" Foreground="White" Click="btnE7_Click"  MouseEnter="btnE7_MouseEnter" >
+                    <Button.ToolTip>
+                        <ToolTip Content="Sector no disponible" />
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="E8" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE8"  Width="100" Background="Green" Foreground="White" Click="btnE8_Click"  MouseEnter="btnE8_MouseEnter" >
+                    <Button.ToolTip>
+                        <ToolTip Content="Sector no disponible" />
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="E9" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE9"  Width="100" Background="Green" Foreground="White" Click="btnE9_Click"  MouseEnter="btnE9_MouseEnter" >
+                    <Button.ToolTip>
+                        <ToolTip Content="Sector no disponible" />
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="E10" Height="50" HorizontalAlignment="Center" Margin="5" Name="btnE10" Width="100" Background="Green" Foreground="White" Click="btnE10_Click"  MouseEnter="btnE10_MouseEnter" >
+                    <Button.ToolTip>
+                        <ToolTip Content="Sector no disponible" />
+                    </Button.ToolTip>
+                </Button>
             </StackPanel>
-                
-            </Grid>
+
+        </Grid>
         <Grid Grid.Row="2" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20">
                 <TextBlock Height="23" Margin="20" Name="textBlock1" Text="Ocupado" VerticalAlignment="Center" />
@@ -43,11 +83,12 @@
                 <TextBlock Height="23" Margin="20" Name="textBlock3" Text="Deshabilitado" VerticalAlignment="Center" />
                 <Border BorderBrush="Silver" Background="Gray" BorderThickness="1" Height="20" Name="border" Width="28" Margin="0" />
             </StackPanel>
-            
-            
-            <Button Content="Volver" Height="23" HorizontalAlignment="Right" Margin="20" Name="btnSalir" VerticalAlignment="Bottom" Width="75" Click="btnVolver_Click" />
-            
+
+
+            <Button Content="Volver" Height="23" HorizontalAlignment="Right" Margin="20" Name="btnSalir" VerticalAlignment="Bottom" Width="75" Click="btnExit_Click" />
+
         </Grid>
-        
+
     </Grid>
 </Window>
+

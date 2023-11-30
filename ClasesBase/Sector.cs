@@ -42,13 +42,28 @@ namespace ClasesBase
             set { sec_Codigo = value; }
         }
 
-        //Zona Codigo
-        private int zonaCodigo;
-
-        public int ZonaCodigo
+        //zonaCodigo
+        private int zona_Codigo;
+        public int Zona_Codigo
         {
-            get { return zonaCodigo; }
-            set { zonaCodigo = value; }
+            get { return zona_Codigo; }
+            set { zona_Codigo = value; }
+        }
+
+        public Sector() { }
+
+        public Sector(int sectorCodigo, string descripcion, string identificador, bool habilitado, int zonaCodigo)
+        {
+            Sec_Codigo = sectorCodigo;
+            Sec_Descripcion = descripcion;
+            Sec_Id = identificador;
+            Sec_Habilitado = habilitado;
+            zona_Codigo = zonaCodigo;
+        }
+
+        public override string ToString()
+        {
+            return "SectorCodigo: " + Sec_Codigo + ",\nDescripcion: " + Sec_Descripcion + ",\nIdentificador: " + Sec_Id + ",\nHabilitado: " + Sec_Habilitado + ",\nZonaCodigo: " + Zona_Codigo;
         }
     }
 }
