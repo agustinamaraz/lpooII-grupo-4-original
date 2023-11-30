@@ -24,7 +24,6 @@ namespace Vistas
     {
 
         DataTable dtVentas;
-        string totalVentas;
         string total;
 
 

@@ -29,7 +29,6 @@ namespace Vistas
         public static ObservableCollection<Ticket> prueba;
 
         //para la duracion
-        decimal sDuracion = 0;
         decimal sTarifa = 0;
 
         public RegistrarEntrada()

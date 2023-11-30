@@ -4,7 +4,7 @@
         Title="ListaPorFechasTickets" Height="400" Width="1350">
     <Window.Resources>
     </Window.Resources>
-    <Grid>
+    <Grid Background="#FF2667A3">
         <Grid.RowDefinitions>
             <RowDefinition Height="50*" />
             <RowDefinition Height="295*" />
