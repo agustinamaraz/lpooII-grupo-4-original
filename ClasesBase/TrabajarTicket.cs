@@ -10,29 +10,6 @@ namespace ClasesBase
 {
     public class TrabajarTicket
     {
-        public static void nuevoTicket(Ticket ticket)
-        {
-            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connection);
-            SqlCommand command = new SqlCommand();
-
-            command.CommandType = CommandType.StoredProcedure;
-            command.CommandText = "nuevoTicket_sp";
-            command.Connection = connection;
-
-            command.Parameters.AddWithValue("@fechaE",ticket.Tick_FechaHoraEntra);
-            //command.Parameters.AddWithValue("@fechaS", ticket.Tick_FechaHoraSale);
-            command.Parameters.AddWithValue("@dni", ticket.Cli_Dni);
-            command.Parameters.AddWithValue("@vehiculo", ticket.TipoV_Codigo);
-            command.Parameters.AddWithValue("@sector", ticket.Sec_Codigo);
-            command.Parameters.AddWithValue("@patente", ticket.Tick_Patente);
-            //command.Parameters.AddWithValue("@duracion", ticket.Tick_Duracion);
-            command.Parameters.AddWithValue("@tarifa", ticket.Tick_Tarifa);
-            //command.Parameters.AddWithValue("@total", ticket.Tick_Total);
-
-            connection.Open();
-            command.ExecuteNonQuery();
-            connection.Close();
-        }
 
         public static void modificarTicket(Ticket ticket)
         {
@@ -54,6 +31,30 @@ namespace ClasesBase
             command.Parameters.AddWithValue("@duracion", ticket.Tick_Duracion);
             command.Parameters.AddWithValue("@tarifa", ticket.Tick_Tarifa);
             command.Parameters.AddWithValue("@total", ticket.Tick_Total);
+
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void nuevoTicket(Ticket ticket)
+        {
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connection);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "nuevoTicket_sp";
+            command.Connection = connection;
+
+            command.Parameters.AddWithValue("@fechaE",ticket.Tick_FechaHoraEntra);
+            //command.Parameters.AddWithValue("@fechaS", ticket.Tick_FechaHoraSale);
+            command.Parameters.AddWithValue("@dni", ticket.Cli_Dni);
+            command.Parameters.AddWithValue("@vehiculo", ticket.TipoV_Codigo);
+            command.Parameters.AddWithValue("@sector", ticket.Sec_Codigo);
+            command.Parameters.AddWithValue("@patente", ticket.Tick_Patente);
+            //command.Parameters.AddWithValue("@duracion", ticket.Tick_Duracion);
+            command.Parameters.AddWithValue("@tarifa", ticket.Tick_Tarifa);
+            //command.Parameters.AddWithValue("@total", ticket.Tick_Total);
 
             connection.Open();
             command.ExecuteNonQuery();
@@ -95,7 +96,6 @@ namespace ClasesBase
             return ticket;
         }
 
-
         public static DataTable traerTicketsDataTable()
         {
             SqlConnection connection = new SqlConnection(Properties.Settings.Default.connection);
@@ -112,7 +112,6 @@ namespace ClasesBase
 
             return datatable;
         }
-
 
         public static ObservableCollection<Ticket> traerTickets()
         {

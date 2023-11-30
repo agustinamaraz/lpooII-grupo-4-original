@@ -1,4 +1,4 @@
-﻿<Window x:Class="Vistas.registrarSalida"
+<Window x:Class="Vistas.registrarSalida"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                 xmlns:scv="clr-namespace:ClasesBase;assembly=ClasesBase"

@@ -69,15 +69,44 @@ namespace Vistas
                 usuario.Usr_Nombre = txtNombre.Text;
                 usuario.Usr_Password = txtPassword.Text;
                 usuario.Usr_Email = txtEmail.Text;
-                usuario.Usr_Rol = cboRol.SelectedValue.ToString();
-                MessageBoxResult msg = MessageBox.Show(usuario.ToString(), "Confirmacion", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
-                if (msg == MessageBoxResult.OK)
-                {
-                    TrabajarUsuario.nuevoUsuario(usuario);
-                    listaUsuario.Add(usuario);
 
-                    MessageBox.Show("Usuario agregado correctamente");
-                    Vista.MoveCurrentToLast();
+                //if (cboRol.SelectedValue == null)
+                //{
+                  // usuario.Usr_Rol = cboRol.SelectedValue?.ToString();
+                //}
+
+                usuario.Usr_Rol = cboRol.SelectedValue != null ? cboRol.SelectedValue.ToString() : null;
+
+               
+
+
+                string a = usuario.Error;
+                
+
+                if (a == "")
+                {
+                    MessageBoxResult msg2 = MessageBox.Show(usuario.ToString(), "Confirmacion", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
+                    if (msg2 == MessageBoxResult.OK)
+                    {
+                        TrabajarUsuario.nuevoUsuario(usuario);
+                        listaUsuario.Add(usuario);
+
+                        MessageBox.Show("Usuario agregado correctamente");
+                        Vista.MoveCurrentToLast();
+
+                        limpiarCampos();
+                        deshabilitarCampos();
+                        btnNuevoUsuario.IsEnabled = true;
+                        btnGuardar.IsEnabled = false;
+                        btnCancelar.IsEnabled = false;
+                        btnEliminarUsuario.IsEnabled = true;
+                        btnActualizar.IsEnabled = true;
+
+                    }
+                }
+                else
+                {
+                    MessageBoxResult msg2 = MessageBox.Show(a, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
@@ -107,13 +136,7 @@ namespace Vistas
 
 
             }
-            limpiarCampos();
-            deshabilitarCampos();
-            btnNuevoUsuario.IsEnabled = true;
-            btnGuardar.IsEnabled = false;
-            btnCancelar.IsEnabled = false;
-            btnEliminarUsuario.IsEnabled = true;
-            btnActualizar.IsEnabled = true;
+            
 
         }
 

@@ -186,8 +186,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="registrarSalida.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="templateDictionary.xaml">
       <SubType>Designer</SubType>
