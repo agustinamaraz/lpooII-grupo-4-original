@@ -88,7 +88,6 @@
             <StackPanel Orientation="Vertical" HorizontalAlignment="center">
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock13" Text="Tipo Vehiculo" VerticalAlignment="Top" />
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock14" Text="Patente" VerticalAlignment="Top" />
-                <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock15" Text="Sector" VerticalAlignment="Top" />
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock17" Text="Tarifa" VerticalAlignment="Top" />
             </StackPanel>
         </Grid>
@@ -97,7 +96,6 @@
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
                 <ComboBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="cboTipoVehiculo" VerticalAlignment="Top" Width="200" ItemsSource="{Binding Source={StaticResource LIST_TIPO} }" DisplayMemberPath="tipov_descripcion" SelectedValue="tipov_codigo" SelectionChanged="cboTipoVehiculo_SelectionChanged"/>
                 <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtPatente" VerticalAlignment="Top" Width="200"/>
-                <ComboBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="cboSector" VerticalAlignment="Top" Width="200" ItemsSource="{Binding Source={StaticResource LIST_SECTOR}}" DisplayMemberPath="sec_id" SelectedValue="sec_codigo"/>
                 <!--Tarifa-->
                 <TextBox Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="txtTarifa" VerticalAlignment="Top" Width="200" TextChanged="txtTarifa_TextChanged" />
             </StackPanel>

@@ -90,7 +90,7 @@ namespace ClasesBase
                 TipoVehiculo TV ON tkt.tipov_codigo = TV.tipov_codigo
             WHERE 
                 tkt.sec_codigo IS NOT NULL
-                AND tkt.tick_fechahorasale IS NULL"; // Solo incluir sectores con tickets y que no tengan fecha de salida
+                AND tkt.tick_total = 0"; // Solo incluir sectores con tickets y que no tengan fecha de salida
 
                 SqlCommand cmd = new SqlCommand(query, cnn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -104,6 +104,27 @@ namespace ClasesBase
             }
         }
 
+        public static DataTable TraerSectoresPorZona(int zonaCodigo)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.connection);
 
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM Sector WHERE zona_codigo = @ZonaCodigo";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
+
+            // Agrega el parámetro para el código de zona
+            cmd.Parameters.AddWithValue("@ZonaCodigo", zonaCodigo);
+
+            // Ejecuta la consulta
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            // Llena los datos de la consulta en el DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
     }
+
 }

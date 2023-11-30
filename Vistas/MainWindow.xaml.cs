@@ -30,7 +30,7 @@ namespace Vistas
         {
             if(Login.rol == "1"){
                 btnFrmClientes.Visibility = Visibility.Hidden;
-                btnFrmVehiculoEnPlaya.Visibility = Visibility.Hidden;
+                menuZonas.Visibility = Visibility.Hidden;
             }
             else if (Login.rol == "2")
             {
@@ -72,22 +72,16 @@ namespace Vistas
             this.Close();
         }
 
-        private void btnFrmVehiculoEnPlaya_Click(object sender, RoutedEventArgs e)
+        private void menuZonas_Click(object sender, RoutedEventArgs e)
         {
-            VehiculosEnPlaya vehiculo = new VehiculosEnPlaya();
-            vehiculo.Show();
-            this.Hide();
+            Zonas zonasVista = new Zonas();
+            zonasVista.Show();
         }
 
         private void sectoresOcupados_Click(object sender, RoutedEventArgs e)
         {
             ListadoSectoresOcupados sectoresOcupadosWindow = new ListadoSectoresOcupados();
             sectoresOcupadosWindow.Show();
-        }
-        private void btnRegistrarEntrada_Click(object sender, RoutedEventArgs e)
-        {
-            RegistrarEntrada registrarEntradaWindow = new RegistrarEntrada();
-            registrarEntradaWindow.Show();
         }
         private void btnRegistrarSalida_Click(object sender, RoutedEventArgs e)
         {

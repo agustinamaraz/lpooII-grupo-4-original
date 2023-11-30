@@ -29,11 +29,15 @@ namespace Vistas
         public static ObservableCollection<Ticket> prueba;
 
         //para la duracion
+
+        public int codigoSector;
+        public int zona;
         decimal sTarifa = 0;
 
-        public RegistrarEntrada()
+        public RegistrarEntrada(int sectorId)
         {
             InitializeComponent();
+            codigoSector = sectorId;
             vistaColeccionFiltrada = Resources["VISTA_CLI"] as CollectionViewSource;
         }
 
@@ -91,24 +95,23 @@ namespace Vistas
             Ticket ticket = new Ticket();
             TipoVehiculo v = new TipoVehiculo();
             DataRowView drv = (DataRowView)cboTipoVehiculo.SelectedItem;
-            DataRowView drvv = (DataRowView)cboSector.SelectedItem;
 
             //v = (TipoVehiculo)cboTipoVehiculo.SelectedItem;
 
             ticket.Cli_Dni = int.Parse(txtDniCliente.Text);
-            ticket.Tick_FechaHoraEntra = DateTime.Parse(dateTimeEntraTicket.ToString());
-            ticket.Tick_FechaHoraSale = DateTime.Now;
+            ticket.Tick_FechaHoraEntra = DateTime.Now;
+            ticket.Tick_FechaHoraSale = DateTime.Now.AddHours(1);
             ticket.Cli_Dni = int.Parse(txtDniCliente.Text.ToString());
             ticket.TipoV_Codigo = Convert.ToInt32(drv["tipov_codigo"]);
             ticket.Tick_Patente = txtPatente.Text.ToString();
+            ticket.Tick_Tarifa = decimal.Parse(txtTarifa.Text);
             ticket.Tick_Duracion = 0;
-            ticket.Tick_Tarifa = 0;
             ticket.Tick_Total = 0;
-            ticket.Sec_Codigo = Convert.ToInt32(drvv["sec_codigo"]);
+            ticket.Sec_Codigo = codigoSector;
 
             TrabajarTicket.nuevoTicket(ticket);
 
-            TrabajarSector.liberarSector(false, ticket.Sec_Codigo);
+            //TrabajarSector.liberarSector(false, ticket.Sec_Codigo);
 
             MessageBox.Show("se agrego correctamente");
             FixedDocs fix = new FixedDocs(ticket);
@@ -170,7 +173,6 @@ namespace Vistas
             //txtTotal.Clear();
             //cboHoraEntrada.SelectedItem = null;
             //cboMinutosEntrada.SelectedItem = null;
-            cboSector.SelectedItem = null;
         }
     }
 }

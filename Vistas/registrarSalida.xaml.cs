@@ -75,11 +75,11 @@ namespace Vistas
                         // Actualiza los TextBox con la información del ticket encontrado
                         txtApellido.Text = ticketElegido.Cli_Dni.ToString();
                         txtFechaHoraEntra.Text = ticketElegido.Tick_FechaHoraEntra.ToString();
+                        Console.WriteLine(ticketElegido.Tick_Tarifa.ToString());
+                        ticketElegido.Tick_FechaHoraSale = DateTime.Now.AddHours(1);
 
-                        ticketElegido.Tick_FechaHoraSale = DateTime.Now;
-
-                        ticketElegido.Tick_Duracion = 0;
-                        ticketElegido.Tick_Total = 0;
+                        ticketElegido.Tick_Duracion = 1;
+                        ticketElegido.Tick_Total = ticketElegido.Tick_Tarifa;
                         calcularTotal(ticketElegido);
 
                         txtFechaHoraSale.Text = DateTime.Now.ToString();
@@ -159,31 +159,40 @@ namespace Vistas
 
         public decimal calcularTotal(Ticket ticketObtenido)
         {
+            // Calcular la duración en horas
             TimeSpan duracion = ticketObtenido.Tick_FechaHoraSale - ticketObtenido.Tick_FechaHoraEntra;
+            double duracionEnHoras = Math.Round(duracion.TotalHours, 1);
 
-            double duracionEnDouble = duracion.TotalHours;
-            double duracionTotal = Math.Round(duracionEnDouble, 1);
-            if (duracionTotal < 1)
-            {
-                // Si la duración es menor que 1 hora, establecerla en 1 hora
-                duracionTotal = 1;
-                duracionEnDouble = 1;
-            }
+            // Establecer la duración mínima en 1 hora
+            double duracionTotal = Math.Max(duracionEnHoras, 1);
 
+            // Actualizar la duración en el ticket
             ticketObtenido.Tick_Duracion = duracionTotal;
 
-            decimal duracionDecimal = new Decimal(duracionEnDouble);
+            // Calcular el total a pagar
+            decimal totalAPagar = (decimal)duracionTotal * ticketObtenido.Tick_Tarifa;
 
-            decimal totalAPagar = duracionDecimal * ticketElegido.Tick_Tarifa;
+            // Ajustar el total si es 0 o menor que la tarifa
+            if (totalAPagar <= 0)
+            {
+                totalAPagar = ticketObtenido.Tick_Tarifa;
+                duracionTotal = 1;
+                ticketObtenido.Tick_Duracion = 1;
+            }
+
+            // Redondear el total a dos decimales
             totalAPagar = Math.Round(totalAPagar, 2);
 
+            // Actualizar el total en el ticket
             ticketObtenido.Tick_Total = totalAPagar;
 
-            // Esto es lo que permitirá registrar luego el ticket
-            total = decimal.Parse(totalAPagar.ToString());
+            // Mostrar el total en la consola (puedes comentar o eliminar esta línea en producción)
+            Console.WriteLine(totalAPagar.ToString());
 
-            return total;
+            // Devolver el total calculado
+            return totalAPagar;
         }
+
 
         private void txtTotal_TextChanged(object sender, TextChangedEventArgs e)
         {
