@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,11 +32,7 @@ namespace Vistas
 
         Ticket ticketElegido = new Ticket();
 
-        string numeroString;
-        double duracionTiempo;
         decimal total = 0;
-        decimal sDuracion = 0;
-        decimal sTarifa = 0;
 
         public registrarSalida()
         {
@@ -53,38 +49,65 @@ namespace Vistas
 
             cargarComboVehiculo();
         }
-
-
-
-
-
-
-        private void txtNro_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.Show();
+        }
 
+
+
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
+                if (!string.IsNullOrEmpty(txtNro.Text))
+                {
+                    ticketElegido = TrabajarTicket.traerTicketSingular(txtNro.Text);
+                    if (ticketElegido.Tick_Duracion != 0)
+                    {
+                        MessageBox.Show("Este ticket ya fue registrado como venta");
+                    }
+                    else
+                    {
+                        // Actualiza los TextBox con la información del ticket encontrado
+                        txtApellido.Text = ticketElegido.Cli_Dni.ToString();
+                        txtFechaHoraEntra.Text = ticketElegido.Tick_FechaHoraEntra.ToString();
 
-                ticketElegido = TrabajarTicket.traerTicketSingular(txtNro.Text);
-                ticketElegido.Tick_Duracion = 0;
-                ticketElegido.Tick_Total = 0;
-                txtApellido.Text = ticketElegido.Cli_Dni.ToString();
-                txtFechaHoraEntra.Text = ticketElegido.Tick_FechaHoraEntra.ToString();
-                ticketElegido.Tick_FechaHoraSale = DateTime.Now;
-                calcularTotal(ticketElegido);
-                txtFechaHoraSale.Text = ticketElegido.Tick_FechaHoraSale.ToString();
-                txtTipoVehiculo.Text = ticketElegido.TipoV_Codigo.ToString();
-                txtSector.Text = ticketElegido.Sec_Codigo.ToString();
-                txtPatente.Text = ticketElegido.Tick_Patente;
-                txtDuracion.Text = ticketElegido.Tick_Duracion.ToString();
-                txtTarifa.Text = ticketElegido.Tick_Tarifa.ToString();
-                txtTotal.Text = ticketElegido.Tick_Total.ToString();
+                        ticketElegido.Tick_FechaHoraSale = DateTime.Now;
 
+                        ticketElegido.Tick_Duracion = 0;
+                        ticketElegido.Tick_Total = 0;
+                        calcularTotal(ticketElegido);
+
+                        txtFechaHoraSale.Text = DateTime.Now.ToString();
+
+                        txtTipoVehiculo.Text = ticketElegido.TipoV_Codigo.ToString();
+                        txtSector.Text = ticketElegido.Sec_Codigo.ToString();
+                        txtPatente.Text = ticketElegido.Tick_Patente;
+                        txtDuracion.Text = ticketElegido.Tick_Duracion.ToString();
+                        txtTarifa.Text = ticketElegido.Tick_Tarifa.ToString();
+                        txtTotal.Text = ticketElegido.Tick_Total.ToString();
+                    }
+                }
+                else
+                {
+                    if (ticketElegido.Tick_Total > 0)
+                    {
+                        MessageBox.Show("Este ticket ya fue registrado anteriormente, no corresponde realizar una nueva salida");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingrese un número de ticket antes de buscar.");
+                    }
+                }
             }
             catch (Exception ex)
             {
-                // Manejar la excepción aquí (puedes mostrar un mensaje al usuario, registrar el error, etc.)
-                MessageBox.Show("Error al obtener el ticket" + ex.Message);
+                Console.WriteLine(txtNro.Text + "  " + ex);
+                MessageBox.Show("Error al obtener el ticket");
             }
         }
         private void txtApellido_TextChanged(object sender, TextChangedEventArgs e)
@@ -103,11 +126,11 @@ namespace Vistas
 
             TrabajarTicket.modificarTicket(ticketElegido);
 
-            TrabajarSector.liberarSector(false, ticketElegido.Sec_Codigo);
+            TrabajarSector.liberarSector(true, ticketElegido.Sec_Codigo);
 
-            MessageBox.Show("se agrego correctamente");
+            MessageBox.Show("Se agrego correctamente el ticket a las ventas");
 
-            FixedDocs fix = new FixedDocs(ticketElegido);
+            FixedDocsSalida fix = new FixedDocsSalida(ticketElegido);
             fix.Show();
             this.Hide();
         }
@@ -140,7 +163,12 @@ namespace Vistas
 
             double duracionEnDouble = duracion.TotalHours;
             double duracionTotal = Math.Round(duracionEnDouble, 1);
-
+            if (duracionTotal < 1)
+            {
+                // Si la duración es menor que 1 hora, establecerla en 1 hora
+                duracionTotal = 1;
+                duracionEnDouble = 1;
+            }
 
             ticketObtenido.Tick_Duracion = duracionTotal;
 
@@ -151,8 +179,9 @@ namespace Vistas
 
             ticketObtenido.Tick_Total = totalAPagar;
 
-            //Esto es lo permitira registrar luego el ticket
+            // Esto es lo que permitirá registrar luego el ticket
             total = decimal.Parse(totalAPagar.ToString());
+
             return total;
         }
 

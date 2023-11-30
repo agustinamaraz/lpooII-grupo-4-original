@@ -84,6 +84,8 @@
     <Compile Include="ListadoDeUsuarios.xaml.cs">
       <DependentUpon>ListadoDeUsuarios.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListaPorFechasTickets.xaml.cs">
+      <DependentUpon>ListaPorFechasTickets.xaml</DependentUpon>
     <Compile Include="ListadoSectoresOcupados.xaml.cs">
       <DependentUpon>ListadoSectoresOcupados.xaml</DependentUpon>
     </Compile>
@@ -113,6 +115,9 @@
     </Compile>
     <Compile Include="VistaPreviaImpresión.xaml.cs">
       <DependentUpon>VistaPreviaImpresión.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaPreviaVentas.xaml.cs">
+      <DependentUpon>VistaPreviaVentas.xaml</DependentUpon>
     </Compile>
     <Page Include="ABMUsuarios.xaml">
       <SubType>Designer</SubType>
@@ -154,9 +159,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+
+    <Page Include="ListaPorFechasTickets.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     <Page Include="ListadoSectoresOcupados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+
     </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
@@ -209,6 +219,10 @@
     <Page Include="VistaPreviaImpresión.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaPreviaVentas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

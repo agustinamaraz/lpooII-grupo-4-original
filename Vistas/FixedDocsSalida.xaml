@@ -1,9 +1,9 @@
-﻿<Window x:Class="Vistas.FixedDocs"
+﻿<Window x:Class="Vistas.FixedDocsSalida"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         xmlns:data="clr-namespace:ClasesBase;assembly=ClasesBase"
-        Title="FixedDocs" Height="500" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="FixedDocsSalida" Height="500" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
 
     <FixedDocument>
         <PageContent>
@@ -44,6 +44,7 @@
                             <TextBlock Text="Cliente: " Margin="0,5,0,5" Height="20"></TextBlock>
                             <TextBlock Text="Patente: " Margin="0,5,0,5" Height="20"></TextBlock>
                             <TextBlock Text="Ingreso: " Margin="0,5,0,5" Height="20"></TextBlock>
+                            <TextBlock Text="Salida: " Margin="0,5,0,5" Height="20"></TextBlock>
                             <TextBlock Text="Tipo Vehiculo: " Margin="0,5,0,5" Height="20"></TextBlock>
                             <TextBlock Text="Tarifa: " Margin="0,5,0,5" Height="20"></TextBlock>
                             <TextBlock Text="Total: " Margin="0,5,0,5" Height="20"></TextBlock>
@@ -56,6 +57,7 @@
                             <TextBlock Height="20" Width="135" Margin="0,5,0,5" Name="txtApellidoNombre"></TextBlock>
                             <TextBlock Height="20" Width="135" Margin="0,5,0,5" Name="txtPatente"></TextBlock>
                             <TextBlock Height="20" Width="135" Margin="0,5,0,5" Name="txtFechaEntra"></TextBlock>
+                            <TextBlock Height="20" Width="135" Margin="0,5,0,5" Name="txtFechaSale"></TextBlock>
                             <TextBlock Height="20" Width="135" Margin="0,5,0,5" Name="txtTipoVehiculo"></TextBlock>
                             <TextBlock Height="20" Width="135" Margin="0,5,0,5" Name="txtTarifa"></TextBlock>
                             <TextBlock Height="20" Width="135" Margin="0,5,0,5" Name="txtTotal"></TextBlock>
