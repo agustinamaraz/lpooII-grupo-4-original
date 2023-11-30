@@ -47,14 +47,14 @@ namespace ClasesBase
             command.Connection = connection;
 
             command.Parameters.AddWithValue("@fechaE",ticket.Tick_FechaHoraEntra);
-            //command.Parameters.AddWithValue("@fechaS", ticket.Tick_FechaHoraSale);
+            command.Parameters.AddWithValue("@fechaS", ticket.Tick_FechaHoraSale);
             command.Parameters.AddWithValue("@dni", ticket.Cli_Dni);
             command.Parameters.AddWithValue("@vehiculo", ticket.TipoV_Codigo);
             command.Parameters.AddWithValue("@sector", ticket.Sec_Codigo);
             command.Parameters.AddWithValue("@patente", ticket.Tick_Patente);
-            //command.Parameters.AddWithValue("@duracion", ticket.Tick_Duracion);
+            command.Parameters.AddWithValue("@duracion", ticket.Tick_Duracion);
             command.Parameters.AddWithValue("@tarifa", ticket.Tick_Tarifa);
-            //command.Parameters.AddWithValue("@total", ticket.Tick_Total);
+            command.Parameters.AddWithValue("@total", ticket.Tick_Total);
 
             connection.Open();
             command.ExecuteNonQuery();
@@ -82,7 +82,7 @@ namespace ClasesBase
 
             foreach (DataRow row in datatable.Rows)
             {
-                ticket.Tick_Numero = int.Parse(row["tick_numero"].ToString());
+                ticket.Tick_Numero = int.Parse(row["tick_codigo"].ToString());
                 ticket.Tick_FechaHoraEntra = DateTime.Parse(row["tick_fechahoraentra"].ToString());
                 ticket.Tick_FechaHoraSale = DateTime.Parse(row["tick_fechahorasale"].ToString());
                 ticket.Cli_Dni = int.Parse(row["cli_dni"].ToString());

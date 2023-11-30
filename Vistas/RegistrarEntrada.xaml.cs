@@ -90,16 +90,18 @@ namespace Vistas
 
             ticket.Cli_Dni = int.Parse(txtDniCliente.Text);
             ticket.Tick_FechaHoraEntra = DateTime.Parse(dateTimeEntraTicket.ToString());
-            //ticket.Tick_FechaHoraSale = DateTime.Parse(dateTimeSaleTicket.ToString());
+            ticket.Tick_FechaHoraSale = DateTime.Now;
             ticket.Cli_Dni = int.Parse(txtDniCliente.Text.ToString());
             ticket.TipoV_Codigo = Convert.ToInt32(drv["tipov_codigo"]);
             ticket.Tick_Patente = txtPatente.Text.ToString();
-            //ticket.Tick_Duracion = float.Parse(cboDuracion.SelectedValue.ToString());
-            ticket.Tick_Tarifa = decimal.Parse(txtTarifa.Text);
-            //ticket.Tick_Total = decimal.Parse(txtTotal.Text);
+            ticket.Tick_Duracion = 0;
+            ticket.Tick_Tarifa = 0;
+            ticket.Tick_Total = 0;
             ticket.Sec_Codigo = Convert.ToInt32(drvv["sec_codigo"]);
 
             TrabajarTicket.nuevoTicket(ticket);
+
+            TrabajarSector.liberarSector(false, ticket.Sec_Codigo);
 
             MessageBox.Show("se agrego correctamente");
             FixedDocs fix = new FixedDocs(ticket);
