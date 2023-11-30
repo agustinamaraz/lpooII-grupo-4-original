@@ -43,6 +43,48 @@ namespace ClasesBase
 
             return listaUsuario;
         }
+
+        public static Usuario findLogin(string username, string password)
+        {
+            Usuario usuario = null;
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.connection);
+            string sqlQuery = "SELECT * FROM Usuario WHERE BINARY_CHECKSUM(usr_userName) = BINARY_CHECKSUM(@username) AND BINARY_CHECKSUM(usr_password) = BINARY_CHECKSUM(@password)";
+            SqlCommand cmd = new SqlCommand(sqlQuery, cnn);
+            cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    usuario = new Usuario
+                    {
+                        Usr_Id = Convert.ToInt32(reader["usr_id"]),
+                        Usr_Rol = reader["usr_rol"].ToString(),
+                        Usr_Nombre = reader["usr_nombre"].ToString(),
+                        Usr_Apellido = reader["usr_apellido"].ToString(),
+                        Usr_Password = reader["usr_password"].ToString(),
+                        Usr_UserName = reader["usr_userName"].ToString()
+                    };
+                }
+                else
+                {
+                    Console.WriteLine("No se encontró el usuario: " + username);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al buscar usuario por credenciales: " + ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            return usuario;
+        }
+
         public static void nuevoUsuario(Usuario usuario) {
             SqlConnection connection = new SqlConnection(Properties.Settings.Default.connection);
             SqlCommand command = new SqlCommand();

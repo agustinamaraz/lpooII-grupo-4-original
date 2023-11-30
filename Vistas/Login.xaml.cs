@@ -20,10 +20,48 @@ namespace Vistas
     /// </summary>
     public partial class Login : Window
     {
+        public Usuario login;
         public static string rol = "";
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void btnIngresar_Click(object sender, RoutedEventArgs e)
+        {
+            string usuario = control.Usuario;
+            string contrasena = control.Password;
+
+            //Usuario user = new Usuario("admin", "admin");
+            //Usuario user2 = new Usuario("operador", "operador");
+            login = TrabajarUsuario.findLogin(usuario, contrasena);
+
+
+            if (login != null)
+            {
+                MainWindow main = new MainWindow();
+                if (login.Usr_Rol == "Administrador")
+                {
+                    MessageBox.Show("Bienvenido, Administrador");
+                    rol = "1";
+                    // Realiza las acciones necesarias para el usuario Admin
+                    main.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Bienvenido, Operador");
+                    rol = "2";
+                    // Realiza las acciones necesarias para el usuario Operador
+                    main.Show();
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos");
+            }
+
         }
 
        

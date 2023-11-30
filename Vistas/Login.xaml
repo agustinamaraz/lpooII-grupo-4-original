@@ -13,11 +13,12 @@
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Image Source="/Vistas;component/Images/logo.png" Margin="10"></Image>    
+            <Image Source="/Vistas;component/Images/logo.png" Margin="10"></Image>
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel Width="500" Height="auto" VerticalAlignment="Center">
-                <UC:UserControl1 Margin="0" Loaded="UserControl1_Loaded"></UC:UserControl1>
+                <UC:UserControl1 Margin="0" Loaded="UserControl1_Loaded" x:Name="control"></UC:UserControl1>
+                <Button Content="Ingresar" Height="23" Name="btnIngresar" Width="75" Click="btnIngresar_Click" Foreground="#FFC9CACC" Background="#FF2667A3" />
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
