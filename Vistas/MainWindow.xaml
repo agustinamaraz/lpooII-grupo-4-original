@@ -36,5 +36,6 @@
             <Button Content="Salir" Height="36" HorizontalAlignment="Right" Name="btnSalir" VerticalAlignment="Center" Width="100" Focusable="False" BorderBrush="{x:Null}" Background="#FFBD2D56" BorderThickness="0" FontFamily="Trebuchet MS" ForceCursor="False" Foreground="#FFC8C9CB" Click="btnSalir_Click" Grid.Column="4"/>
         </Grid>
         <Image Grid.Row="2" Grid.ColumnSpan="5"  Height="414" Width="1000" HorizontalAlignment="Center" Name="image1" Stretch="Fill" VerticalAlignment="Center"  Opacity="0.85" Source="/Vistas;component/Images/images.png" />
+        <Button Background="#FF2667A3" BorderBrush="{x:Null}" BorderThickness="0" Content="Sectores Ocupados" Focusable="False" FontFamily="Trebuchet MS" ForceCursor="False" Foreground="Beige" Height="36" HorizontalAlignment="Center" Margin="12,274,57,65" VerticalAlignment="Center" Width="126" Grid.Row="2" Name="sectoresOcupados" Click="sectoresOcupados_Click"/>
     </Grid>
 </Window>

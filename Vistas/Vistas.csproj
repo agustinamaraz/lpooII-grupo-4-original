@@ -86,6 +86,8 @@
     </Compile>
     <Compile Include="ListaPorFechasTickets.xaml.cs">
       <DependentUpon>ListaPorFechasTickets.xaml</DependentUpon>
+    <Compile Include="ListadoSectoresOcupados.xaml.cs">
+      <DependentUpon>ListadoSectoresOcupados.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -157,9 +159,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+
     <Page Include="ListaPorFechasTickets.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    <Page Include="ListadoSectoresOcupados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+
     </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
