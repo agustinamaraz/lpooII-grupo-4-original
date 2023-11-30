@@ -84,5 +84,25 @@ namespace Vistas
             ListadoSectoresOcupados sectoresOcupadosWindow = new ListadoSectoresOcupados();
             sectoresOcupadosWindow.Show();
         }
+        private void btnRegistrarEntrada_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarEntrada registrarEntradaWindow = new RegistrarEntrada();
+            registrarEntradaWindow.Show();
+        }
+        private void btnRegistrarSalida_Click(object sender, RoutedEventArgs e)
+        {
+            registrarSalida registrarSalidaWindow = new registrarSalida();
+            registrarSalidaWindow.Show();
+        }
+        private void btnListaVentas_Click(object sender, RoutedEventArgs e)
+        {
+            ListaPorFechasTickets listaTicketsWindow = new ListaPorFechasTickets();
+            listaTicketsWindow.Show();
+        }
+        private void btnListaUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            ListadoDeUsuarios listadoUsuariosWindow = new ListadoDeUsuarios();
+            listadoUsuariosWindow.Show();
+        }
     }
 }

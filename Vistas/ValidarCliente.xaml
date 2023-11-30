@@ -55,7 +55,7 @@
         </Style>
 
     </Window.Resources>
-    <Grid Width="343">
+    <Grid Width="343" Background="#FF2667A3">
         <Grid.RowDefinitions>
             <RowDefinition Height="75"></RowDefinition>
             <RowDefinition></RowDefinition>

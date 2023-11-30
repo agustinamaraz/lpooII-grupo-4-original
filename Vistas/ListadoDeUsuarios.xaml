@@ -17,7 +17,7 @@
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
     </Window.Resources>
-    <Grid>
+    <Grid Background="#FF2667A3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"></ColumnDefinition>
             <ColumnDefinition Width="250"></ColumnDefinition>
@@ -58,6 +58,7 @@
                 </ListView.View>
             </ListView>
 
+            <Button Content="Volver" Height="25" HorizontalAlignment="Right" Margin="0,0,901,14" Name="btnVolver" VerticalAlignment="Bottom" Width="75" Click="btnVolver_Click" Background="#FFFF757A" FontSize="14" FontFamily="Agency FB" />
         </Grid>
     </Grid>
 </Window>
