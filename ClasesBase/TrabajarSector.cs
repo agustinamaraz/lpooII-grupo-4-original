@@ -104,6 +104,26 @@ namespace ClasesBase
             }
         }
 
+        public static DataTable TraerSectoresPorZona(int zonaCodigo)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.connection);
 
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM Sector WHERE zona_codigo = @ZonaCodigo";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
+
+            // Agrega el parámetro para el código de zona
+            cmd.Parameters.AddWithValue("@ZonaCodigo", zonaCodigo);
+
+            // Ejecuta la consulta
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            // Llena los datos de la consulta en el DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
     }
 }
