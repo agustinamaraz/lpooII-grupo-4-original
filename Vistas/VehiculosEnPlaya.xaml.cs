@@ -55,10 +55,10 @@ namespace Vistas
                     DataRow ultimoTicketRow = dtUltimoTicket.Rows[0];
 
                     // Obtener la fecha de salida del último ticket
-                    DateTime? fechaSalida = ultimoTicketRow["tick_fechahorasale"] as DateTime?;
+                    decimal? total = ultimoTicketRow["tick_total"] as decimal?;
 
                     // Si la fecha de salida es nula, el sector está ocupado
-                    if (fechaSalida == null)
+                    if (total == 0)
                     {
                         listaDeSectoresExtendidos.Add(new SectorX(
                             sectorCodigo,
@@ -171,15 +171,18 @@ namespace Vistas
             {
                 string contenidoBtnE1 = btnE1.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE1);
-                //RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo, this.zona);
-                //  registrarEntrada.Show();
+                Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
+                sectorEncontrado.Estado = "ocupado";
+                btnE1.Background = redBrush;
+                RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
+                registrarEntrada.Show();
             }
             else if (btnE1.Background == redBrush)
             {
                 string contenidoBtnE1 = btnE1.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE1);
-                // registrarSalida registrarSalida = new registrarSalida(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarSalida.Show();
+                registrarSalida registrarSalida = new registrarSalida();
+                registrarSalida.Show();
 
             }
             else if (btnE1.Background == grayBrush)
@@ -194,15 +197,18 @@ namespace Vistas
             {
                 string contenidoBtnE2 = btnE2.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE2);
-                //RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarEntrada.Show();
+                Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
+                sectorEncontrado.Estado = "ocupado";
+                btnE1.Background = redBrush;
+                RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
+                registrarEntrada.Show();
             }
             else if (btnE2.Background == redBrush)
             {
                 string contenidoBtnE2 = btnE2.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE2);
-                //RegistrarSalida registrarSalida = new RegistrarSalida(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarSalida.Show();
+                registrarSalida registrarSalida = new registrarSalida();
+                registrarSalida.Show();
             }
             else if (btnE2.Background == grayBrush)
             {
@@ -216,15 +222,18 @@ namespace Vistas
             {
                 string contenidoBtnE3 = btnE3.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE3);
-                // RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarEntrada.Show();
+                Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
+                sectorEncontrado.Estado = "ocupado";
+                btnE1.Background = redBrush;
+                RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
+                registrarEntrada.Show();
             }
             else if (btnE3.Background == redBrush)
             {
                 string contenidoBtnE3 = btnE3.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE3);
-                // RegistrarSalida registrarSalida = new RegistrarSalida(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarSalida.Show();
+                registrarSalida registrarSalida = new registrarSalida();
+                registrarSalida.Show();
             }
             else if (btnE3.Background == grayBrush)
             {
@@ -238,15 +247,18 @@ namespace Vistas
             {
                 string contenidoBtnE4 = btnE4.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE4);
-                //RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarEntrada.Show();
+                Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
+                sectorEncontrado.Estado = "ocupado";
+                btnE1.Background = redBrush;
+                RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
+                registrarEntrada.Show();
             }
             else if (btnE4.Background == redBrush)
             {
                 string contenidoBtnE4 = btnE4.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE4);
-                // RegistrarSalida registrarSalida = new RegistrarSalida(sectorEncontrado.Sec_Codigo, this.zona);
-                // registrarSalida.Show();
+                registrarSalida registrarSalida = new registrarSalida();
+                registrarSalida.Show();
             }
             else if (btnE4.Background == grayBrush)
             {
@@ -260,15 +272,18 @@ namespace Vistas
             {
                 string contenidoBtnE5 = btnE5.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE5);
-                // RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo, this.zona);
-                // registrarEntrada.Show();
+                Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
+                sectorEncontrado.Estado = "ocupado";
+                btnE1.Background = redBrush;
+                RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
+                registrarEntrada.Show();
             }
             else if (btnE5.Background == redBrush)
             {
                 string contenidoBtnE5 = btnE5.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE5);
-                // RegistrarSalida registrarSalida = new RegistrarSalida(sectorEncontrado.Sec_Codigo, this.zona);
-                // registrarSalida.Show();
+                registrarSalida registrarSalida = new registrarSalida();
+                registrarSalida.Show();
             }
             else if (btnE5.Background == grayBrush)
             {
@@ -282,15 +297,18 @@ namespace Vistas
             {
                 string contenidoBtnE6 = btnE6.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE6);
-                // RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo, this.zona);
-                // registrarEntrada.Show();
+                Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
+                sectorEncontrado.Estado = "ocupado";
+                btnE1.Background = redBrush;
+                RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
+                registrarEntrada.Show();
             }
             else if (btnE6.Background == redBrush)
             {
                 string contenidoBtnE6 = btnE6.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE6);
-                // RegistrarSalida registrarSalida = new RegistrarSalida(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarSalida.Show();
+                registrarSalida registrarSalida = new registrarSalida();
+                registrarSalida.Show();
             }
             else if (btnE6.Background == grayBrush)
             {
@@ -304,15 +322,18 @@ namespace Vistas
             {
                 string contenidoBtnE7 = btnE7.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE7);
-                // RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarEntrada.Show();
+                Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
+                sectorEncontrado.Estado = "ocupado";
+                btnE1.Background = redBrush;
+                RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
+                registrarEntrada.Show();
             }
             else if (btnE7.Background == redBrush)
             {
                 string contenidoBtnE7 = btnE7.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE7);
-                // RegistrarSalida registrarSalida = new RegistrarSalida(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarSalida.Show();
+                registrarSalida registrarSalida = new registrarSalida();
+                registrarSalida.Show();
             }
             else if (btnE7.Background == grayBrush)
             {
@@ -326,15 +347,18 @@ namespace Vistas
             {
                 string contenidoBtnE8 = btnE8.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE8);
-                // RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo, this.zona);
-                // registrarEntrada.Show();
+                Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
+                sectorEncontrado.Estado = "ocupado";
+                btnE1.Background = redBrush;
+                RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
+                registrarEntrada.Show();
             }
             else if (btnE8.Background == redBrush)
             {
                 string contenidoBtnE8 = btnE8.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE8);
-                // RegistrarSalida registrarSalida = new RegistrarSalida(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarSalida.Show();
+                registrarSalida registrarSalida = new registrarSalida();
+                registrarSalida.Show();
             }
             else if (btnE8.Background == grayBrush)
             {
@@ -348,15 +372,18 @@ namespace Vistas
             {
                 string contenidoBtnE9 = btnE9.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE9);
-                // RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo, this.zona);
-                // registrarEntrada.Show();
+                Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
+                sectorEncontrado.Estado = "ocupado";
+                btnE1.Background = redBrush;
+                RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
+                registrarEntrada.Show();
             }
             else if (btnE9.Background == redBrush)
             {
                 string contenidoBtnE9 = btnE9.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE9);
-                // RegistrarSalida registrarSalida = new RegistrarSalida(sectorEncontrado.Sec_Codigo, this.zona);
-                //registrarSalida.Show();
+                registrarSalida registrarSalida = new registrarSalida();
+                registrarSalida.Show();
             }
             else if (btnE9.Background == grayBrush)
             {
@@ -370,15 +397,18 @@ namespace Vistas
             {
                 string contenidoBtnE10 = btnE10.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE10);
-                // RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.sectorCodigo, this.zona);
-                // registrarEntrada.Show();
+                Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
+                sectorEncontrado.Estado = "ocupado";
+                btnE1.Background = redBrush;
+                RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
+                registrarEntrada.Show();
             }
             else if (btnE10.Background == redBrush)
             {
                 string contenidoBtnE10 = btnE10.Content.ToString();
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE10);
-                // RegistrarSalida registrarSalida = new RegistrarSalida(sectorEncontrado.Sec_Codigo, this.zona);
-                // registrarSalida.Show();
+                registrarSalida registrarSalida = new registrarSalida();
+                registrarSalida.Show();
             }
             else if (btnE10.Background == grayBrush)
             {

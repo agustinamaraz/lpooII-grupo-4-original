@@ -83,11 +83,6 @@ namespace Vistas
             ListadoSectoresOcupados sectoresOcupadosWindow = new ListadoSectoresOcupados();
             sectoresOcupadosWindow.Show();
         }
-        private void btnRegistrarEntrada_Click(object sender, RoutedEventArgs e)
-        {
-            RegistrarEntrada registrarEntradaWindow = new RegistrarEntrada();
-            registrarEntradaWindow.Show();
-        }
         private void btnRegistrarSalida_Click(object sender, RoutedEventArgs e)
         {
             registrarSalida registrarSalidaWindow = new registrarSalida();

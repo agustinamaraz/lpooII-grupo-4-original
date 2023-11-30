@@ -90,7 +90,7 @@ namespace ClasesBase
                 TipoVehiculo TV ON tkt.tipov_codigo = TV.tipov_codigo
             WHERE 
                 tkt.sec_codigo IS NOT NULL
-                AND tkt.tick_fechahorasale IS NULL"; // Solo incluir sectores con tickets y que no tengan fecha de salida
+                AND tkt.tick_total = 0"; // Solo incluir sectores con tickets y que no tengan fecha de salida
 
                 SqlCommand cmd = new SqlCommand(query, cnn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -126,4 +126,5 @@ namespace ClasesBase
             return dt;
         }
     }
+
 }
