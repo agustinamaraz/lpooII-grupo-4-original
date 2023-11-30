@@ -165,6 +165,49 @@ namespace ClasesBase
             return datatable;
         }
 
+        public static DataTable TraerUltimoTicketPorSector(int sectorCodigo)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.connection);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT TOP 1 * FROM Ticket WHERE sec_codigo = @SectorCodigo ORDER BY tick_fechahoraentra DESC";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
+
+            // Agrega el parámetro para el código de sector
+            cmd.Parameters.AddWithValue("@SectorCodigo", sectorCodigo);
+
+            // Ejecuta la consulta
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            // Llena los datos de la consulta en el DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+        public static DataTable TraerTicketPorNumero(int? numeroTicket)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.connection);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM Ticket WHERE tick_codigo = @NumeroTicket";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
+
+            // Agrega el parámetro para el número de ticket
+            cmd.Parameters.AddWithValue("@NumeroTicket", numeroTicket);
+
+            // Ejecuta la consulta
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            // Llena los datos de la consulta en el DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            // Retorna el DataTable con los resultados de la consulta
+            return dt;
+        }
         /*public static DataTable traerTicketsCosdigo(string codigo)
         {
             SqlConnection conection = new SqlConnection(Properties.Settings.Default.connection);
