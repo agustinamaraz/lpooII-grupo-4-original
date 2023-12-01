@@ -173,7 +173,6 @@ namespace Vistas
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE1);
                 Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
                 sectorEncontrado.Estado = "ocupado";
-                btnE1.Background = redBrush;
                 RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
                 registrarEntrada.Show();
             }
@@ -199,7 +198,6 @@ namespace Vistas
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE2);
                 Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
                 sectorEncontrado.Estado = "ocupado";
-                btnE1.Background = redBrush;
                 RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
                 registrarEntrada.Show();
             }
@@ -224,7 +222,6 @@ namespace Vistas
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE3);
                 Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
                 sectorEncontrado.Estado = "ocupado";
-                btnE1.Background = redBrush;
                 RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
                 registrarEntrada.Show();
             }
@@ -249,7 +246,6 @@ namespace Vistas
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE4);
                 Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
                 sectorEncontrado.Estado = "ocupado";
-                btnE1.Background = redBrush;
                 RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
                 registrarEntrada.Show();
             }
@@ -274,7 +270,6 @@ namespace Vistas
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE5);
                 Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
                 sectorEncontrado.Estado = "ocupado";
-                btnE1.Background = redBrush;
                 RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
                 registrarEntrada.Show();
             }
@@ -299,7 +294,6 @@ namespace Vistas
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE6);
                 Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
                 sectorEncontrado.Estado = "ocupado";
-                btnE1.Background = redBrush;
                 RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
                 registrarEntrada.Show();
             }
@@ -324,7 +318,6 @@ namespace Vistas
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE7);
                 Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
                 sectorEncontrado.Estado = "ocupado";
-                btnE1.Background = redBrush;
                 RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
                 registrarEntrada.Show();
             }
@@ -349,7 +342,6 @@ namespace Vistas
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE8);
                 Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
                 sectorEncontrado.Estado = "ocupado";
-                btnE1.Background = redBrush;
                 RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
                 registrarEntrada.Show();
             }
@@ -374,7 +366,6 @@ namespace Vistas
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE9);
                 Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
                 sectorEncontrado.Estado = "ocupado";
-                btnE1.Background = redBrush;
                 RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
                 registrarEntrada.Show();
             }
@@ -399,7 +390,6 @@ namespace Vistas
                 SectorX sectorEncontrado = listaDeSectoresExtendidos.FirstOrDefault(s => s.Sec_Id == contenidoBtnE10);
                 Console.WriteLine(sectorEncontrado.Sec_Codigo.ToString() + "  " + sectorEncontrado.Estado);
                 sectorEncontrado.Estado = "ocupado";
-                btnE1.Background = redBrush;
                 RegistrarEntrada registrarEntrada = new RegistrarEntrada(sectorEncontrado.Sec_Codigo);
                 registrarEntrada.Show();
             }
