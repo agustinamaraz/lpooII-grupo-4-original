@@ -167,6 +167,7 @@ namespace Vistas
 
         private void btnE1_Click(object sender, RoutedEventArgs e)
         {
+            
             if (btnE1.Background == greenBrush)
             {
                 string contenidoBtnE1 = btnE1.Content.ToString();
@@ -188,6 +189,7 @@ namespace Vistas
             {
                 MessageBox.Show("Sector deshabilitado.", "Disponibilidad");
             }
+            this.Close();
         }
 
         private void btnE2_Click(object sender, RoutedEventArgs e)
@@ -212,6 +214,7 @@ namespace Vistas
             {
                 MessageBox.Show("Sector deshabilitado.", "Disponibilidad");
             }
+            this.Close();
         }
 
         private void btnE3_Click(object sender, RoutedEventArgs e)
@@ -236,6 +239,7 @@ namespace Vistas
             {
                 MessageBox.Show("Sector deshabilitado.", "Disponibilidad");
             }
+            this.Close();
         }
 
         private void btnE4_Click(object sender, RoutedEventArgs e)
@@ -260,6 +264,7 @@ namespace Vistas
             {
                 MessageBox.Show("Sector deshabilitado.", "Disponibilidad");
             }
+            this.Close();
         }
 
         private void btnE5_Click(object sender, RoutedEventArgs e)
@@ -284,6 +289,7 @@ namespace Vistas
             {
                 MessageBox.Show("Sector deshabilitado.", "Disponibilidad");
             }
+            this.Close();
         }
 
         private void btnE6_Click(object sender, RoutedEventArgs e)
@@ -308,6 +314,7 @@ namespace Vistas
             {
                 MessageBox.Show("Sector deshabilitado.", "Disponibilidad");
             }
+            this.Close();
         }
 
         private void btnE7_Click(object sender, RoutedEventArgs e)
@@ -331,7 +338,9 @@ namespace Vistas
             else if (btnE7.Background == grayBrush)
             {
                 MessageBox.Show("Sector deshabilitado.", "Disponibilidad");
+
             }
+            this.Close();
         }
 
         private void btnE8_Click(object sender, RoutedEventArgs e)
@@ -356,6 +365,7 @@ namespace Vistas
             {
                 MessageBox.Show("Sector deshabilitado.", "Disponibilidad");
             }
+            this.Close();
         }
 
         private void btnE9_Click(object sender, RoutedEventArgs e)
@@ -380,6 +390,7 @@ namespace Vistas
             {
                 MessageBox.Show("Sector deshabilitado.", "Disponibilidad");
             }
+            this.Close();
         }
 
         private void btnE10_Click(object sender, RoutedEventArgs e)
@@ -404,6 +415,7 @@ namespace Vistas
             {
                 MessageBox.Show("Sector deshabilitado.", "Disponibilidad");
             }
+            this.Close();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

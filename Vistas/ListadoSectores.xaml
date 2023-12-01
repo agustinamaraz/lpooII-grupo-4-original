@@ -7,6 +7,9 @@
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
         <ObjectDataProvider
             x:Key="list_sectores"
             ObjectType="{x:Type svc:TrabajarSector}"
@@ -15,7 +18,7 @@
 
     </Window.Resources>
 
-    <Grid Background="DarkCyan">
+    <Grid >
         <Label Content="Listado de Sectores" Foreground="Black" FontSize="20" Height="36" HorizontalAlignment="Left" Margin="320,12,0,0" Name="lblSectores" VerticalAlignment="Top" />
 
         <ListView Name="Sectores" Height="Auto" ItemsSource="{Binding Source={StaticResource list_sectores}}" VerticalAlignment="Top" Margin="157,54,221,0">

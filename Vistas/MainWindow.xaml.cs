@@ -35,8 +35,6 @@ namespace Vistas
             {
                 
                 sectoresOcupados.Visibility = Visibility.Hidden;
-                btnRegistrarEntrada.Visibility = Visibility.Hidden;
-                btnRegistrarSalida.Visibility = Visibility.Hidden;
                 btnListausuarios.Visibility = Visibility.Hidden;
                 btnListaVentas.Visibility = Visibility.Hidden;
             }
@@ -90,16 +88,19 @@ namespace Vistas
         {
             registrarSalida registrarSalidaWindow = new registrarSalida();
             registrarSalidaWindow.Show();
+            this.Close();
         }
         private void btnListaVentas_Click(object sender, RoutedEventArgs e)
         {
             ListaPorFechasTickets listaTicketsWindow = new ListaPorFechasTickets();
             listaTicketsWindow.Show();
+            this.Close();
         }
         private void btnListaUsuarios_Click(object sender, RoutedEventArgs e)
         {
             ListadoDeUsuarios listadoUsuariosWindow = new ListadoDeUsuarios();
             listadoUsuariosWindow.Show();
+
         }
     }
 }

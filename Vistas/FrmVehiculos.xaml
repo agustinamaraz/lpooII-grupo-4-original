@@ -44,7 +44,7 @@
         </Grid>
         <Grid Grid.Row="2" Grid.Column="1">
             
-            <Button  Content="Volver" Height="25" HorizontalAlignment="Right" Margin="20" Name="btnVolver" VerticalAlignment="Center" Width="75" Click="btnVolver_Click" Background="#FFFF757A" />
+            <Button  Content="Volver" Height="25" HorizontalAlignment="Right" Margin="20" Name="btnVolver" VerticalAlignment="Center" Width="75" Click="btnVolver_Click"  />
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="1">

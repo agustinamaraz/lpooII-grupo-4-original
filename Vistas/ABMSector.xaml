@@ -5,15 +5,13 @@
         Title="ABMSector" Height="474" Width="760" MinHeight="335" MinWidth="500"
          WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <ObjectDataProvider x:Key="LIST_ZONA" 
-                            ObjectType="{x:Type scv:TrabajarZonas}" 
-                            MethodName="traerZonas">
-        </ObjectDataProvider>
+
         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
         <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
         <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
     </Window.Resources>
     <Grid Background="{StaticResource BackgroundBrush}">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
@@ -24,6 +22,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <!--TITULO-->
+       
         <TextBlock  Grid.Row="0" Grid.ColumnSpan="2" Text="ABM de Sectores" Foreground="Black" FontSize="20" Height="26" HorizontalAlignment="Center" Margin="0" Name="lblSectores" VerticalAlignment="Center" />
         
         <!--BOTONES ACCIONES-->
@@ -41,6 +40,7 @@
 
         <!--FORMULARIO-->
         <!--TEXTBLOCK-->
+         
         <Grid Grid.Row="2">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20" VerticalAlignment="Center">
                 <TextBlock Text="Identificador" Height="23" HorizontalAlignment="Left" Margin="10" Name="nombre"/>
@@ -63,7 +63,9 @@
             <Button Content="Ver Todos los Sectores" Name="btnVerSectores"  Height="35" HorizontalAlignment="Center" Margin="20" Width="150" Click="btnVerSectores_Click" />
             <Button Content="Ver Estados de un Sector" Height="35" HorizontalAlignment="Center" Margin="20" Name="estadoSector" Width="150" Click="estadoSector_Click" />
         </StackPanel>
+        <Button Content="Volver" Height="25" HorizontalContentAlignment="Center" Margin="283,284,26,12" Name="btnVolver" Padding="0" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="60" Grid.Column="1" Grid.Row="2" Click="btnVolver_Click" />
     </Grid>
+    
 </Window>
 
  
