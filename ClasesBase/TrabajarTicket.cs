@@ -208,6 +208,34 @@ namespace ClasesBase
             // Retorna el DataTable con los resultados de la consulta
             return dt;
         }
+
+        public static Ticket traerultimo()
+        {
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connection);
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "traerticketultimo_sp";
+            command.Connection = connection;
+
+            SqlDataAdapter dataadapter = new SqlDataAdapter(command);
+            DataTable datatable = new DataTable();
+
+            dataadapter.Fill(datatable);
+            Ticket ticket = new Ticket();
+
+            foreach (DataRow row in datatable.Rows)
+            {
+                ticket.Tick_Numero = int.Parse(row["tick_codigo"].ToString());
+                ticket.Tick_FechaHoraEntra = DateTime.Parse(row["tick_fechahoraentra"].ToString());
+                ticket.Cli_Dni = int.Parse(row["cli_dni"].ToString());
+                ticket.TipoV_Codigo = int.Parse(row["tipov_codigo"].ToString());
+                ticket.Sec_Codigo = int.Parse(row["sec_codigo"].ToString());
+                ticket.Tick_Patente = row["tick_patente"].ToString();
+                ticket.Tick_Tarifa = decimal.Parse(row["tick_tarifa"].ToString());
+
+            }
+            return ticket;
+        }
         /*public static DataTable traerTicketsCosdigo(string codigo)
         {
             SqlConnection conection = new SqlConnection(Properties.Settings.Default.connection);

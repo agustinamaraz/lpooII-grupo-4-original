@@ -90,6 +90,7 @@ namespace Vistas
             }
         }
 
+        Ticket tickultimo;
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             Ticket ticket = new Ticket();
@@ -112,9 +113,9 @@ namespace Vistas
             TrabajarTicket.nuevoTicket(ticket);
 
             //TrabajarSector.liberarSector(false, ticket.Sec_Codigo);
-
+            tickultimo = TrabajarTicket.traerultimo();
             MessageBox.Show("se agrego correctamente");
-            FixedDocs fix = new FixedDocs(ticket);
+            FixedDocs fix = new FixedDocs(tickultimo);
             fix.Show();
             this.Hide();
         }
