@@ -68,7 +68,7 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2" Grid.ColumnSpan="2">
-            <Button Content="Ingresar" Height="23" Name="btnIngresar" Width="75" Click="btnIngresar_Click" VerticalAlignment="Bottom" Foreground="#FFC9CACC" Background="#FF2667A3" Grid.ColumnSpan="2" Margin="157,0,169,30" />
+            <!-- <Button Content="Ingresar" Height="23" Name="btnIngresar" Width="75" Click="btnIngresar_Click" VerticalAlignment="Bottom" Foreground="#FFC9CACC" Background="#FF2667A3" Grid.ColumnSpan="2" Margin="157,0,169,30" /> -->
         </Grid>
     </Grid>
 

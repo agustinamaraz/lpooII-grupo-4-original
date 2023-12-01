@@ -29,13 +29,16 @@ namespace Vistas
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             if(Login.rol == "1"){
-                btnFrmClientes.Visibility = Visibility.Hidden;
-                menuZonas.Visibility = Visibility.Hidden;
+                btnListausuarios.Visibility = Visibility.Hidden;
             }
             else if (Login.rol == "2")
             {
-                btnFrmSectores.Visibility = Visibility.Hidden;
-                btnFrmVehiculos.Visibility = Visibility.Hidden;
+                
+                sectoresOcupados.Visibility = Visibility.Hidden;
+                btnRegistrarEntrada.Visibility = Visibility.Hidden;
+                btnRegistrarSalida.Visibility = Visibility.Hidden;
+                btnListausuarios.Visibility = Visibility.Hidden;
+                btnListaVentas.Visibility = Visibility.Hidden;
             }
         }
 
@@ -55,7 +58,7 @@ namespace Vistas
             ValidarCliente validarc = new ValidarCliente();
             validarc.Show();
             
-            this.Close();
+            
         }
 
         private void btnFrmVehiculos_Click(object sender, RoutedEventArgs e)

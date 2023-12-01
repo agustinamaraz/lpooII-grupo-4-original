@@ -20,44 +20,22 @@ namespace Vistas
     /// </summary>
     public partial class UserControl1 : UserControl
     {
+        Usuario login;
         public static string rol = "";
         public UserControl1()
         {
             InitializeComponent();
         }
-
-        private void btnIngresar_Click(object sender, RoutedEventArgs e)
+        public String Usuario
         {
-            string usuario = txtUsuario.Text;
-            string contrasena = txtContrasena.Password;
-
-            Usuario user = new Usuario("admin", "admin");
-            Usuario user2 = new Usuario("operador", "operador");
-
-            MainWindow main = new MainWindow();
-
-            if (user.Usr_UserName == usuario && user.Usr_Password == contrasena)
-            {
-                MessageBox.Show("Bienvenido, Administrador");
-                rol = "1";
-                // Realiza las acciones necesarias para el usuario Admin
-                main.Show();
-
-            }
-            else if (user2.Usr_UserName == usuario && user2.Usr_Password == contrasena)
-            {
-                MessageBox.Show("Bienvenido, Operador");
-                rol = "2";
-                // Realiza las acciones necesarias para el usuario Operador
-                main.Show();
-               
-            }
-            else
-            {
-                MessageBox.Show("Usuario o contraseña incorrectos");
-            }
+            get { return txtUsuario.Text; }
         }
 
-      
+        public String Password
+        {
+            get { return txtContrasena.Password; }
+        }
+
+
     }
 }
