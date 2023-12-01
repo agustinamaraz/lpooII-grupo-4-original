@@ -13,8 +13,7 @@
 
         <DataGrid Name="dgVentas" AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="25,0,25,0" VerticalAlignment="Top" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="60" Header="Zona" Binding="{Binding zona_Descripcion}"/>
-                <DataGridTextColumn Width="60" Header="# Ticket" Binding="{Binding tick_numero}"/>
+                <DataGridTextColumn Width="60" Header="# Ticket" Binding="{Binding tick_codigo}"/>
                 <DataGridTextColumn Width="60" Header="Sector" Binding="{Binding sec_codigo}"/>
                 <DataGridTextColumn Width="150" Header="Fecha y Hora de Entrada" Binding="{Binding tick_fechahoraentra}"/>
                 <DataGridTextColumn Width="150" Header="Fecha y Hora de Salida" Binding="{Binding tick_fechahorasale}"/>
