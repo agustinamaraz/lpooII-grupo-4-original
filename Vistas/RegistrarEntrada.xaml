@@ -3,8 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:scv="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="RegistrarEntrada" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="RegistrarEntrada" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded" Background="{StaticResource BackgroundBrush}">
     <Window.Resources>
+
+
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
+
         <!--Se utiliza para hacer la conexion con la base de datos en donde hace la consulta en forma de coleccion para crear la vista
         y realizar el filtrado con el textbox-->
         <!--Origen de datos de la Coleccion de Usuarios-->
@@ -25,7 +31,7 @@
         <ObjectDataProvider x:Key="LIST_SECTOR" ObjectType="{x:Type scv:TrabajarSector}" MethodName="traerSectores" />
 
     </Window.Resources>
-    <Grid Background="#FF2667A3">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition Width="300"></ColumnDefinition>
@@ -57,7 +63,7 @@
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,20,0,20" Name="textBlock10" Text="Fecha y Hora Entrada" VerticalAlignment="Top" />
                 <TextBlock Height="23" HorizontalAlignment="Center" Margin="0,45,0,20" Name="textBlock12" Text="Cliente" VerticalAlignment="Top" />
             </StackPanel>
-            <Button Content="Volver" Height="25" HorizontalAlignment="Right" Margin="0,0,125,0" Name="btnVolver" VerticalAlignment="Bottom" Width="75" Click="btnVolver_Click" Background="#FFFF757A" FontSize="14" FontFamily="Agency FB" />
+            <Button Content="Volver" Height="25" HorizontalAlignment="Right" Margin="0,0,102,6" Name="btnVolver" VerticalAlignment="Bottom" Width="75" Click="btnVolver_Click" />
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1">
             <!--textbox-->

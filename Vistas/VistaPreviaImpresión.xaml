@@ -4,12 +4,14 @@
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-        Title="VistaPreviaImpresión" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="VistaPreviaImpresión" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="{StaticResource BackgroundBrush}">
     <Window.Resources>
-        <!--<ObjectDataProvider x:Key="VISTA_USER" ObjectType="{x:Type svc:TrabajarUsuario}" MethodName="traerUsuarios"/>
-        <CollectionViewSource x:Key="VISTA_USERS" Source="{StaticResource ResourceKey=VISTA_USER}" Filter="eventVistaUsuario_Filter"/>-->
+
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
     </Window.Resources>
-    <Grid Background="#FF2667A3">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>

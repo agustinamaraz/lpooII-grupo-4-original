@@ -1,7 +1,12 @@
 ﻿<Window x:Class="Vistas.ListadoSectoresOcupados"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ListadoSectoresOcupados" Height="443" Width="638" Background="#FF2667A3">
+        Title="ListadoSectoresOcupados" Height="443" Width="638" Background="{StaticResource BackgroundBrush}">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
+    </Window.Resources>
     <Grid Width="515" >
         <Grid >
             <StackPanel Margin="20">

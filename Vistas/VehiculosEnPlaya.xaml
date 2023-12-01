@@ -1,8 +1,14 @@
 ﻿<Window x:Class="Vistas.VehiculosEnPlaya"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="VehiculosEnPlaya" Height="500" Width="1000" Loaded="Window_Loaded" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid Background="#FF2667A3">
+        Title="VehiculosEnPlaya" Height="500" Width="1000" Loaded="Window_Loaded" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="{StaticResource BackgroundBrush}">
+    <Window.Resources>
+
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
+    </Window.Resources>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition ></RowDefinition>

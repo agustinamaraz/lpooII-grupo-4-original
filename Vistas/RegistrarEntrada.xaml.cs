@@ -118,6 +118,8 @@ namespace Vistas
             FixedDocs fix = new FixedDocs(tickultimo);
             fix.Show();
             this.Hide();
+            
+
         }
 
         private void txtTarifa_TextChanged(object sender, TextChangedEventArgs e)

@@ -3,8 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:data="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="FlowDocs" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="FlowDocs" Height="500" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="{StaticResource BackgroundBrush}">
     <Window.Resources>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
         <!--<ObjectDataProvider x:Key="LIST_USERS"
                             ObjectType="{x:Type data:TrabajarUsuario}"
                             MethodName="traerUsuarios">

@@ -5,6 +5,10 @@
         Title="EstadoSector" Height="500" Width="1000" Loaded="Window_Loaded">
     <Window.Resources>
         <svc:ConversorDeEstados x:Key="ConversorDeEstados"/>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
+
     </Window.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="120,0,0,0">
