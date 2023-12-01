@@ -39,11 +39,9 @@ namespace Vistas
             InitializeComponent();
             vistaColeccionFiltradaTicket = Resources["VISTA_TICK"] as CollectionViewSource;
         }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Establecer la cultura en español (u otra de tu elección)
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-ES");
-
             ObjectDataProvider odp = (ObjectDataProvider)this.Resources["LIST_TICK"];
             listaTicket = odp.Data as ObservableCollection<Ticket>;
             ObjectDataProvider odp1 = (ObjectDataProvider)this.Resources["LIST_TIPO"];
@@ -90,8 +88,8 @@ namespace Vistas
                         txtSector.Text = ticketElegido.Sec_Codigo.ToString();
                         txtPatente.Text = ticketElegido.Tick_Patente;
                         txtDuracion.Text = ticketElegido.Tick_Duracion.ToString();
-                        txtTarifa.Text = ticketElegido.Tick_Tarifa.ToString("N2");
-                        txtTotal.Text = ticketElegido.Tick_Total.ToString("N2");
+                        txtTarifa.Text = ticketElegido.Tick_Tarifa.ToString();
+                        txtTotal.Text = ticketElegido.Tick_Total.ToString();
                     }
                 }
                 else
@@ -125,7 +123,6 @@ namespace Vistas
         }
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            ticketElegido.Tick_FechaHoraSale = DateTime.Now;
 
             TrabajarTicket.modificarTicket(ticketElegido);
 
@@ -164,23 +161,27 @@ namespace Vistas
         {
             // Calcular la duración en horas
             TimeSpan duracion = ticketObtenido.Tick_FechaHoraSale - ticketObtenido.Tick_FechaHoraEntra;
-            int duracionEnHoras = (int)duracion.TotalHours;
+            double duracionEnHoras = Math.Round(duracion.TotalHours, 1);
 
             // Establecer la duración mínima en 1 hora
+            double duracionTotal = Math.Max(duracionEnHoras, 1);
+
+            // Actualizar la duración en el ticket
+            ticketObtenido.Tick_Duracion = duracionTotal;
 
             // Calcular el total a pagar
-            decimal totalAPagar = 0;
-            totalAPagar = Math.Round(duracionEnHoras * ticketObtenido.Tick_Tarifa, 2);
+            decimal totalAPagar = (decimal)duracionTotal * ticketObtenido.Tick_Tarifa;
 
             // Ajustar el total si es 0 o menor que la tarifa
             if (totalAPagar <= 0)
             {
                 totalAPagar = ticketObtenido.Tick_Tarifa;
-                duracionEnHoras = 1;
+                duracionTotal = 1;
+                ticketObtenido.Tick_Duracion = 1;
             }
 
-            // Actualizar la duración en el ticket
-            ticketObtenido.Tick_Duracion = duracionEnHoras;
+            // Redondear el total a dos decimales
+            totalAPagar = Math.Round(totalAPagar, 2);
 
             // Actualizar el total en el ticket
             ticketObtenido.Tick_Total = totalAPagar;

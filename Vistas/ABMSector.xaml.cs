@@ -11,7 +11,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ClasesBase;
-using System.Data;
 
 namespace Vistas
 {
@@ -29,14 +28,14 @@ namespace Vistas
             btnBuscar.IsEnabled = false;
         }
 
-        /*private void btnRegistrar_Click(object sender, RoutedEventArgs e)
+        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
             if (formLleno())
             {
                 int codigoSector = 0;
                 if (int.TryParse(textCodigoSector.Text, out codigoSector))
                 {
-                    int zonaCodigo = (int)cmbZona.SelectedItem;
+                    int zonaCodigo = (int)cmbZona.SelectedValue;
 
                     Sector nuevoSector = new Sector
                     {
@@ -69,50 +68,6 @@ namespace Vistas
             {
                 MessageBox.Show("Ingrese datos en todos los campos", "Error");
             }
-        }*/
-
-        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
-        {
-            if (formLleno())
-            {
-                int codigoSector = 0;
-
-                if (int.TryParse(textCodigoSector.Text, out codigoSector))
-                {
-      
-
-                        Sector nuevoSector = new Sector
-                        {
-                            Sec_Codigo = codigoSector,
-                            Zona_Codigo = int.Parse(textZona.Text),
-                            Sec_Id = textIdentificador.Text,
-                            Sec_Descripcion = textDescripcion.Text,
-                            Sec_Habilitado = chkHabilitado.IsChecked ?? false
-                        };
-
-                        Console.WriteLine(nuevoSector);
-
-                        if (nuevoSector != null)
-                        {
-                            if (MessageBox.Show("¿Desea registrar el sector?", "Registrar Sector", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                            {
-                                TrabajarSector.AgregarSector(nuevoSector);
-                                LimpiarCampos();
-                                MessageBox.Show("Sector Guardado con Éxito!\nDatos del Sector Guardado: \n" + nuevoSector, "Éxito");
-                                btnRegistrar.IsEnabled = false;
-                            }
-                        }
-   
-                }
-                else
-                {
-                    MessageBox.Show("Ingrese un valor numérico válido para Código", "Error");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Ingrese datos en todos los campos", "Error");
-            }
         }
 
 
@@ -123,11 +78,12 @@ namespace Vistas
                 int codigoSector = 0;
                 if (int.TryParse(textCodigoSector.Text, out codigoSector))
                 {
+                    int zonaCodigo = (int)cmbZona.SelectedValue;
 
                     Sector nuevoSector = new Sector
                     {
                         Sec_Codigo = codigoSector,
-                        Zona_Codigo = int.Parse(textZona.Text),
+                        Zona_Codigo = zonaCodigo,
                         Sec_Id = textIdentificador.Text,
                         Sec_Descripcion = textDescripcion.Text,
                         Sec_Habilitado = chkHabilitado.IsChecked ?? false
@@ -206,7 +162,8 @@ namespace Vistas
                     textIdentificador.Text = sectorEncontrado.Sec_Id;
                     textDescripcion.Text = sectorEncontrado.Sec_Descripcion;
                     chkHabilitado.IsChecked = sectorEncontrado.Sec_Habilitado;
-                    textZona.Text = sectorEncontrado.Zona_Codigo.ToString();
+                    cmbZona.SelectedValue = sectorEncontrado.Zona_Codigo;
+
                     MessageBox.Show("Sector encontrado:\n" + sectorEncontrado, "Éxito");
 
                     btnRegistrar.IsEnabled = false;
@@ -245,7 +202,7 @@ namespace Vistas
         private void LimpiarCampos()
         {
             textCodigoSector.Clear();
-            textZona.Clear();
+            cmbZona.SelectedItem = null;
             textIdentificador.Clear();
             textDescripcion.Clear();
             chkHabilitado.IsChecked = false;
@@ -253,7 +210,7 @@ namespace Vistas
 
         private bool formLleno()
         {
-            return !string.IsNullOrEmpty(textCodigoSector.Text) && !string.IsNullOrEmpty(textZona.Text) != null &&
+            return !string.IsNullOrEmpty(textCodigoSector.Text) && cmbZona.SelectedItem != null &&
            !string.IsNullOrEmpty(textIdentificador.Text) && !string.IsNullOrEmpty(textDescripcion.Text);
         }
 

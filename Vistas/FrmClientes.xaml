@@ -25,15 +25,10 @@
                 </Style.Triggers>
                 
             </Style>
-            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
-            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
-            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
         </ResourceDictionary>
-        
-        
     </Window.Resources>
 
-    <Grid Background="{StaticResource BackgroundBrush}">
+    <Grid Background="#FF2667A3">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
             <RowDefinition ></RowDefinition>
@@ -44,7 +39,7 @@
             <ColumnDefinition Width="500"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.ColumnSpan="2">
-            <TextBlock Height="auto" HorizontalAlignment="Center" Margin="10" Name="textBlock5" Text="Formulario Alta Cliente" VerticalAlignment="Center" FontSize="24" Width="auto" />
+            <TextBlock Height="auto" HorizontalAlignment="Center" Margin="10" Name="textBlock5" Text="Formulario Alta Cliente" VerticalAlignment="Center" FontSize="24" Width="247" />
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="20">
