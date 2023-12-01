@@ -7,64 +7,62 @@
     <Window.Resources>
         <ObjectDataProvider x:Key="LIST_ZONA" 
                             ObjectType="{x:Type scv:TrabajarZonas}" 
-                            MethodName="traerZonas"/>
+                            MethodName="traerZonas">
+        </ObjectDataProvider>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
     </Window.Resources>
-    <Grid Background="Azure">
-        <Label Content="ABM de Sectores" Foreground="Black" FontSize="20" Height="36" HorizontalAlignment="Left" Margin="304,22,0,0" Name="lblSectores" VerticalAlignment="Top" />
+    <Grid Background="{StaticResource BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--TITULO-->
+        <TextBlock  Grid.Row="0" Grid.ColumnSpan="2" Text="ABM de Sectores" Foreground="Black" FontSize="20" Height="26" HorizontalAlignment="Center" Margin="0" Name="lblSectores" VerticalAlignment="Center" />
+        
+        <!--BOTONES ACCIONES-->
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Registrar" Name="btnRegistrar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="60" Height="29" VerticalAlignment="Center" Padding="0" Margin="10,0,10,0" Click="btnRegistrar_Click" />
+            <Button Content="Modificar" Name="btnModificar" Height="29" HorizontalContentAlignment="Center" Margin="10,0,10,0" Padding="0"  VerticalAlignment="Center" Width="60" Click="btnModificar_Click" />
+            <Button Content="Eliminar" Name="btnEliminar" Height="29" HorizontalContentAlignment="Center" Padding="0"  VerticalAlignment="Center" Width="60" Margin="10,0,10,0" Click="btnEliminar_Click" />
+            <Button Content="Cancelar" Height="29" HorizontalContentAlignment="Center" Margin="10,0,10,0" Name="btnCancelar" Padding="0"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="60" Click="btnCancelar_Click" />
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox Height="30" HorizontalAlignment="Center" Name="textBuscar" Width="163" Margin="20,0,20,0" FlowDirection="LeftToRight" VerticalContentAlignment="Center" TextChanged="textBuscar_TextChanged"/>
+            <Button Content="Buscar" Height="30" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="btnBuscar" Padding="0" VerticalAlignment="Center" Width="75" VerticalContentAlignment="Center" FontSize="16" MinWidth="0" Click="btnBuscar_Click" Margin="20,0,20,0"/>
+        </StackPanel>
 
-        <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,249,9,0" Width="163" Height="44">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="15*" />
-                <RowDefinition Height="18*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="202*" />
-                <ColumnDefinition Width="99*" />
-            </Grid.ColumnDefinitions>
-            <TextBox Height="33" HorizontalAlignment="Center" Name="textBuscar" VerticalAlignment="Center" Width="163" Margin="0,0,3,10" FlowDirection="LeftToRight" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" TextChanged="textBuscar_TextChanged" Grid.RowSpan="2" />
-            <Button Content="Buscar" Height="33" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="btnBuscar" Padding="0" VerticalAlignment="Center" Width="71" VerticalContentAlignment="Center" FontSize="16" MinWidth="0" Grid.Column="1" Click="btnBuscar_Click" Margin="0,0,0,10" Grid.RowSpan="2" />
+        <!--FORMULARIO-->
+        <!--TEXTBLOCK-->
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20" VerticalAlignment="Center">
+                <TextBlock Text="Identificador" Height="23" HorizontalAlignment="Left" Margin="10" Name="nombre"/>
+                <TextBlock Text="Descripcion" Height="23" HorizontalAlignment="Left" Margin="10" Name="telefono"/>
+                <TextBlock Text="Habilitado" Height="23" HorizontalAlignment="Left" Name="lblHabilitado" Margin="10"/>
+                <TextBlock Text="Codigo" Height="23" HorizontalAlignment="Left" Margin="10" Name="dni" Width="Auto" Padding="3"/>
+                <TextBlock Text="Codigo Zona" Height="23" HorizontalAlignment="Left" Margin="10" Name="apellido"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" Margin="20" VerticalAlignment="Center">
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="10" Name="textIdentificador" Width="163" VerticalContentAlignment="Center" IsReadOnly="True" TextChanged="textFormCampos_Changed" />
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="10" Name="textDescripcion" Width="163" VerticalContentAlignment="Center" TextChanged="textFormCampos_Changed" />
+                <CheckBox Height="23" HorizontalAlignment="Left" Name="chkHabilitado" Margin="10" />
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="10" Name="textCodigoSector" Width="163" VerticalContentAlignment="Center" IsReadOnly="True" TextChanged="textFormCampos_Changed"/>
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="10" Name="textZona" Width="163" VerticalContentAlignment="Center" IsReadOnly="True" TextChanged="textFormCampos_Changed"/>
+            </StackPanel>
         </Grid>
 
-        <Grid Margin="25,131,394,56" HorizontalAlignment="Center" VerticalAlignment="Center" Width="319" Height="248">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="10*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80*" />
-                <ColumnDefinition Width="195*" />
-            </Grid.ColumnDefinitions>
-            <Label Content="Identificador" Height="Auto" HorizontalAlignment="Center" Margin="3,8" Name="nombre" VerticalAlignment="Center" Grid.Row="2" />
-            <TextBox Height="23" HorizontalAlignment="Center" Margin="37,11,26,14" Name="textIdentificador" VerticalAlignment="Center" Width="163" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" TextChanged="textFormCampos_Changed" />
-            <Label Content="Descripcion" Height="Auto" HorizontalAlignment="Center" Margin="14,11,8,13" Name="telefono" VerticalAlignment="Center" Grid.Row="1" />
-            <TextBox Height="23" HorizontalAlignment="Center" Margin="37,14,26,13" Name="textDescripcion" VerticalAlignment="Center" Width="163" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" TextChanged="textFormCampos_Changed" />
-            <Label Content="Habilitado" Height="Auto" HorizontalAlignment="Center" Name="lblHabilitado" VerticalAlignment="Center" Grid.Row="3" Margin="14,12" />
-            <CheckBox Height="Auto" HorizontalAlignment="Left" Name="chkHabilitado" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="37,22,0,13" />
-            <Label Content="Codigo" Height="Auto" HorizontalAlignment="Center" Margin="24,17,24,11" Name="dni" VerticalAlignment="Center" Width="Auto" Padding="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
-            <TextBox Height="23" HorizontalAlignment="Center" Margin="37,16,26,11" Name="textCodigoSector" VerticalAlignment="Center" Width="163" VerticalContentAlignment="Center" TextChanged="textFormCampos_Changed" Grid.Column="1" />
-            <Label Content="Codigo Zona" Height="Auto" HorizontalAlignment="Center" Margin="8,15,6,9" Name="apellido" VerticalAlignment="Center" Grid.Row="4" />
-            <ComboBox Height="23" HorizontalAlignment="Center" Margin="37,18,26,9" Name="cmbZona" VerticalAlignment="Center" Width="163" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="4" ItemsSource="{Binding Source={StaticResource LIST_ZONA}}" DisplayMemberPath="descripcion" SelectedValue="zona_codigo"/>
-        </Grid>
-
-        <Grid Margin="-8,0,317,337" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="429">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="120*" />
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="104*" />
-                <ColumnDefinition Width="104*" />
-            </Grid.ColumnDefinitions>
-        </Grid>
-        <Button Content="Ver Sectores Ocupados" Height="35" HorizontalAlignment="Center" Margin="581,182,29,218" Name="sectoresOcupados" VerticalAlignment="Center" Width="128" Click="sectoresOcupados_Click" />
-        <Button Content="Ver Todos los Sectores" Name="btnVerSectores"  Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="406,181,196,219" Width="136" Click="btnVerSectores_Click" />
-        <Button Content="Ver Estados de un Sector" Height="35" HorizontalAlignment="Center" Margin="406,249,196,151" Name="estadoSector"  VerticalAlignment="Center" Width="136" Click="estadoSector_Click" />
-        <Button Content="Cancelar" Height="29" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="32,82,650,324" Name="btnCancelar" Padding="0"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="56" Click="btnCancelar_Click" />
-        <Button Content="Eliminar" Name="btnEliminar" Height="29" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Padding="0"  VerticalAlignment="Center" Width="52" Margin="203,82,483,324" Click="btnEliminar_Click" />
-        <Button Content="Registrar" Name="btnRegistrar" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="53" Height="29" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Margin="118,82,567,324" Click="btnRegistrar_Click" />
-        <Button Content="Modificar" Name="btnModificar" Height="29" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="284,82,400,324" Padding="0"  VerticalAlignment="Center" Width="54" Click="btnModificar_Click" />
+        <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Ver Sectores Ocupados" Height="35" HorizontalAlignment="Center" Margin="20" Name="sectoresOcupados" Width="150" Click="sectoresOcupados_Click" />
+            <Button Content="Ver Todos los Sectores" Name="btnVerSectores"  Height="35" HorizontalAlignment="Center" Margin="20" Width="150" Click="btnVerSectores_Click" />
+            <Button Content="Ver Estados de un Sector" Height="35" HorizontalAlignment="Center" Margin="20" Name="estadoSector" Width="150" Click="estadoSector_Click" />
+        </StackPanel>
     </Grid>
 </Window>
 
