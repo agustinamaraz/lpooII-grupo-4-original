@@ -27,8 +27,8 @@ namespace ClasesBase.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\rocha\\Documents\\VS2010\\lpooII-" +
-            "grupo-4-original\\playadb.mdf;Integrated Security=True;Connect Timeout=30;User In" +
-            "stance=True")]
+            "grupo-4-original-master\\playadb.mdf;Integrated Security=True;Connect Timeout=30;" +
+            "User Instance=True")]
         public string connection {
             get {
                 return ((string)(this["connection"]));

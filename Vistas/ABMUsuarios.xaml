@@ -11,7 +11,9 @@
             >
 
         </ObjectDataProvider>
-
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}"></Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource plantillaTextBlock}"></Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource EstiloError}"></Style>
 
         <!-- Plantilla para los avisos de errores de los Textbox -->
         <ControlTemplate x:Key="TextBoxErrorTemplate">
@@ -70,7 +72,7 @@
 
 
     </Window.Resources>
-    <Grid>
+    <Grid Background="{StaticResource BackgroundBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition Width="300"></ColumnDefinition>
@@ -180,24 +182,24 @@
 
                     <Grid Grid.Column="0">
                         <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100" Height="180">
-                            <TextBlock Text="ID:" Height="25" Background="Bisque" Padding="5"></TextBlock>
-                            <TextBlock Text="Usuario:" Height="25" Background="Beige" Padding="5"></TextBlock>
-                            <TextBlock Text="Contraseña:" Height="25" Background="Bisque" Padding="5"></TextBlock>
-                            <TextBlock Text="Apellido:" Height="25" Background="Beige" Padding="5"></TextBlock>
-                            <TextBlock Text="Nombre:" Height="25" Background="Bisque" Padding="5"></TextBlock>
-                            <TextBlock Text="Email:" Height="25" Background="Beige" Padding="5"></TextBlock>
-                            <TextBlock Text="Rol:" Height="25" Background="Bisque" Padding="5"></TextBlock>
+                            <TextBlock Text="ID:" Height="25" Background="Bisque" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="Usuario:" Height="25" Background="Beige" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="Contraseña:" Height="25" Background="Bisque" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="Apellido:" Height="25" Background="Beige" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="Nombre:" Height="25" Background="Bisque" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="Email:" Height="25" Background="Beige" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="Rol:" Height="25" Background="Bisque" Padding="5" Margin="0,0,0,0"></TextBlock>
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Column="1">
                         <StackPanel VerticalAlignment="Center" Margin="0" Width="342" Height="180">
-                            <TextBlock Text="{Binding Usr_Id}" Height="25" Background="Bisque" Padding="5"></TextBlock>
-                            <TextBlock Text="{Binding Usr_UserName}" Height="25" Background="Beige" Padding="5"></TextBlock>
-                            <TextBlock Text="{Binding Usr_Password}" Height="25" Background="Bisque" Padding="5"></TextBlock>
-                            <TextBlock Text="{Binding Usr_Apellido}" Height="25" Background="Beige" Padding="5"></TextBlock>
-                            <TextBlock Text="{Binding Usr_Nombre}" Height="25" Background="Bisque" Padding="5"></TextBlock>
-                            <TextBlock Text="{Binding Usr_Email}" Height="25" Background="Beige" Padding="5"></TextBlock>
-                            <TextBlock Text="{Binding Usr_Rol}" Height="25" Background="Bisque" Padding="5"></TextBlock>
+                            <TextBlock Text="{Binding Usr_Id}" Height="25" Background="Bisque" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding Usr_UserName}" Height="25" Background="Beige" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding Usr_Password}" Height="25" Background="Bisque" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding Usr_Apellido}" Height="25" Background="Beige" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding Usr_Nombre}" Height="25" Background="Bisque" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding Usr_Email}" Height="25" Background="Beige" Padding="5" Margin="0,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding Usr_Rol}" Height="25" Background="Bisque" Padding="5" Margin="0,0,0,0"></TextBlock>
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="1" Grid.ColumnSpan="2">
