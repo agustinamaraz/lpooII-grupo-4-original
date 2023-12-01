@@ -163,11 +163,8 @@ namespace ClasesBase
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.connection);
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "UPDATE Sector " +
-                              "SET sec_descripcion = @Descripcion, sec_habilitado = @Habilitado, sec_id = @Identificador, zona_codigo = @ZonaCodigo, " +
-                              "sec_codigo = @SectorCodigo " +
-                              "WHERE sec_SectorCodigo = @SectorCodigo";
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "modificarSector_sp";
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
 
             cmd.Parameters.AddWithValue("@Descripcion", sectorModificado.Sec_Descripcion);
