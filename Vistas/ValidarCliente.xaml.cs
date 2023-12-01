@@ -86,6 +86,7 @@ namespace Vistas
                     if (msg == MessageBoxResult.OK)
                     {
                         ClasesBase.TrabajarCliente.insertarCliente(oCliente);
+
                    
                     }
                 }

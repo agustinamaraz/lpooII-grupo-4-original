@@ -67,7 +67,7 @@ namespace Vistas
 
         private void btnFrmSectores_Click(object sender, RoutedEventArgs e)
         {
-            FrmSectores formS = new FrmSectores();
+            ABMSector formS = new ABMSector();
             formS.Show();
             this.Close();
         }

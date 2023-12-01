@@ -1,0 +1,33 @@
+﻿<Window x:Class="Vistas.ListadoSectores"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+        Title="ListadoSectores"
+        Height="367" Width="862"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ObjectDataProvider
+            x:Key="list_sectores"
+            ObjectType="{x:Type svc:TrabajarSector}"
+            MethodName="traerSectores">
+        </ObjectDataProvider>
+
+    </Window.Resources>
+
+    <Grid Background="DarkCyan">
+        <Label Content="Listado de Sectores" Foreground="Black" FontSize="20" Height="36" HorizontalAlignment="Left" Margin="320,12,0,0" Name="lblSectores" VerticalAlignment="Top" />
+
+        <ListView Name="Sectores" Height="Auto" ItemsSource="{Binding Source={StaticResource list_sectores}}" VerticalAlignment="Top" Margin="157,54,221,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="80" Header="Codigo Sector" DisplayMemberBinding="{Binding Path=sec_codigo}"/>
+                    <GridViewColumn Width="80" Header="Descripcion" DisplayMemberBinding="{Binding Path=sec_descripcion}"/>
+                    <GridViewColumn Width="80" Header="Identificador" DisplayMemberBinding="{Binding Path=sec_id}"/>
+                    <GridViewColumn Width="80" Header="Habilitado" DisplayMemberBinding="{Binding Path=sec_habilitado}"/>
+                    <GridViewColumn Width="150" Header="Codigo Zona" DisplayMemberBinding="{Binding Path=zona_codigo}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

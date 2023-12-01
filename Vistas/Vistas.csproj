@@ -57,6 +57,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ABMSector.xaml.cs">
+      <DependentUpon>ABMSector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ABMUsuarios.xaml.cs">
       <DependentUpon>ABMUsuarios.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,9 @@
     </Compile>
     <Compile Include="ListadoDeUsuarios.xaml.cs">
       <DependentUpon>ListadoDeUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoSectores.xaml.cs">
+      <DependentUpon>ListadoSectores.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListaPorFechasTickets.xaml.cs">
       <DependentUpon>ListaPorFechasTickets.xaml</DependentUpon>
@@ -126,6 +132,10 @@
     <Compile Include="Zonas.xaml.cs">
       <DependentUpon>Zonas.xaml</DependentUpon>
     </Compile>
+    <Page Include="ABMSector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ABMUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ListadoDeUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListadoSectores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
