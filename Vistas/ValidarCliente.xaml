@@ -49,17 +49,6 @@
         </Style>
 
 
-
-        <Style TargetType="{x:Type Canvas}" BasedOn="{StaticResource plantilla_canvas}" >
-        </Style>
-
-
-
-        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource plantilla_label}" >
-        </Style>
-        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource plantilla_button}" >
-        </Style>
-
     </Window.Resources>
     <Grid Width="343">
         <Grid.RowDefinitions>

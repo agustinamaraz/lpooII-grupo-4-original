@@ -77,12 +77,14 @@ namespace Vistas
         {
             Zonas zonasVista = new Zonas();
             zonasVista.Show();
+            this.Close();
         }
 
         private void sectoresOcupados_Click(object sender, RoutedEventArgs e)
         {
             ListadoSectoresOcupados sectoresOcupadosWindow = new ListadoSectoresOcupados();
             sectoresOcupadosWindow.Show();
+            this.Close();
         }
         private void btnRegistrarSalida_Click(object sender, RoutedEventArgs e)
         {

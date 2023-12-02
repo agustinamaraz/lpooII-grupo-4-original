@@ -16,6 +16,7 @@
                 </ScrollViewer>
                 <Button Content="Imprimir Listado" Click="btnImprimirListado_Click" Width="150" Margin="0,20,0,0"/>
             </StackPanel>
+            <Button Content="Volver" Height="25" HorizontalContentAlignment="Center" Name="btnVolver" Padding="0" VerticalContentAlignment="Center" Width="60" Margin="474,359,-18,20" Click="btnVolver_Click" />
         </Grid>
     </Grid>
 </Window>

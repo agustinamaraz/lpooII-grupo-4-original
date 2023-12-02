@@ -94,7 +94,7 @@ namespace Vistas
                 {
                     MessageBoxResult msg = MessageBox.Show(a, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-            
+                this.Close();
             
         }
 

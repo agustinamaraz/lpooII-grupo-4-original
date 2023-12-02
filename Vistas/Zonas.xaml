@@ -13,5 +13,6 @@
         <Button Content="Z1" Height="56" HorizontalAlignment="Left" Margin="12,93,0,0" Name="btnZ1" VerticalAlignment="Top" Width="76" Click="btnZ1_Click" ></Button>
         <Button Content="Z2" Height="56" HorizontalAlignment="Left" Margin="126,93,0,0" Name="btnZ2" VerticalAlignment="Top" Width="76" Click="btnZ2_Click" ></Button>
         <Button Content="Z3" Height="56" HorizontalAlignment="Left" Margin="242,93,0,0" Name="btnZ3" VerticalAlignment="Top" Width="76" Click="btnZ3_Click" ></Button>
+        <Button Content="Volver" Height="25" HorizontalAlignment="Right" Margin="0,0,242,21" Name="btnVolver" VerticalAlignment="Bottom" Width="75" Click="btnVolver_Click" />
     </Grid>
 </Window>
