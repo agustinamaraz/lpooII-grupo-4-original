@@ -41,6 +41,9 @@ namespace Vistas
                 txtTVCodigo.Clear();
                 txtImagenPath.Clear();
             }
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.Show();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)

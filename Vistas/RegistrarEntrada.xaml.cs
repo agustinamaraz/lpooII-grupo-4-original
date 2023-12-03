@@ -118,7 +118,9 @@ namespace Vistas
             FixedDocs fix = new FixedDocs(tickultimo);
             fix.Show();
             this.Hide();
-            
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.Show();
 
         }
 

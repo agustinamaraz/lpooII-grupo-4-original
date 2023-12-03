@@ -32,9 +32,9 @@
                 <Button Content="Seleccionar Imagen" Height="23" HorizontalAlignment="Left" Margin="20" Name="btnSeleccionarImagen" Width="120" Click="btnSeleccionarImagen_Click" Background="#FF00D400"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="20">
+                <TextBox Height="23" HorizontalAlignment="Center" Margin="20" Name="txtTarifa" Width="200" />
                 <TextBox Height="23" HorizontalAlignment="Center" Margin="20" Name="txtTVCodigo" Width="200" />
                 <TextBox Height="23" HorizontalAlignment="Center" Margin="20" Name="txtDescripcion" Width="200" />
-                <TextBox Height="23" HorizontalAlignment="Center" Margin="20" Name="txtTarifa" Width="200" />
                 <TextBox Height="24" HorizontalAlignment="Center" Margin="20" Name="txtImagenPath" Width="200" IsReadOnly="True"/>
                 <Image Height="100" HorizontalAlignment="Center" Margin="0" Name="imgVehiculo" Width="200" Stretch="Uniform" />
             </StackPanel>
