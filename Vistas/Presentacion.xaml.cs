@@ -39,7 +39,7 @@ namespace Vistas
             {
 
                 string carpetaBase = AppDomain.CurrentDomain.BaseDirectory;
-                string audioFilePath = Path.Combine(carpetaBase, "..", "..", "media", "splash.wav");
+                string audioFilePath = Path.Combine(carpetaBase,"media", "splash.wav");
 
                 mediaPlayer.Source = new Uri(audioFilePath);
 

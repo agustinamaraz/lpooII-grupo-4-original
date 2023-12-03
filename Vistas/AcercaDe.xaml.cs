@@ -40,7 +40,7 @@ namespace Vistas
             InitializeComponent();
 
             string carpetaBase = AppDomain.CurrentDomain.BaseDirectory;
-            string rutaDirecta = Path.Combine(carpetaBase, "..", "..", "media", "video.wmv");
+            string rutaDirecta = Path.Combine(carpetaBase,"media", "video.wmv");
             mediaElement.Source = new Uri(rutaDirecta);
 
             mediaElement.MediaEnded += (sender, e) => mediaElement.Position = TimeSpan.Zero;

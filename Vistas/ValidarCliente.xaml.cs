@@ -94,8 +94,9 @@ namespace Vistas
                 {
                     MessageBoxResult msg = MessageBox.Show(a, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+                MainWindow main = new MainWindow();
                 this.Close();
-            
+                main.Show();
         }
 
         private void vaciarCampos()
