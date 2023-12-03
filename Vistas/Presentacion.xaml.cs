@@ -50,11 +50,11 @@ namespace Vistas
             }
         }
 
-        /*private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            meAudio.LoadedBehavior = MediaState.Manual;
-            meAudio.Source = new Uri("D:/Agustina/UNJU/APU/LPOOII/TPS/tp281123-16000/lpooII-grupo-4-original/lpooII-grupo-4-original/Vistas/media/splash.wav", UriKind.Relative);
-            meAudio.Play();
+            mediaPlayer.LoadedBehavior = MediaState.Manual;
+            mediaPlayer.Source = new Uri("/Vistas/media/splash.wav", UriKind.Relative);
+            mediaPlayer.Play();
         }
 
         private void meAudio_MediaEnded(object sender, RoutedEventArgs e)
@@ -63,6 +63,6 @@ namespace Vistas
             Login oLogin = new Login();
             oLogin.Show();
             this.Close();
-        }*/
+        }
     }
 }

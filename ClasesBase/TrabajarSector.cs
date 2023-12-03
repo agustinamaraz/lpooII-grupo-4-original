@@ -248,6 +248,22 @@ namespace ClasesBase
             }
         }
 
+        public static DataTable traerTodosSectores()
+        {
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connection);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "traerTodosSectores_sp";
+            command.Connection = connection;
+
+            SqlDataAdapter dataadapter = new SqlDataAdapter(command);
+            DataTable datatable = new DataTable();
+
+            dataadapter.Fill(datatable);
+
+            return datatable;
+        }
     }
 
 }

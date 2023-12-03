@@ -82,13 +82,12 @@
                         <Binding Path="Cli_Dni" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
                     </TextBox.Text>
                 </TextBox>
-                <TextBox Height="23" HorizontalAlignment="Center" Name="txtApellido" Width="120" Margin="20"
+                <TextBox Height="23" Name="txtApellido" Width="120" Margin="20"
                      DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}">
                     <TextBox.Text>
                         <Binding Path="Cli_Apellido" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
                     </TextBox.Text>
                 </TextBox>
-
                 <TextBox Height="23" Name="txtNombre" VerticalAlignment="Top" DataContext="{StaticResource DATA_USER}" Style="{StaticResource EstiloError}" Width="120" Margin="20">
                     <TextBox.Text>
                         <Binding Path="Cli_Nombre" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"></Binding>
@@ -106,6 +105,7 @@
         <Grid Grid.Row="2" Grid.ColumnSpan="2">
             <Button Content="Guardar Cliente" Height="23" HorizontalAlignment="Center"  Name="btnGuardar" VerticalAlignment="Center" Width="150" Click="btnGuardar_Click" />
             <Button Content="Actualizar Cliente" Height="23" HorizontalAlignment="Center"  Name="btnActualizar" VerticalAlignment="Center" Width="150" Click="btnActualizar_Click" />
+            <Button Content="Volver" HorizontalContentAlignment="Right" Name="btnVolver" Padding="0" VerticalContentAlignment="Center" Click="btnVolver_Click" Margin="4,25,293,6" />
         </Grid>
     </Grid>
 </Window>

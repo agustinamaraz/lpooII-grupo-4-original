@@ -135,7 +135,6 @@ namespace Vistas
 
             FixedDocsSalida fix = new FixedDocsSalida(ticketElegido);
             fix.Show();
-            this.Hide();
         }
 
         private decimal calcularTotalHora(decimal tar, decimal dur)

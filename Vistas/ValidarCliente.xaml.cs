@@ -105,5 +105,12 @@ namespace Vistas
             txtDni.Clear();
             txtApellido.Clear();
         }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+        }
     }
 }

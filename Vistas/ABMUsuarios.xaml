@@ -205,7 +205,9 @@
                     <Grid Grid.Row="1" Grid.ColumnSpan="2">
                         <Button Content="Actualizar" Height="28" Name="btnActualizar" Width="200" Click="btnActualizar_Click" />
                     </Grid>
+                    
                 </Grid>
+                <Button Content="Volver" Height="25" HorizontalContentAlignment="Center" Margin="283,284,26,12" Name="btnVolver" Padding="0" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="60" Grid.Column="1" Grid.Row="2" Click="btnVolver_Click" Canvas.Left="113" Canvas.Top="67" />
             </Canvas>
 
 

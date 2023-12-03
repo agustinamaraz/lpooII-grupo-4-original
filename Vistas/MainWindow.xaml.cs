@@ -29,7 +29,7 @@ namespace Vistas
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             if(Login.rol == "1"){
-                btnListausuarios.Visibility = Visibility.Hidden;
+                //btnListausuarios.Visibility = Visibility.Hidden;
             }
             else if (Login.rol == "2")
             {
@@ -55,6 +55,7 @@ namespace Vistas
 
             ValidarCliente validarc = new ValidarCliente();
             validarc.Show();
+            this.Close();
             
             
         }
@@ -100,9 +101,9 @@ namespace Vistas
         }
         private void btnListaUsuarios_Click(object sender, RoutedEventArgs e)
         {
-            ListadoDeUsuarios listadoUsuariosWindow = new ListadoDeUsuarios();
-            listadoUsuariosWindow.Show();
-
+            ABMUsuarios abmUsuarioWindow = new ABMUsuarios();
+            abmUsuarioWindow.Show();
+            this.Close();
         }
     }
 }

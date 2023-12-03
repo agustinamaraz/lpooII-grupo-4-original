@@ -73,7 +73,6 @@ namespace Vistas
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void btnPresentacion_Click(object sender, RoutedEventArgs e)

@@ -13,7 +13,7 @@
         <ObjectDataProvider
             x:Key="list_sectores"
             ObjectType="{x:Type svc:TrabajarSector}"
-            MethodName="traerSectores">
+            MethodName="traerTodosSectores">
         </ObjectDataProvider>
 
     </Window.Resources>
